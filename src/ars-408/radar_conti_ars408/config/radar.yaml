@@ -35,7 +35,7 @@ radar_node:
 
         #set filter active flag on filter config index
         # active: [true, true, true, false, false, false, false, false, true, false, false, false, false, false, false]
-        active: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
         filtercfg_min_nofobj: 0
         filtercfg_max_nofobj: 10
         filtercfg_min_distance: 0.3

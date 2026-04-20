@@ -297,6 +297,9 @@ namespace FHAC
         // create Publisher
         rclcpp::QoS qos{10};
         std::string object_list_topic_name_;
+        // SRR308 Change
+        std::string cluster_list_topic_name_;
+        // *********************************
         std::string marker_array_topic_name_;
         std::string radar_tracks_topic_name_;
         std::string obstacle_array_topic_name_;
@@ -310,6 +313,9 @@ namespace FHAC
 
         // Publishers
         std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::ObjectList>::SharedPtr> object_list_publishers_;
+        // SRR308 Change
+        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::ClusterList>::SharedPtr> cluster_list_publishers_;
+        // *****************************************************************
         std::vector<rclcpp_lifecycle::LifecyclePublisher<tf2_msgs::msg::TFMessage>::SharedPtr> tf_publishers_;
         std::vector<rclcpp_lifecycle::LifecyclePublisher<visualization_msgs::msg::MarkerArray>::SharedPtr> marker_array_publishers_;
         std::vector<rclcpp_lifecycle::LifecyclePublisher<visualization_msgs::msg::MarkerArray>::SharedPtr> fov_marker_publishers_;
@@ -363,7 +369,11 @@ namespace FHAC
         // create data structures for radar object list
         radar_conti_ars408_msgs::msg::ObjectList object_list_;
         std::vector<radar_conti_ars408_msgs::msg::ObjectList> object_list_list_;
-
+        
+        // SRR308 Change: Create data structures for radar cluster list
+        radar_conti_ars408_msgs::msg::ClusterList cluster_list_;
+        std::vector<radar_conti_ars408_msgs::msg::ClusterList> cluster_list_list_;
+        
         // create data structures for radar filter config
         rclcpp::TimerBase::SharedPtr filter_config_timer_;
         std::vector<radar_conti_ars408_msgs::msg::FilterStateCfg> radar_filter_configs_;

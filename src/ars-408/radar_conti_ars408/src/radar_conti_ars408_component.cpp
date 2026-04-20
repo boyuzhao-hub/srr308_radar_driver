@@ -57,6 +57,9 @@ namespace FHAC
     node->declare_parameter("robot_base_frame", rclcpp::ParameterValue("base_link"));
     node->declare_parameter("transform_timeout", rclcpp::ParameterValue(0.1));
     node->declare_parameter("object_list_topic_name", rclcpp::ParameterValue("ars408/objectlist"));
+    // SRR308 Change: Add cluster list topic
+    node->declare_parameter("cluster_list_topic_name", rclcpp::ParameterValue("ars408/clusterlist"));
+
     node->declare_parameter("marker_array_topic_name", rclcpp::ParameterValue("ars408/marker_array"));
     node->declare_parameter("radar_tracks_topic_name", rclcpp::ParameterValue("ars408/radar_tracks"));
     node->declare_parameter("obstacle_array_topic_name", rclcpp::ParameterValue("ars408/obstacle_array"));
@@ -71,6 +74,9 @@ namespace FHAC
     node->get_parameter("robot_base_frame", robot_base_frame_);
     node->get_parameter("transform_timeout", transform_timeout_double);
     node->get_parameter("object_list_topic_name", object_list_topic_name_);
+    // SRR308 Change: Add cluster list topic
+    node->get_parameter("cluster_list_topic_name", cluster_list_topic_name_);
+
     node->get_parameter("marker_array_topic_name", marker_array_topic_name_);
     node->get_parameter("radar_tracks_topic_name", radar_tracks_topic_name_);
     node->get_parameter("obstacle_array_topic_name", obstacle_array_topic_name_);
@@ -121,6 +127,7 @@ namespace FHAC
         radar_state_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::RadarState>(parameter.as_string() + "/" + radar_state_topic_name_, transient_local_qos));
         object_map_list_.push_back(std::map<int, radar_conti_ars408_msgs::msg::Object>());
         // SRR308 Changes: add cluter mode
+        cluster_list_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::ClusterList>(parameter.as_string() + "/" + cluster_list_topic_name_, qos));
         cluster_map_list_.push_back(std::map<int, radar_conti_ars408_msgs::msg::Cluster>());
         // ##############################################################
         object_list_list_.push_back(radar_conti_ars408_msgs::msg::ObjectList());
@@ -391,6 +398,9 @@ namespace FHAC
     for (size_t i = 0; i < object_list_publishers_.size(); i++)
     {
       object_list_publishers_[i]->on_activate();
+      // SRR308 Change: add cluster mode
+      cluster_list_publishers_[i]->on_activate();
+
       tf_publishers_[i]->on_activate();
       marker_array_publishers_[i]->on_activate();
       fov_marker_publishers_[i]->on_activate();
@@ -583,7 +593,12 @@ namespace FHAC
     int sensor_id = Get_SensorID_From_MsgID(frame->get_id());
 
     // If the sensor_id is greater than the size of the number of object lists, break
-    if (sensor_id > object_list_list_.size() - 1)
+    // if (sensor_id > object_list_list_.size() - 1)
+    // {
+    //   return;
+    // }
+    // SRR308 Change
+    if (sensor_id < 0 || static_cast<size_t>(sensor_id) >= object_list_list_.size())
     {
       return;
     }
@@ -940,11 +955,20 @@ namespace FHAC
 
       radar_tracks.tracks.push_back(radar_track);
       obstacle_array.obstacles.push_back(obstacle);
+
+      // SRR308 Change: fix object list topic publisher
+      object_list_list_[sensor_id].objects.push_back(itr->second);
+
     }
 
     marker_array_publishers_[sensor_id]->publish(marker_array);
     radar_tracks_publishers_[sensor_id]->publish(radar_tracks);
     obstacle_array_publishers_[sensor_id]->publish(obstacle_array);
+
+    // SRR308 Change: fix object list topic publisher
+    object_list_publishers_[sensor_id]->publish(object_list_list_[sensor_id]);
+    object_list_list_[sensor_id].objects.clear();    
+
   }
 
   void radar_conti_ars408::setFilterService(
@@ -1082,6 +1106,11 @@ namespace FHAC
   {
     visualization_msgs::msg::MarkerArray marker_array;
 
+    // SRR308 Change: add cluster list topic mode
+    radar_conti_ars408_msgs::msg::ClusterList out_cluster_list;
+    out_cluster_list.header.stamp = rclcpp_lifecycle::LifecycleNode::now();
+    out_cluster_list.header.frame_id = radar_link_names_[sensor_id];
+
     visualization_msgs::msg::Marker delete_marker;
     delete_marker.action = visualization_msgs::msg::Marker::DELETEALL;
     marker_array.markers.push_back(delete_marker);
@@ -1131,8 +1160,15 @@ namespace FHAC
       mcluster.scale.z = scale_factor;
 
       marker_array.markers.push_back(mcluster);
+
+      // SRR308 Change: add cluster mode to publish cluster list topic
+      out_cluster_list.clusters.push_back(itr->second);
+
     }
     marker_array_publishers_[sensor_id]->publish(marker_array);
+
+    // SRR308 Change: add cluster mode cluster list topic publisher
+    cluster_list_publishers_[sensor_id]->publish(out_cluster_list);
   }
 
   void radar_conti_ars408::setRadarConfigurationService(

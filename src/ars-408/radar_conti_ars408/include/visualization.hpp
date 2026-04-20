@@ -12,14 +12,23 @@ namespace radar_visualization
   /**
    * A estimated field of view for different object types based on the ARS408's documentation. Some points are duplicated so each array can be sized at 10 elements consistently.
    */
-  constexpr std::array<std::pair<int, int>, 10> pedestrian_fov = {{{8, 13}, {22, 20}, {32, 18}, {40, 15}, {50, 7}, {55, 9}, {80, 9}, {110, 0}, {110, 0}, {110, 0}}};
+  // constexpr std::array<std::pair<int, int>, 10> pedestrian_fov = {{{8, 13}, {22, 20}, {32, 18}, {40, 15}, {50, 7}, {55, 9}, {80, 9}, {110, 0}, {110, 0}, {110, 0}}};
 
-  constexpr std::array<std::pair<int, int>, 10> moped_fov = {{{12, 22}, {23, 26}, {44, 25}, {58, 20}, {63, 12}, {70, 11}, {80, 12}, {120, 13}, {140, 10}, {170, 0}}};
+  // constexpr std::array<std::pair<int, int>, 10> moped_fov = {{{12, 22}, {23, 26}, {44, 25}, {58, 20}, {63, 12}, {70, 11}, {80, 12}, {120, 13}, {140, 10}, {170, 0}}};
 
-  constexpr std::array<std::pair<int, int>, 10> motorcycle_fov = {{{17, 27}, {42, 35}, {58, 31}, {65, 24}, {70, 11}, {110, 17}, {160, 12}, {190, 13}, {220, 0}, {220, 0}}};
+  // constexpr std::array<std::pair<int, int>, 10> motorcycle_fov = {{{17, 27}, {42, 35}, {58, 31}, {65, 24}, {70, 11}, {110, 17}, {160, 12}, {190, 13}, {220, 0}, {220, 0}}};
 
-  constexpr std::array<std::pair<int, int>, 10> passenger_car_fov = {{{20, 35}, {53, 45}, {61, 35}, {70, 11}, {149, 24}, {210, 23}, {250, 17}, {250, 0}, {250, 0}, {250, 0}}};
-
+  // constexpr std::array<std::pair<int, int>, 10> passenger_car_fov = {{{20, 35}, {53, 45}, {61, 35}, {70, 11}, {149, 24}, {210, 23}, {250, 17}, {250, 0}, {250, 0}, {250, 0}}};
+  // SRR308 Changes for visualizaiton
+  // Pedestrian LOW RCS -5dBsm.
+  constexpr std::array<std::pair<int, int>, 10> pedestrian_fov = {{{1, 4}, {5, 19}, {15, 26}, {25, 43}, {35, 45}, {40, 45}, {40, 0}, {40, 0}, {40, 0}, {40, 0}}};
+  // Moped LOW RCS 1dBsm.
+  constexpr std::array<std::pair<int, int>, 10> moped_fov = {{{1, 4}, {5, 19}, {15, 26}, {25, 43}, {45, 45}, {60, 36}, {70, 31}, {70, 0}, {70, 0}, {70, 0}}};
+  // Motorcycle MID RCS 3dBsm.
+  constexpr std::array<std::pair<int, int>, 10> motorcycle_fov = {{{1, 4}, {5, 19}, {15, 26}, {25, 43}, {45, 45}, {65, 34}, {80, 25}, {80, 0}, {80, 0}, {80, 0}}};
+  // Passenger Car HIGH RCS 6dBsm.
+  constexpr std::array<std::pair<int, int>, 10> passenger_car_fov = {{{1, 4}, {5, 19}, {15, 26}, {25, 43}, {45, 45}, {70, 31}, {85, 22}, {95, 17}, {95, 0}, {95, 0}}};
+  // **********************************************************
   /**
    * @brief Creates a marker representing the field of view (FOV) for a radar.
    *
