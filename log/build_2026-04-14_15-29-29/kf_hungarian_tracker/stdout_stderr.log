@@ -1,0 +1,28 @@
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+running develop
+running egg_info
+creating kf_hungarian_tracker.egg-info
+writing kf_hungarian_tracker.egg-info/PKG-INFO
+writing dependency_links to kf_hungarian_tracker.egg-info/dependency_links.txt
+writing entry points to kf_hungarian_tracker.egg-info/entry_points.txt
+writing requirements to kf_hungarian_tracker.egg-info/requires.txt
+writing top-level names to kf_hungarian_tracker.egg-info/top_level.txt
+writing manifest file 'kf_hungarian_tracker.egg-info/SOURCES.txt'
+reading manifest file 'kf_hungarian_tracker.egg-info/SOURCES.txt'
+writing manifest file 'kf_hungarian_tracker.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages/kf-hungarian-tracker.egg-link (link to .)
+Installing kf_hungarian_node script to /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/kf_hungarian_tracker
+
+Installed /home/jet_orin/streetlive/test/build/kf_hungarian_tracker
+running symlink_data
+creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/ament_index
+creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/ament_index/resource_index
+creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/ament_index/resource_index/packages
+symbolically linking /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/resource/kf_hungarian_tracker -> /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/ament_index/resource_index/packages
+symbolically linking /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/package.xml -> /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker
+creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/config
+symbolically linking /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/config/kf_hungarian.yaml -> /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/config
+creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/launch
+symbolically linking /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/launch/kf_hungarian.launch.py -> /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/launch

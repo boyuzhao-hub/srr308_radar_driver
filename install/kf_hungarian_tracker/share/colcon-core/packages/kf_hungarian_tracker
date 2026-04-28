@@ -1,0 +1,1 @@
+geometry_msgs:launch_ros:nav2_dynamic_msgs:python3-numpy:python3-opencv:python3-scipy:rclpy:tf2_geometry_msgs:tf2_ros:visualization_msgs

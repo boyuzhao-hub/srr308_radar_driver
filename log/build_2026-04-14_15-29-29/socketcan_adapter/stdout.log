@@ -1,0 +1,54 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Ubuntu=jammy (22.04) -> Catch2 v2
+-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- CAN_AVAILABLE not set - skipping hardware tests (set CAN_AVAILABLE=1 to enable)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jet_orin/streetlive/test/build/socketcan_adapter
+[ 40%] [32mBuilding CXX object CMakeFiles/socketcan_adapter.dir/src/can_frame.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/socketcan_adapter.dir/src/socketcan_adapter.cpp.o[0m
+[ 60%] [32m[1mLinking CXX shared library libsocketcan_adapter.so[0m
+[ 60%] Built target socketcan_adapter
+[ 80%] [32mBuilding CXX object CMakeFiles/can_frame_tests.dir/test/can_frame_test.cpp.o[0m
+[100%] [32m[1mLinking CXX executable can_frame_tests[0m
+[100%] Built target can_frame_tests
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/include/socketcan_adapter/can_frame.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/include/socketcan_adapter/socketcan_adapter.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/library_path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/library_path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/package_run_dependencies/socketcan_adapter
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/parent_prefix_path/socketcan_adapter
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/ament_prefix_path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.bash
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.zsh
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/packages/socketcan_adapter
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapterConfig.cmake
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapterConfig-version.cmake
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.xml
+-- Installing: /home/jet_orin/streetlive/test/install/socketcan_adapter/lib/libsocketcan_adapter.so
+-- Installing: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETS.cmake
+-- Installing: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETS-noconfig.cmake
+-- Installing: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETSExport.cmake
+-- Installing: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETSExport-noconfig.cmake

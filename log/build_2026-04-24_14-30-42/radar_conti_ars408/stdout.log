@@ -1,0 +1,95 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_index_cpp: 1.4.1 (/opt/ros/humble/share/ament_index_cpp/cmake)
+-- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)
+-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)
+-- Found nav_msgs: 4.9.1 (/opt/ros/humble/share/nav_msgs/cmake)
+-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclcpp_components: 16.0.19 (/opt/ros/humble/share/rclcpp_components/cmake)
+-- Found rclcpp_lifecycle: 16.0.19 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Found can_msgs: 2.0.0 (/opt/ros/humble/share/can_msgs/cmake)
+-- Found radar_conti_ars408_msgs: 0.0.0 (/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/cmake)
+-- Found visualization_msgs: 4.9.1 (/opt/ros/humble/share/visualization_msgs/cmake)
+-- Found tf2_ros: 0.25.20 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Found radar_msgs: 0.2.1 (/opt/ros/humble/share/radar_msgs/cmake)
+-- Found nav2_dynamic_msgs: 0.0.1 (/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake)
+-- Found bondcpp: 4.1.4 (/opt/ros/humble/share/bondcpp/cmake)
+-- Found socketcan_adapter: 0.2.0 (/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jet_orin/streetlive/test/build/radar_conti_ars408
+[ 12%] [32mBuilding CXX object CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o[0m
+[ 25%] [32m[1mLinking CXX shared library libradar_conti_ars408_component.so[0m
+[ 25%] Built target radar_conti_ars408_component
+[ 62%] [32mBuilding CXX object CMakeFiles/test_radar_transforms.dir/test/test_radar_transforms.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/test_radar_conti_ars408_component.dir/test/test_radar_conti_ars408_component.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/radar_conti_ars408_composition.dir/src/radar_conti_ars408_composition.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable radar_conti_ars408_composition[0m
+[ 75%] Built target radar_conti_ars408_composition
+[ 87%] [32m[1mLinking CXX executable test_radar_transforms[0m
+[ 87%] Built target test_radar_transforms
+[100%] [32m[1mLinking CXX executable test_radar_conti_ars408_component[0m
+[100%] Built target test_radar_conti_ars408_component
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/library_path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/library_path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/radar_conti_ars408/radar_conti_ars408_composition
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/libradar_conti_ars408_component.so
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//ars_408_can_defines.h
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//offsets.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//radar_conti_ars408_component.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//radar_transforms.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//structs.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//visibility_control.h
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/include/radar_conti_ars408//visualization.hpp
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/config/radar.yaml
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/config/tf_radar_params.yaml
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/resources/low_poly_911.dae
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/launch/radar.launch.py
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/launch/tf_radar_launch.py
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/ament_index/resource_index/package_run_dependencies/radar_conti_ars408
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/ament_index/resource_index/parent_prefix_path/radar_conti_ars408
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/ament_prefix_path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/path.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/environment/path.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/local_setup.bash
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/local_setup.sh
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/local_setup.zsh
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/local_setup.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/ament_index/resource_index/packages/radar_conti_ars408
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/ament_index/resource_index/rclcpp_components/radar_conti_ars408
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/cmake/radar_conti_ars408Config.cmake
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/cmake/radar_conti_ars408Config-version.cmake
+-- Symlinking: /home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.xml

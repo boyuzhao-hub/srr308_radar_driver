@@ -1,0 +1,273 @@
+[0.000000] (-) TimerEvent: {}
+[0.000991] (-) JobUnselected: {'identifier': 'kf_hungarian_tracker'}
+[0.001215] (-) JobUnselected: {'identifier': 'nav2_dynamic_msgs'}
+[0.001432] (-) JobUnselected: {'identifier': 'radar_conti_ars408_msgs'}
+[0.001530] (-) JobUnselected: {'identifier': 'socketcan_adapter'}
+[0.001611] (-) JobUnselected: {'identifier': 'socketcan_adapter_ros'}
+[0.001711] (radar_conti_ars408) JobQueued: {'identifier': 'radar_conti_ars408', 'dependencies': OrderedDict([('nav2_dynamic_msgs', '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs'), ('radar_conti_ars408_msgs', '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs'), ('socketcan_adapter', '/home/jet_orin/streetlive/test/install/socketcan_adapter')])}
+[0.001825] (radar_conti_ars408) JobStarted: {'identifier': 'radar_conti_ars408'}
+[0.028194] (radar_conti_ars408) JobProgress: {'identifier': 'radar_conti_ars408', 'progress': 'cmake'}
+[0.029285] (radar_conti_ars408) JobProgress: {'identifier': 'radar_conti_ars408', 'progress': 'build'}
+[0.030268] (radar_conti_ars408) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jet_orin/streetlive/test/build/radar_conti_ars408', '--', '-j12', '-l12'], 'cwd': '/home/jet_orin/streetlive/test/build/radar_conti_ars408', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jet_orin'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64'), ('HOME', '/home/jet_orin'), ('OLDPWD', '/home/jet_orin/streetlive'), ('DESKTOP_SESSION', 'ubuntu'), ('JETSON_L4T', '36.5.0'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('JETSON_MODEL', 'NVIDIA Jetson AGX Orin Developer Kit'), ('SYSTEMD_EXEC_PID', '3532'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/jet_orin/streetlive/AD-fusionbox/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'jet_orin'), ('JETSON_MODULE', 'NVIDIA Jetson AGX Orin (64GB ram)'), ('JETSON_SERIAL_NUMBER', '1422723025624'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jet_orin'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/jet_orin/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/3507,unix/ubuntu:/tmp/.ICE-unix/3507'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/eed4e334_694f_4ef3_84d5_5e2ed781bf25'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra234'), ('GNOME_TERMINAL_SERVICE', ':1.341'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('JETSON_CUDA_ARCH_BIN', '8.7'), ('PWD', '/home/jet_orin/streetlive/test/build/radar_conti_ars408'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/local/lib/python3.10/dist-packages:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages:/home/jet_orin/streetlive/AD-fusionbox/build/perception:/home/jet_orin/streetlive/AD-fusionbox/install/perception/lib/python3.10/site-packages:/home/jet_orin/streetlive/AD-fusionbox/build/offline:/home/jet_orin/streetlive/AD-fusionbox/install/offline/lib/python3.10/site-packages:/home/jet_orin/streetlive/AD-fusionbox/build/localization:/home/jet_orin/streetlive/AD-fusionbox/install/localization/lib/python3.10/site-packages:/home/jet_orin/streetlive/AD-fusionbox/build/drivers:/home/jet_orin/streetlive/AD-fusionbox/install/drivers/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('JETSON_JETPACK', ''), ('CMAKE_PREFIX_PATH', '/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble'), ('JETSON_P_NUMBER', 'p3701-0005')]), 'shell': False}
+[0.099402] (-) TimerEvent: {}
+[0.120969] (radar_conti_ars408) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target radar_conti_ars408_component\x1b[0m\n'}
+[0.165269] (radar_conti_ars408) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o\x1b[0m\n'}
+[0.199609] (-) TimerEvent: {}
+[0.300425] (-) TimerEvent: {}
+[0.401257] (-) TimerEvent: {}
+[0.502082] (-) TimerEvent: {}
+[0.602948] (-) TimerEvent: {}
+[0.703776] (-) TimerEvent: {}
+[0.804611] (-) TimerEvent: {}
+[0.905450] (-) TimerEvent: {}
+[1.006304] (-) TimerEvent: {}
+[1.107184] (-) TimerEvent: {}
+[1.208012] (-) TimerEvent: {}
+[1.308823] (-) TimerEvent: {}
+[1.409655] (-) TimerEvent: {}
+[1.510568] (-) TimerEvent: {}
+[1.611394] (-) TimerEvent: {}
+[1.712192] (-) TimerEvent: {}
+[1.813013] (-) TimerEvent: {}
+[1.913832] (-) TimerEvent: {}
+[2.014665] (-) TimerEvent: {}
+[2.115511] (-) TimerEvent: {}
+[2.216330] (-) TimerEvent: {}
+[2.317151] (-) TimerEvent: {}
+[2.417987] (-) TimerEvent: {}
+[2.518826] (-) TimerEvent: {}
+[2.619640] (-) TimerEvent: {}
+[2.720455] (-) TimerEvent: {}
+[2.821280] (-) TimerEvent: {}
+[2.922090] (-) TimerEvent: {}
+[3.022917] (-) TimerEvent: {}
+[3.123723] (-) TimerEvent: {}
+[3.224524] (-) TimerEvent: {}
+[3.325286] (-) TimerEvent: {}
+[3.425959] (-) TimerEvent: {}
+[3.526780] (-) TimerEvent: {}
+[3.627416] (-) TimerEvent: {}
+[3.728034] (-) TimerEvent: {}
+[3.828906] (-) TimerEvent: {}
+[3.929543] (-) TimerEvent: {}
+[4.030188] (-) TimerEvent: {}
+[4.130838] (-) TimerEvent: {}
+[4.231457] (-) TimerEvent: {}
+[4.332076] (-) TimerEvent: {}
+[4.432717] (-) TimerEvent: {}
+[4.533363] (-) TimerEvent: {}
+[4.634148] (-) TimerEvent: {}
+[4.734968] (-) TimerEvent: {}
+[4.835775] (-) TimerEvent: {}
+[4.936597] (-) TimerEvent: {}
+[5.037398] (-) TimerEvent: {}
+[5.138223] (-) TimerEvent: {}
+[5.239066] (-) TimerEvent: {}
+[5.339909] (-) TimerEvent: {}
+[5.440741] (-) TimerEvent: {}
+[5.541577] (-) TimerEvent: {}
+[5.642392] (-) TimerEvent: {}
+[5.743240] (-) TimerEvent: {}
+[5.844072] (-) TimerEvent: {}
+[5.944910] (-) TimerEvent: {}
+[6.045714] (-) TimerEvent: {}
+[6.146584] (-) TimerEvent: {}
+[6.247421] (-) TimerEvent: {}
+[6.348234] (-) TimerEvent: {}
+[6.349305] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid FHAC::radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.349917] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:585:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<radar_conti_ars408_msgs::msg::ObjectList_<std::allocator<void> > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[6.350250] (radar_conti_ars408) StderrLine: {'line': b'  585 |     if (\x1b[01;35m\x1b[Ksensor_id > object_list_list_.size() - 1\x1b[m\x1b[K)\n'}
+[6.350571] (radar_conti_ars408) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.375235] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid FHAC::radar_conti_ars408::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.375613] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:742:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing Cluster = struct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Ksensor_id\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.375954] (radar_conti_ars408) StderrLine: {'line': b'  742 |       c.\x1b[01;31m\x1b[Ksensor_id\x1b[m\x1b[K.data = Get_SensorID_From_MsgID(frame->get_id());\n'}
+[6.376221] (radar_conti_ars408) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[6.376474] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:745:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_distlong\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_distlong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.376773] (radar_conti_ars408) StderrLine: {'line': b'  745 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_distlong\x1b[m\x1b[K.data =\n'}
+[6.377029] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.377267] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_distlong\x1b[m\x1b[K\n'}
+[6.402435] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:746:49:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_DistLong\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_DistLong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.402879] (radar_conti_ars408) StderrLine: {'line': b'  746 |           CALC_Cluster_1_General_Clust_DistLong(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_DistLong\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.402994] (radar_conti_ars408) StderrLine: {'line': b'      |                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.403095] (radar_conti_ars408) StderrLine: {'line': b'      |                                                 \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_DistLong\x1b[m\x1b[K\n'}
+[6.427030] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:746:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_DistLong\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_DistLong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.427567] (radar_conti_ars408) StderrLine: {'line': b'  746 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_DistLong\x1b[m\x1b[K(GET_Cluster_1_General_Clust_DistLong(frame->get_data()), 1.0);\n'}
+[6.427837] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.428089] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_DistLong\x1b[m\x1b[K\n'}
+[6.428330] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:749:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_distlat\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_distlat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.428720] (radar_conti_ars408) StderrLine: {'line': b'  749 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_distlat\x1b[m\x1b[K.data =\n'}
+[6.428970] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.429209] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_distlat\x1b[m\x1b[K\n'}
+[6.448302] (-) TimerEvent: {}
+[6.450160] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:750:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_DistLat\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_DistLat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.450502] (radar_conti_ars408) StderrLine: {'line': b'  750 |           CALC_Cluster_1_General_Clust_DistLat(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_DistLat\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.450771] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.451020] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_DistLat\x1b[m\x1b[K\n'}
+[6.475824] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:750:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_DistLat\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_DistLat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.476231] (radar_conti_ars408) StderrLine: {'line': b'  750 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_DistLat\x1b[m\x1b[K(GET_Cluster_1_General_Clust_DistLat(frame->get_data()), 1.0);\n'}
+[6.476485] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.476727] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_DistLat\x1b[m\x1b[K\n'}
+[6.476964] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:753:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_vrellong\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_vrellong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.477256] (radar_conti_ars408) StderrLine: {'line': b'  753 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_vrellong\x1b[m\x1b[K.data =\n'}
+[6.477506] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.477741] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_vrellong\x1b[m\x1b[K\n'}
+[6.499009] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:754:49:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_VrelLong\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_VrelLong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.499698] (radar_conti_ars408) StderrLine: {'line': b'  754 |           CALC_Cluster_1_General_Clust_VrelLong(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_VrelLong\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.499971] (radar_conti_ars408) StderrLine: {'line': b'      |                                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.500218] (radar_conti_ars408) StderrLine: {'line': b'      |                                                 \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_VrelLong\x1b[m\x1b[K\n'}
+[6.524773] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:754:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_VrelLong\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_VrelLong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.525555] (radar_conti_ars408) StderrLine: {'line': b'  754 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_VrelLong\x1b[m\x1b[K(GET_Cluster_1_General_Clust_VrelLong(frame->get_data()), 1.0);\n'}
+[6.525880] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.526160] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_VrelLong\x1b[m\x1b[K\n'}
+[6.526453] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:757:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_vrellat\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_vrellat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.526801] (radar_conti_ars408) StderrLine: {'line': b'  757 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_vrellat\x1b[m\x1b[K.data =\n'}
+[6.527120] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.527373] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_vrellat\x1b[m\x1b[K\n'}
+[6.548412] (-) TimerEvent: {}
+[6.548963] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:758:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_VrelLat\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_VrelLat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.549331] (radar_conti_ars408) StderrLine: {'line': b'  758 |           CALC_Cluster_1_General_Clust_VrelLat(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_VrelLat\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.549603] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.549856] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_VrelLat\x1b[m\x1b[K\n'}
+[6.572567] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:758:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_VrelLat\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_VrelLat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.573002] (radar_conti_ars408) StderrLine: {'line': b'  758 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_VrelLat\x1b[m\x1b[K(GET_Cluster_1_General_Clust_VrelLat(frame->get_data()), 1.0);\n'}
+[6.573259] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.573504] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_VrelLat\x1b[m\x1b[K\n'}
+[6.573739] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:760:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_dynprop\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_dynprop\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.574029] (radar_conti_ars408) StderrLine: {'line': b'  760 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_dynprop\x1b[m\x1b[K.data =\n'}
+[6.574279] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.574567] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_dynprop\x1b[m\x1b[K\n'}
+[6.594155] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:761:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_DynProp\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_DynProp\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.594837] (radar_conti_ars408) StderrLine: {'line': b'  761 |           CALC_Cluster_1_General_Clust_DynProp(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_DynProp\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.595114] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.595366] (radar_conti_ars408) StderrLine: {'line': b'      |                                                \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_DynProp\x1b[m\x1b[K\n'}
+[6.623740] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:761:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_DynProp\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_DynProp\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.624481] (radar_conti_ars408) StderrLine: {'line': b'  761 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_DynProp\x1b[m\x1b[K(GET_Cluster_1_General_Clust_DynProp(frame->get_data()), 1.0);\n'}
+[6.624798] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.625075] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_DynProp\x1b[m\x1b[K\n'}
+[6.625340] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:763:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_rcs\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_rcs\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.625676] (radar_conti_ars408) StderrLine: {'line': b'  763 |       c.cluster_general.\x1b[01;31m\x1b[Kclust_rcs\x1b[m\x1b[K.data =\n'}
+[6.625935] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[6.626176] (radar_conti_ars408) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Kcluster_rcs\x1b[m\x1b[K\n'}
+[6.645071] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:764:44:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Clust_RCS\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KGET_Cluster_1_General_Cluster_RCS\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.645440] (radar_conti_ars408) StderrLine: {'line': b'  764 |           CALC_Cluster_1_General_Clust_RCS(\x1b[01;31m\x1b[KGET_Cluster_1_General_Clust_RCS\x1b[m\x1b[K(frame->get_data()), 1.0);\n'}
+[6.645731] (radar_conti_ars408) StderrLine: {'line': b'      |                                            \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.645979] (radar_conti_ars408) StderrLine: {'line': b'      |                                            \x1b[32m\x1b[KGET_Cluster_1_General_Cluster_RCS\x1b[m\x1b[K\n'}
+[6.648530] (-) TimerEvent: {}
+[6.667174] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:764:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Clust_RCS\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KCALC_Cluster_1_General_Cluster_RCS\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.667572] (radar_conti_ars408) StderrLine: {'line': b'  764 |           \x1b[01;31m\x1b[KCALC_Cluster_1_General_Clust_RCS\x1b[m\x1b[K(GET_Cluster_1_General_Clust_RCS(frame->get_data()), 1.0);\n'}
+[6.667846] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.668099] (radar_conti_ars408) StderrLine: {'line': b'      |           \x1b[32m\x1b[KCALC_Cluster_1_General_Cluster_RCS\x1b[m\x1b[K\n'}
+[6.748757] (-) TimerEvent: {}
+[6.796142] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid FHAC::radar_conti_ars408::publish_cluster_map(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.796804] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1078:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdelte_marker\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kdelete_marker\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.797168] (radar_conti_ars408) StderrLine: {'line': b' 1078 |     \x1b[01;31m\x1b[Kdelte_marker\x1b[m\x1b[K.action = visualization_msgs::msg::Marker::DELETEALL;\n'}
+[6.797442] (radar_conti_ars408) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.797693] (radar_conti_ars408) StderrLine: {'line': b'      |     \x1b[32m\x1b[Kdelete_marker\x1b[m\x1b[K\n'}
+[6.798135] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1095:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_distlong\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_distlong\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.798488] (radar_conti_ars408) StderrLine: {'line': b' 1095 |      mcluster.pose.position.x = itr->second.cluster_general.\x1b[01;31m\x1b[Kclust_distlong\x1b[m\x1b[K.data;\n'}
+[6.798769] (radar_conti_ars408) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.799014] (radar_conti_ars408) StderrLine: {'line': b'      |                                                             \x1b[32m\x1b[Kcluster_distlong\x1b[m\x1b[K\n'}
+[6.799249] (radar_conti_ars408) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1096:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kclust_distlat\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcluster_distlat\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.799504] (radar_conti_ars408) StderrLine: {'line': b' 1096 |      mcluster.pose.position.y = itr->second.cluster_general.\x1b[01;31m\x1b[Kclust_distlat\x1b[m\x1b[K.data;\n'}
+[6.799745] (radar_conti_ars408) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.799980] (radar_conti_ars408) StderrLine: {'line': b'      |                                                             \x1b[32m\x1b[Kcluster_distlat\x1b[m\x1b[K\n'}
+[6.848954] (-) TimerEvent: {}
+[6.949764] (-) TimerEvent: {}
+[7.050578] (-) TimerEvent: {}
+[7.151397] (-) TimerEvent: {}
+[7.252213] (-) TimerEvent: {}
+[7.353030] (-) TimerEvent: {}
+[7.453838] (-) TimerEvent: {}
+[7.554701] (-) TimerEvent: {}
+[7.655486] (-) TimerEvent: {}
+[7.756284] (-) TimerEvent: {}
+[7.857092] (-) TimerEvent: {}
+[7.957903] (-) TimerEvent: {}
+[8.058742] (-) TimerEvent: {}
+[8.159536] (-) TimerEvent: {}
+[8.260331] (-) TimerEvent: {}
+[8.361138] (-) TimerEvent: {}
+[8.461952] (-) TimerEvent: {}
+[8.562789] (-) TimerEvent: {}
+[8.663589] (-) TimerEvent: {}
+[8.764378] (-) TimerEvent: {}
+[8.865170] (-) TimerEvent: {}
+[8.965975] (-) TimerEvent: {}
+[9.066807] (-) TimerEvent: {}
+[9.167600] (-) TimerEvent: {}
+[9.268396] (-) TimerEvent: {}
+[9.369192] (-) TimerEvent: {}
+[9.469985] (-) TimerEvent: {}
+[9.570813] (-) TimerEvent: {}
+[9.671602] (-) TimerEvent: {}
+[9.772418] (-) TimerEvent: {}
+[9.873237] (-) TimerEvent: {}
+[9.974104] (-) TimerEvent: {}
+[10.074950] (-) TimerEvent: {}
+[10.175743] (-) TimerEvent: {}
+[10.276570] (-) TimerEvent: {}
+[10.377373] (-) TimerEvent: {}
+[10.478188] (-) TimerEvent: {}
+[10.579032] (-) TimerEvent: {}
+[10.679849] (-) TimerEvent: {}
+[10.780668] (-) TimerEvent: {}
+[10.881525] (-) TimerEvent: {}
+[10.982370] (-) TimerEvent: {}
+[11.083244] (-) TimerEvent: {}
+[11.184074] (-) TimerEvent: {}
+[11.284883] (-) TimerEvent: {}
+[11.385726] (-) TimerEvent: {}
+[11.486570] (-) TimerEvent: {}
+[11.587374] (-) TimerEvent: {}
+[11.688176] (-) TimerEvent: {}
+[11.788984] (-) TimerEvent: {}
+[11.889786] (-) TimerEvent: {}
+[11.990685] (-) TimerEvent: {}
+[12.091496] (-) TimerEvent: {}
+[12.192334] (-) TimerEvent: {}
+[12.293166] (-) TimerEvent: {}
+[12.394005] (-) TimerEvent: {}
+[12.494836] (-) TimerEvent: {}
+[12.595991] (-) TimerEvent: {}
+[12.696786] (-) TimerEvent: {}
+[12.797584] (-) TimerEvent: {}
+[12.898367] (-) TimerEvent: {}
+[12.999243] (-) TimerEvent: {}
+[13.100091] (-) TimerEvent: {}
+[13.200939] (-) TimerEvent: {}
+[13.301772] (-) TimerEvent: {}
+[13.402601] (-) TimerEvent: {}
+[13.503405] (-) TimerEvent: {}
+[13.604265] (-) TimerEvent: {}
+[13.705103] (-) TimerEvent: {}
+[13.805977] (-) TimerEvent: {}
+[13.906845] (-) TimerEvent: {}
+[14.007681] (-) TimerEvent: {}
+[14.108502] (-) TimerEvent: {}
+[14.209311] (-) TimerEvent: {}
+[14.310141] (-) TimerEvent: {}
+[14.410975] (-) TimerEvent: {}
+[14.511774] (-) TimerEvent: {}
+[14.612555] (-) TimerEvent: {}
+[14.713341] (-) TimerEvent: {}
+[14.814134] (-) TimerEvent: {}
+[14.914955] (-) TimerEvent: {}
+[15.015852] (-) TimerEvent: {}
+[15.116632] (-) TimerEvent: {}
+[15.217439] (-) TimerEvent: {}
+[15.318240] (-) TimerEvent: {}
+[15.419063] (-) TimerEvent: {}
+[15.519862] (-) TimerEvent: {}
+[15.620656] (-) TimerEvent: {}
+[15.721474] (-) TimerEvent: {}
+[15.822278] (-) TimerEvent: {}
+[15.923141] (-) TimerEvent: {}
+[16.024157] (-) TimerEvent: {}
+[16.124999] (-) TimerEvent: {}
+[16.225816] (-) TimerEvent: {}
+[16.230665] (radar_conti_ars408) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/radar_conti_ars408_component.dir/build.make:76: CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o] Error 1\n'}
+[16.231358] (radar_conti_ars408) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/radar_conti_ars408_component.dir/all] Error 2\n'}
+[16.232179] (radar_conti_ars408) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[16.236924] (radar_conti_ars408) CommandEnded: {'returncode': 2}
+[16.273847] (radar_conti_ars408) JobEnded: {'identifier': 'radar_conti_ars408', 'rc': 2}
+[16.285259] (-) EventReactorShutdown: {}

@@ -1,0 +1,144 @@
+[0.036s] Invoking command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs -- -j12 -l12
+[0.141s] [  5%] Built target nav2_dynamic_msgs__rs
+[0.142s] [  5%] Built target nav2_dynamic_msgs__cpp
+[0.147s] [ 15%] Built target nav2_dynamic_msgs__rosidl_generator_c
+[0.157s] [ 15%] Built target ament_cmake_python_symlink_nav2_dynamic_msgs
+[0.201s] [ 27%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_cpp
+[0.201s] [ 35%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp
+[0.202s] [ 45%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c
+[0.204s] [ 55%] Built target nav2_dynamic_msgs__rosidl_typesupport_cpp
+[0.216s] [ 65%] Built target nav2_dynamic_msgs__rosidl_typesupport_c
+[0.220s] [ 75%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_c
+[0.262s] [ 75%] Built target nav2_dynamic_msgs
+[0.302s] [ 77%] Built target nav2_dynamic_msgs__py
+[0.345s] [ 85%] Built target nav2_dynamic_msgs__rosidl_generator_py
+[0.384s] [ 95%] Built target nav2_dynamic_msgs__rosidl_typesupport_introspection_c__pyext
+[0.385s] [ 95%] Built target nav2_dynamic_msgs__rosidl_typesupport_c__pyext
+[0.387s] [100%] Built target nav2_dynamic_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.602s] running egg_info
+[0.603s] writing nav2_dynamic_msgs.egg-info/PKG-INFO
+[0.604s] writing dependency_links to nav2_dynamic_msgs.egg-info/dependency_links.txt
+[0.605s] writing top-level names to nav2_dynamic_msgs.egg-info/top_level.txt
+[0.608s] reading manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[0.609s] writing manifest file 'nav2_dynamic_msgs.egg-info/SOURCES.txt'
+[0.684s] [100%] Built target ament_cmake_python_build_nav2_dynamic_msgs_egg
+[0.708s] Invoked command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs -- -j12 -l12
+[0.713s] Invoking command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs
+[0.731s] -- Install configuration: ""
+[0.732s] -- Execute custom install script
+[0.732s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/ament_index/resource_index/rosidl_interfaces/nav2_dynamic_msgs
+[0.733s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__functions.h
+[0.733s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__struct.h
+[0.733s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__type_support.h
+[0.733s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__functions.h
+[0.734s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.h
+[0.734s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.h
+[0.734s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle.h
+[0.734s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle_array.h
+[0.735s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_generator_c__visibility_control.h
+[0.735s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/library_path.sh
+[0.735s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/library_path.dsv
+[0.736s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_c.h
+[0.736s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_c.h
+[0.737s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.737s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__builder.hpp
+[0.737s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__struct.hpp
+[0.738s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__traits.hpp
+[0.738s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__type_support.hpp
+[0.738s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__builder.hpp
+[0.738s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__struct.hpp
+[0.738s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__traits.hpp
+[0.739s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__type_support.hpp
+[0.739s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle.hpp
+[0.739s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/obstacle_array.hpp
+[0.739s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.740s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_fastrtps_cpp.hpp
+[0.740s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_fastrtps_cpp.hpp
+[0.740s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.741s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_c.h
+[0.742s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_c.h
+[0.742s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.743s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle__rosidl_typesupport_introspection_cpp.hpp
+[0.743s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/include/nav2_dynamic_msgs/nav2_dynamic_msgs/msg/detail/obstacle_array__rosidl_typesupport_introspection_cpp.hpp
+[0.744s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/pythonpath.sh
+[0.745s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/pythonpath.dsv
+[0.747s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.1-py3.10.egg-info/PKG-INFO
+[0.747s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.1-py3.10.egg-info/SOURCES.txt
+[0.747s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.1-py3.10.egg-info/dependency_links.txt
+[0.748s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs-0.0.1-py3.10.egg-info/top_level.txt
+[0.749s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/__init__.py
+[0.749s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_c.c
+[0.749s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.750s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/_nav2_dynamic_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[0.750s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/libnav2_dynamic_msgs__rosidl_generator_py.so
+[0.751s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/__init__.py
+[0.751s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle.py
+[0.752s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_array.py
+[0.752s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_array_s.c
+[0.752s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg/_obstacle_s.c
+[0.753s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[0.753s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[0.753s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[0.754s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[0.755s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[0.755s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/nav2_dynamic_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[0.755s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/ament_index/resource_index/rust_packages/nav2_dynamic_msgs
+[0.756s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/rust/Cargo.toml
+[0.756s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/rust/build.rs
+[0.756s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/rust/src/lib.rs
+[0.757s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/rust/src/msg.rs
+[0.757s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/rust/src/msg/rmw.rs
+[0.757s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/Obstacle.idl
+[0.758s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/ObstacleArray.idl
+[0.758s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/Obstacle.msg
+[0.758s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/msg/ObstacleArray.msg
+[0.759s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/ament_index/resource_index/package_run_dependencies/nav2_dynamic_msgs
+[0.759s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/ament_index/resource_index/parent_prefix_path/nav2_dynamic_msgs
+[0.759s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/ament_prefix_path.sh
+[0.760s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/ament_prefix_path.dsv
+[0.760s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/path.sh
+[0.760s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/environment/path.dsv
+[0.761s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.bash
+[0.761s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.sh
+[0.761s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.zsh
+[0.762s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/local_setup.dsv
+[0.762s] -- Symlinking: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.dsv
+[0.777s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/ament_index/resource_index/packages/nav2_dynamic_msgs
+[0.777s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake-extras.cmake
+[0.778s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.778s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.778s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[0.779s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[0.779s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.780s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.780s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgsConfig.cmake
+[0.781s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgsConfig-version.cmake
+[0.781s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.xml
+[0.782s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_generator_c.so
+[0.782s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_fastrtps_c.so
+[0.783s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_fastrtps_cpp.so
+[0.784s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_introspection_c.so
+[0.784s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_c.so
+[0.785s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_introspection_cpp.so
+[0.785s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_typesupport_cpp.so
+[0.839s] Listing '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs'...
+[0.839s] Listing '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages/nav2_dynamic_msgs/msg'...
+[0.849s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/libnav2_dynamic_msgs__rosidl_generator_py.so
+[0.850s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cExport.cmake
+[0.850s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cExport-noconfig.cmake
+[0.850s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[0.850s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.850s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_cppExport.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cExport.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cExport.cmake
+[0.851s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cppExport.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/nav2_dynamic_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_pyExport.cmake
+[0.852s] -- Up-to-date: /home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/cmake/export_nav2_dynamic_msgs__rosidl_generator_pyExport-noconfig.cmake
+[0.857s] Invoked command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs

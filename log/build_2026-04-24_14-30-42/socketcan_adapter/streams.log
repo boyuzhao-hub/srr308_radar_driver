@@ -1,0 +1,33 @@
+[0.034s] Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter -- -j12 -l12
+[0.116s] [ 60%] Built target socketcan_adapter
+[0.160s] [100%] Built target can_frame_tests
+[0.186s] Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter -- -j12 -l12
+[0.205s] Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter
+[0.220s] -- Install configuration: ""
+[0.221s] -- Execute custom install script
+[0.222s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/include/socketcan_adapter/can_frame.hpp
+[0.222s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/include/socketcan_adapter/socketcan_adapter.hpp
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/library_path.sh
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/library_path.dsv
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/package_run_dependencies/socketcan_adapter
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/parent_prefix_path/socketcan_adapter
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/ament_prefix_path.sh
+[0.223s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/ament_prefix_path.dsv
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/path.sh
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/environment/path.dsv
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.bash
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.sh
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.zsh
+[0.224s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/local_setup.dsv
+[0.225s] -- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.dsv
+[0.244s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/ament_index/resource_index/packages/socketcan_adapter
+[0.245s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/ament_cmake_export_targets-extras.cmake
+[0.245s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapterConfig.cmake
+[0.245s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapterConfig-version.cmake
+[0.245s] -- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.xml
+[0.246s] -- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter/lib/libsocketcan_adapter.so
+[0.246s] -- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETS.cmake
+[0.246s] -- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETS-noconfig.cmake
+[0.246s] -- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETSExport.cmake
+[0.246s] -- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/cmake/socketcan_adapter_TARGETSExport-noconfig.cmake
+[0.252s] Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter

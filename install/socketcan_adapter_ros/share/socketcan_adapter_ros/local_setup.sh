@@ -1,0 +1,1 @@
+/home/jet_orin/streetlive/test/build/socketcan_adapter_ros/ament_cmake_environment_hooks/local_setup.sh

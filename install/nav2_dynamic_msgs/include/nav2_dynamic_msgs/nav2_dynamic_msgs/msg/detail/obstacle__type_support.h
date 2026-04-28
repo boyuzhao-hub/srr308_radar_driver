@@ -1,0 +1,1 @@
+/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs/rosidl_generator_c/nav2_dynamic_msgs/msg/detail/obstacle__type_support.h

@@ -1,0 +1,19 @@
+[1.267s] Invoking command in '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker': AMENT_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 PYTHONPATH=/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/build --no-deps symlink_data
+[1.653s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.654s]   warnings.warn(
+[1.701s] running develop
+[1.975s] running egg_info
+[1.975s] writing kf_hungarian_tracker.egg-info/PKG-INFO
+[1.976s] writing dependency_links to kf_hungarian_tracker.egg-info/dependency_links.txt
+[1.976s] writing entry points to kf_hungarian_tracker.egg-info/entry_points.txt
+[1.976s] writing requirements to kf_hungarian_tracker.egg-info/requires.txt
+[1.976s] writing top-level names to kf_hungarian_tracker.egg-info/top_level.txt
+[1.980s] reading manifest file 'kf_hungarian_tracker.egg-info/SOURCES.txt'
+[1.981s] writing manifest file 'kf_hungarian_tracker.egg-info/SOURCES.txt'
+[2.076s] running build_ext
+[2.076s] Creating /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages/kf-hungarian-tracker.egg-link (link to .)
+[2.078s] Installing kf_hungarian_node script to /home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/kf_hungarian_tracker
+[2.078s] 
+[2.078s] Installed /home/jet_orin/streetlive/test/build/kf_hungarian_tracker
+[2.079s] running symlink_data
+[2.174s] Invoked command in '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker' returned '0': AMENT_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 PYTHONPATH=/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/build --no-deps symlink_data

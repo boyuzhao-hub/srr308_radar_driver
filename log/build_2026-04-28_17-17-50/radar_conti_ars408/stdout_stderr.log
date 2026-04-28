@@ -1,0 +1,26 @@
+[35m[1mConsolidate compiler generated dependencies of target radar_conti_ars408_component[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o[0m
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame>)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:585:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<radar_conti_ars408_msgs::msg::ObjectList_<std::allocator<void> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  585 |     if ([01;35m[Ksensor_id > object_list_list_.size() - 1[m[K)
+      |         [01;35m[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame>)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:743:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cluster = struct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksensor_id[m[K’
+  743 |       c.[01;31m[Ksensor_id[m[K.data = Get_SensorID_From_MsgID(frame->get_id());
+      |         [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::publish_cluster_map(int)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1079:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kdelte_marker[m[K’ was not declared in this scope; did you mean ‘[01m[Kdelete_marker[m[K’?
+ 1079 |     [01;31m[Kdelte_marker[m[K.action = visualization_msgs::msg::Marker::DELETEALL;
+      |     [01;31m[K^~~~~~~~~~~~[m[K
+      |     [32m[Kdelete_marker[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1096:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlong[m[K’; did you mean ‘[01m[Kcluster_distlong[m[K’?
+ 1096 |      mcluster.pose.position.x = itr->second.cluster_general.[01;31m[Kclust_distlong[m[K.data;
+      |                                                             [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                                                             [32m[Kcluster_distlong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1097:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlat[m[K’; did you mean ‘[01m[Kcluster_distlat[m[K’?
+ 1097 |      mcluster.pose.position.y = itr->second.cluster_general.[01;31m[Kclust_distlat[m[K.data;
+      |                                                             [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                             [32m[Kcluster_distlat[m[K
+gmake[2]: *** [CMakeFiles/radar_conti_ars408_component.dir/build.make:76: CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/radar_conti_ars408_component.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

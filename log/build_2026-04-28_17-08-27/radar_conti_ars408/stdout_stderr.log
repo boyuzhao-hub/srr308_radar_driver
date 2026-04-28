@@ -1,0 +1,98 @@
+[35m[1mConsolidate compiler generated dependencies of target radar_conti_ars408_component[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o[0m
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame>)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:585:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<radar_conti_ars408_msgs::msg::ObjectList_<std::allocator<void> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  585 |     if ([01;35m[Ksensor_id > object_list_list_.size() - 1[m[K)
+      |         [01;35m[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame>)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:742:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing Cluster = struct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::Cluster_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksensor_id[m[K’
+  742 |       c.[01;31m[Ksensor_id[m[K.data = Get_SensorID_From_MsgID(frame->get_id());
+      |         [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:745:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlong[m[K’; did you mean ‘[01m[Kcluster_distlong[m[K’?
+  745 |       c.cluster_general.[01;31m[Kclust_distlong[m[K.data =
+      |                         [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                         [32m[Kcluster_distlong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:746:49:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_DistLong[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_DistLong[m[K’?
+  746 |           CALC_Cluster_1_General_Clust_DistLong([01;31m[KGET_Cluster_1_General_Clust_DistLong[m[K(frame->get_data()), 1.0);
+      |                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                 [32m[KGET_Cluster_1_General_Cluster_DistLong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:746:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_DistLong[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_DistLong[m[K’?
+  746 |           [01;31m[KCALC_Cluster_1_General_Clust_DistLong[m[K(GET_Cluster_1_General_Clust_DistLong(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_DistLong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:749:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlat[m[K’; did you mean ‘[01m[Kcluster_distlat[m[K’?
+  749 |       c.cluster_general.[01;31m[Kclust_distlat[m[K.data =
+      |                         [01;31m[K^~~~~~~~~~~~~[m[K
+      |                         [32m[Kcluster_distlat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:750:48:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_DistLat[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_DistLat[m[K’?
+  750 |           CALC_Cluster_1_General_Clust_DistLat([01;31m[KGET_Cluster_1_General_Clust_DistLat[m[K(frame->get_data()), 1.0);
+      |                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                [32m[KGET_Cluster_1_General_Cluster_DistLat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:750:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_DistLat[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_DistLat[m[K’?
+  750 |           [01;31m[KCALC_Cluster_1_General_Clust_DistLat[m[K(GET_Cluster_1_General_Clust_DistLat(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_DistLat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:753:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_vrellong[m[K’; did you mean ‘[01m[Kcluster_vrellong[m[K’?
+  753 |       c.cluster_general.[01;31m[Kclust_vrellong[m[K.data =
+      |                         [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                         [32m[Kcluster_vrellong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:754:49:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_VrelLong[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_VrelLong[m[K’?
+  754 |           CALC_Cluster_1_General_Clust_VrelLong([01;31m[KGET_Cluster_1_General_Clust_VrelLong[m[K(frame->get_data()), 1.0);
+      |                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                 [32m[KGET_Cluster_1_General_Cluster_VrelLong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:754:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_VrelLong[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_VrelLong[m[K’?
+  754 |           [01;31m[KCALC_Cluster_1_General_Clust_VrelLong[m[K(GET_Cluster_1_General_Clust_VrelLong(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_VrelLong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:757:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_vrellat[m[K’; did you mean ‘[01m[Kcluster_vrellat[m[K’?
+  757 |       c.cluster_general.[01;31m[Kclust_vrellat[m[K.data =
+      |                         [01;31m[K^~~~~~~~~~~~~[m[K
+      |                         [32m[Kcluster_vrellat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:758:48:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_VrelLat[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_VrelLat[m[K’?
+  758 |           CALC_Cluster_1_General_Clust_VrelLat([01;31m[KGET_Cluster_1_General_Clust_VrelLat[m[K(frame->get_data()), 1.0);
+      |                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                [32m[KGET_Cluster_1_General_Cluster_VrelLat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:758:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_VrelLat[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_VrelLat[m[K’?
+  758 |           [01;31m[KCALC_Cluster_1_General_Clust_VrelLat[m[K(GET_Cluster_1_General_Clust_VrelLat(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_VrelLat[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:760:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_dynprop[m[K’; did you mean ‘[01m[Kcluster_dynprop[m[K’?
+  760 |       c.cluster_general.[01;31m[Kclust_dynprop[m[K.data =
+      |                         [01;31m[K^~~~~~~~~~~~~[m[K
+      |                         [32m[Kcluster_dynprop[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:761:48:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_DynProp[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_DynProp[m[K’?
+  761 |           CALC_Cluster_1_General_Clust_DynProp([01;31m[KGET_Cluster_1_General_Clust_DynProp[m[K(frame->get_data()), 1.0);
+      |                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                [32m[KGET_Cluster_1_General_Cluster_DynProp[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:761:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_DynProp[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_DynProp[m[K’?
+  761 |           [01;31m[KCALC_Cluster_1_General_Clust_DynProp[m[K(GET_Cluster_1_General_Clust_DynProp(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_DynProp[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:763:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_rcs[m[K’; did you mean ‘[01m[Kcluster_rcs[m[K’?
+  763 |       c.cluster_general.[01;31m[Kclust_rcs[m[K.data =
+      |                         [01;31m[K^~~~~~~~~[m[K
+      |                         [32m[Kcluster_rcs[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:764:44:[m[K [01;31m[Kerror: [m[K‘[01m[KGET_Cluster_1_General_Clust_RCS[m[K’ was not declared in this scope; did you mean ‘[01m[KGET_Cluster_1_General_Cluster_RCS[m[K’?
+  764 |           CALC_Cluster_1_General_Clust_RCS([01;31m[KGET_Cluster_1_General_Clust_RCS[m[K(frame->get_data()), 1.0);
+      |                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                            [32m[KGET_Cluster_1_General_Cluster_RCS[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:764:11:[m[K [01;31m[Kerror: [m[K‘[01m[KCALC_Cluster_1_General_Clust_RCS[m[K’ was not declared in this scope; did you mean ‘[01m[KCALC_Cluster_1_General_Cluster_RCS[m[K’?
+  764 |           [01;31m[KCALC_Cluster_1_General_Clust_RCS[m[K(GET_Cluster_1_General_Clust_RCS(frame->get_data()), 1.0);
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[KCALC_Cluster_1_General_Cluster_RCS[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::publish_cluster_map(int)[m[K’:
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1078:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kdelte_marker[m[K’ was not declared in this scope; did you mean ‘[01m[Kdelete_marker[m[K’?
+ 1078 |     [01;31m[Kdelte_marker[m[K.action = visualization_msgs::msg::Marker::DELETEALL;
+      |     [01;31m[K^~~~~~~~~~~~[m[K
+      |     [32m[Kdelete_marker[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1095:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlong[m[K’; did you mean ‘[01m[Kcluster_distlong[m[K’?
+ 1095 |      mcluster.pose.position.x = itr->second.cluster_general.[01;31m[Kclust_distlong[m[K.data;
+      |                                                             [01;31m[K^~~~~~~~~~~~~~[m[K
+      |                                                             [32m[Kcluster_distlong[m[K
+[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:1096:62:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _cluster_general_type = struct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct radar_conti_ars408_msgs::msg::ClusterGeneral_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kclust_distlat[m[K’; did you mean ‘[01m[Kcluster_distlat[m[K’?
+ 1096 |      mcluster.pose.position.y = itr->second.cluster_general.[01;31m[Kclust_distlat[m[K.data;
+      |                                                             [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                             [32m[Kcluster_distlat[m[K
+gmake[2]: *** [CMakeFiles/radar_conti_ars408_component.dir/build.make:76: CMakeFiles/radar_conti_ars408_component.dir/src/radar_conti_ars408_component.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/radar_conti_ars408_component.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

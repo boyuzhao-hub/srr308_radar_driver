@@ -1,0 +1,548 @@
+[0.175s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.175s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffb4d9cac0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffb4d9c550>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffb4d9c550>>, mixin_verb=('build',))
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.447s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.447s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.447s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.447s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.447s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jet_orin/streetlive/test'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'ignore_ament_install'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['colcon_pkg']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'colcon_pkg'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['colcon_meta']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'colcon_meta'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['ros']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'ros'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['cmake', 'python']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'cmake'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'python'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extensions ['python_setup_py']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408) by extension 'python_setup_py'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['ignore', 'ignore_ament_install']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'ignore'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'ignore_ament_install'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['colcon_pkg']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'colcon_pkg'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['colcon_meta']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'colcon_meta'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['ros']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'ros'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['cmake', 'python']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'cmake'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'python'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extensions ['python_setup_py']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408) by extension 'python_setup_py'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extensions ['ignore', 'ignore_ament_install']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extension 'ignore'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extension 'ignore_ament_install'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extensions ['colcon_pkg']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extension 'colcon_pkg'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extensions ['colcon_meta']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extension 'colcon_meta'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extensions ['ros']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408/src) by extension 'ros'
+[0.475s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ars-408/radar_conti_ars408/src' with type 'ros.ament_cmake' and name 'radar_conti_ars408'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extension 'ignore'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extension 'ignore_ament_install'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extensions ['colcon_pkg']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extension 'colcon_pkg'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extensions ['colcon_meta']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extension 'colcon_meta'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extensions ['ros']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ars-408/radar_conti_ars408_msgs) by extension 'ros'
+[0.477s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ars-408/radar_conti_ars408_msgs' with type 'ros.ament_cmake' and name 'radar_conti_ars408_msgs'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['ignore', 'ignore_ament_install']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'ignore'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'ignore_ament_install'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['colcon_pkg']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'colcon_pkg'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['colcon_meta']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'colcon_meta'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['ros']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'ros'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['cmake', 'python']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'cmake'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'python'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extensions ['python_setup_py']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic) by extension 'python_setup_py'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extensions ['ignore', 'ignore_ament_install']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extension 'ignore'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extension 'ignore_ament_install'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extensions ['colcon_pkg']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extension 'colcon_pkg'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extensions ['colcon_meta']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extension 'colcon_meta'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extensions ['ros']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/kf_hungarian_tracker) by extension 'ros'
+[0.480s] DEBUG:colcon.colcon_core.package_identification:Package 'src/navigation2_dynamic/kf_hungarian_tracker' with type 'ros.ament_python' and name 'kf_hungarian_tracker'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extension 'ignore'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extension 'ignore_ament_install'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extensions ['colcon_pkg']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extension 'colcon_pkg'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extensions ['colcon_meta']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extension 'colcon_meta'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extensions ['ros']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(src/navigation2_dynamic/nav2_dynamic_msgs) by extension 'ros'
+[0.481s] DEBUG:colcon.colcon_core.package_identification:Package 'src/navigation2_dynamic/nav2_dynamic_msgs' with type 'ros.ament_cmake' and name 'nav2_dynamic_msgs'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['ignore', 'ignore_ament_install']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'ignore'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'ignore_ament_install'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['colcon_pkg']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'colcon_pkg'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['colcon_meta']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'colcon_meta'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['ros']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'ros'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['cmake', 'python']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'cmake'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'python'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extensions ['python_setup_py']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter) by extension 'python_setup_py'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extensions ['ignore', 'ignore_ament_install']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extension 'ignore'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extension 'ignore_ament_install'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extensions ['colcon_pkg']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extension 'colcon_pkg'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extensions ['colcon_meta']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extension 'colcon_meta'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extensions ['ros']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter) by extension 'ros'
+[0.484s] DEBUG:colcon.colcon_core.package_identification:Package 'src/socketcan_adapter/socketcan_adapter' with type 'ros.ament_cmake' and name 'socketcan_adapter'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extension 'ignore'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extension 'ignore_ament_install'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extensions ['colcon_pkg']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extension 'colcon_pkg'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extensions ['colcon_meta']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extension 'colcon_meta'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extensions ['ros']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/socketcan_adapter/socketcan_adapter_ros) by extension 'ros'
+[0.486s] DEBUG:colcon.colcon_core.package_identification:Package 'src/socketcan_adapter/socketcan_adapter_ros' with type 'ros.ament_cmake' and name 'socketcan_adapter_ros'
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.551s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.551s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.555s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/jet_orin/streetlive/test/install
+[0.556s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 11 installed packages in /home/jet_orin/streetlive/AD-fusionbox/install
+[0.558s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 332 installed packages in /opt/ros/humble
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_args' from command line to 'None'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_target' from command line to 'None'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.634s] Level 5:colcon.colcon_core.verb:set package 'nav2_dynamic_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.634s] DEBUG:colcon.colcon_core.verb:Building package 'nav2_dynamic_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/navigation2_dynamic/nav2_dynamic_msgs', 'symlink_install': True, 'test_result_base': None}
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_args' from command line to 'None'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_target' from command line to 'None'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.635s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.636s] DEBUG:colcon.colcon_core.verb:Building package 'radar_conti_ars408_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408_msgs', 'symlink_install': True, 'test_result_base': None}
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_args' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_target' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_clean_cache' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_clean_first' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'cmake_force_configure' from command line to 'False'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'ament_cmake_args' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'catkin_cmake_args' from command line to 'None'
+[0.636s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.636s] DEBUG:colcon.colcon_core.verb:Building package 'socketcan_adapter' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/socketcan_adapter', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/socketcan_adapter', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter', 'symlink_install': True, 'test_result_base': None}
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_target' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_clean_cache' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_clean_first' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'cmake_force_configure' from command line to 'False'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'ament_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'catkin_cmake_args' from command line to 'None'
+[0.637s] Level 5:colcon.colcon_core.verb:set package 'kf_hungarian_tracker' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.637s] DEBUG:colcon.colcon_core.verb:Building package 'kf_hungarian_tracker' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/navigation2_dynamic/kf_hungarian_tracker', 'symlink_install': True, 'test_result_base': None}
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_target' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_clean_cache' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_clean_first' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'cmake_force_configure' from command line to 'False'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'ament_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'catkin_cmake_args' from command line to 'None'
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'radar_conti_ars408' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.638s] DEBUG:colcon.colcon_core.verb:Building package 'radar_conti_ars408' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/radar_conti_ars408', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/radar_conti_ars408', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src', 'symlink_install': True, 'test_result_base': None}
+[0.638s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_target' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_clean_first' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'cmake_force_configure' from command line to 'False'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'ament_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[0.639s] Level 5:colcon.colcon_core.verb:set package 'socketcan_adapter_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.639s] DEBUG:colcon.colcon_core.verb:Building package 'socketcan_adapter_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jet_orin/streetlive/test/build/socketcan_adapter_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros', 'merge_install': False, 'path': '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter_ros', 'symlink_install': True, 'test_result_base': None}
+[0.639s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.642s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.642s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jet_orin/streetlive/test/src/navigation2_dynamic/nav2_dynamic_msgs' with build type 'ament_cmake'
+[0.643s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jet_orin/streetlive/test/src/navigation2_dynamic/nav2_dynamic_msgs'
+[0.647s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.647s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.647s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.658s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter' with build type 'ament_cmake'
+[0.659s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter'
+[0.660s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.660s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.670s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408_msgs' with build type 'ament_cmake'
+[0.670s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408_msgs'
+[0.671s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.671s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.690s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs -- -j12 -l12
+[0.701s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter -- -j12 -l12
+[0.708s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs -- -j12 -l12
+[0.869s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter -- -j12 -l12
+[0.886s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter
+[0.927s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(socketcan_adapter)
+[0.928s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter
+[0.932s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter' for CMake module files
+[0.933s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter' for CMake config files
+[0.934s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter', 'cmake_prefix_path')
+[0.934s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.ps1'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.dsv'
+[0.936s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.sh'
+[0.938s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib'
+[0.939s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter', 'ld_library_path_lib')
+[0.939s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.ps1'
+[0.940s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.dsv'
+[0.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.sh'
+[0.942s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/bin'
+[0.943s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib/pkgconfig/socketcan_adapter.pc'
+[0.943s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib/python3.10/site-packages'
+[0.943s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/bin'
+[0.944s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.ps1'
+[0.946s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.dsv'
+[0.948s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.sh'
+[0.950s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.bash'
+[0.951s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.zsh'
+[0.952s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/socketcan_adapter/share/colcon-core/packages/socketcan_adapter)
+[0.955s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(socketcan_adapter)
+[0.955s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter' for CMake module files
+[0.956s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter' for CMake config files
+[0.956s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter', 'cmake_prefix_path')
+[0.957s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.ps1'
+[0.958s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.dsv'
+[0.958s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/cmake_prefix_path.sh'
+[0.959s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib'
+[0.959s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter', 'ld_library_path_lib')
+[0.960s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.ps1'
+[0.960s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.dsv'
+[0.961s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/hook/ld_library_path_lib.sh'
+[0.962s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/bin'
+[0.962s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib/pkgconfig/socketcan_adapter.pc'
+[0.962s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/lib/python3.10/site-packages'
+[0.963s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter/bin'
+[0.963s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.ps1'
+[0.965s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.dsv'
+[0.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.sh'
+[0.966s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.bash'
+[0.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter/share/socketcan_adapter/package.zsh'
+[0.968s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/socketcan_adapter/share/colcon-core/packages/socketcan_adapter)
+[0.969s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter_ros' with build type 'ament_cmake'
+[0.969s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter_ros'
+[0.970s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.970s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.992s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter_ros': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter_ros -- -j12 -l12
+[1.166s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter_ros' returned '0': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/socketcan_adapter_ros -- -j12 -l12
+[1.169s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/socketcan_adapter_ros': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter_ros
+[1.213s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(socketcan_adapter_ros)
+[1.213s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros' for CMake module files
+[1.214s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/socketcan_adapter_ros' returned '0': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/socketcan_adapter_ros
+[1.215s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros' for CMake config files
+[1.215s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter_ros', 'cmake_prefix_path')
+[1.216s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.ps1'
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.dsv'
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.sh'
+[1.218s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib'
+[1.218s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter_ros', 'ld_library_path_lib')
+[1.219s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.ps1'
+[1.220s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.dsv'
+[1.220s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.sh'
+[1.221s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/bin'
+[1.221s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/pkgconfig/socketcan_adapter_ros.pc'
+[1.221s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/python3.10/site-packages'
+[1.222s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/bin'
+[1.223s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.ps1'
+[1.224s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.dsv'
+[1.225s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.sh'
+[1.225s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.bash'
+[1.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.zsh'
+[1.227s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/colcon-core/packages/socketcan_adapter_ros)
+[1.228s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(socketcan_adapter_ros)
+[1.228s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros' for CMake module files
+[1.229s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros' for CMake config files
+[1.229s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter_ros', 'cmake_prefix_path')
+[1.230s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.ps1'
+[1.231s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.dsv'
+[1.231s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/cmake_prefix_path.sh'
+[1.232s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib'
+[1.232s] Level 1:colcon.colcon_core.shell:create_environment_hook('socketcan_adapter_ros', 'ld_library_path_lib')
+[1.233s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.ps1'
+[1.233s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.dsv'
+[1.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/hook/ld_library_path_lib.sh'
+[1.234s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/bin'
+[1.234s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/pkgconfig/socketcan_adapter_ros.pc'
+[1.235s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/python3.10/site-packages'
+[1.235s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/bin'
+[1.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.ps1'
+[1.237s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.dsv'
+[1.238s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.sh'
+[1.239s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.bash'
+[1.239s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.zsh'
+[1.240s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/colcon-core/packages/socketcan_adapter_ros)
+[1.372s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs -- -j12 -l12
+[1.377s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs
+[1.396s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs -- -j12 -l12
+[1.401s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs
+[1.522s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav2_dynamic_msgs)
+[1.522s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs' for CMake module files
+[1.524s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/nav2_dynamic_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/nav2_dynamic_msgs
+[1.525s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs' for CMake config files
+[1.526s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_dynamic_msgs', 'cmake_prefix_path')
+[1.527s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.ps1'
+[1.528s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.dsv'
+[1.528s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.sh'
+[1.529s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib'
+[1.529s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_dynamic_msgs', 'ld_library_path_lib')
+[1.530s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.ps1'
+[1.530s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.dsv'
+[1.531s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.sh'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/bin'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/pkgconfig/nav2_dynamic_msgs.pc'
+[1.533s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/python3.10/site-packages'
+[1.533s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/bin'
+[1.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.ps1'
+[1.535s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.dsv'
+[1.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.sh'
+[1.537s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.bash'
+[1.537s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.zsh'
+[1.538s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/colcon-core/packages/nav2_dynamic_msgs)
+[1.540s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav2_dynamic_msgs)
+[1.540s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs' for CMake module files
+[1.542s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs' for CMake config files
+[1.543s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_dynamic_msgs', 'cmake_prefix_path')
+[1.544s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.ps1'
+[1.545s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.dsv'
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/cmake_prefix_path.sh'
+[1.547s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib'
+[1.547s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2_dynamic_msgs', 'ld_library_path_lib')
+[1.548s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.ps1'
+[1.548s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.dsv'
+[1.549s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/hook/ld_library_path_lib.sh'
+[1.549s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/bin'
+[1.550s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/pkgconfig/nav2_dynamic_msgs.pc'
+[1.550s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib/python3.10/site-packages'
+[1.551s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/bin'
+[1.552s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.ps1'
+[1.554s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.dsv'
+[1.555s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.sh'
+[1.555s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.bash'
+[1.556s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/nav2_dynamic_msgs/package.zsh'
+[1.557s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/share/colcon-core/packages/nav2_dynamic_msgs)
+[1.558s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/jet_orin/streetlive/test/src/navigation2_dynamic/kf_hungarian_tracker' with build type 'ament_python'
+[1.559s] Level 1:colcon.colcon_core.shell:create_environment_hook('kf_hungarian_tracker', 'ament_prefix_path')
+[1.559s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/ament_prefix_path.ps1'
+[1.561s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/ament_prefix_path.dsv'
+[1.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/ament_prefix_path.sh'
+[1.563s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.563s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.043s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/jet_orin/streetlive/test/src/navigation2_dynamic/kf_hungarian_tracker'
+[2.044s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.044s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.061s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(radar_conti_ars408_msgs)
+[2.062s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs' for CMake module files
+[2.064s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/radar_conti_ars408_msgs
+[2.065s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs' for CMake config files
+[2.066s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408_msgs', 'cmake_prefix_path')
+[2.066s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.ps1'
+[2.067s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.dsv'
+[2.069s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.sh'
+[2.070s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib'
+[2.071s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408_msgs', 'ld_library_path_lib')
+[2.071s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.ps1'
+[2.072s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.dsv'
+[2.072s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.sh'
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/bin'
+[2.074s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib/pkgconfig/radar_conti_ars408_msgs.pc'
+[2.075s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib/python3.10/site-packages'
+[2.076s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/bin'
+[2.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.ps1'
+[2.080s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.dsv'
+[2.081s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.sh'
+[2.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.bash'
+[2.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.zsh'
+[2.083s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/colcon-core/packages/radar_conti_ars408_msgs)
+[2.085s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(radar_conti_ars408_msgs)
+[2.086s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs' for CMake module files
+[2.087s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs' for CMake config files
+[2.088s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408_msgs', 'cmake_prefix_path')
+[2.088s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.ps1'
+[2.090s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.dsv'
+[2.091s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/cmake_prefix_path.sh'
+[2.093s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib'
+[2.093s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408_msgs', 'ld_library_path_lib')
+[2.093s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.ps1'
+[2.094s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.dsv'
+[2.095s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/hook/ld_library_path_lib.sh'
+[2.096s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/bin'
+[2.096s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib/pkgconfig/radar_conti_ars408_msgs.pc'
+[2.097s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib/python3.10/site-packages'
+[2.097s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/bin'
+[2.098s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.ps1'
+[2.100s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.dsv'
+[2.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.sh'
+[2.102s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.bash'
+[2.103s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/radar_conti_ars408_msgs/package.zsh'
+[2.104s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/share/colcon-core/packages/radar_conti_ars408_msgs)
+[2.106s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src' with build type 'ament_cmake'
+[2.106s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src'
+[2.107s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.107s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.149s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/radar_conti_ars408 -- -j12 -l12
+[2.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408' returned '0': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --build /home/jet_orin/streetlive/test/build/radar_conti_ars408 -- -j12 -l12
+[2.367s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/radar_conti_ars408
+[2.414s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(radar_conti_ars408)
+[2.415s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408' for CMake module files
+[2.416s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/radar_conti_ars408' returned '0': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker:/home/jet_orin/streetlive/AD-fusionbox/install/perception:/home/jet_orin/streetlive/AD-fusionbox/install/offline:/home/jet_orin/streetlive/AD-fusionbox/install/localization:/home/jet_orin/streetlive/AD-fusionbox/install/drivers:/opt/ros/humble LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 /usr/bin/cmake --install /home/jet_orin/streetlive/test/build/radar_conti_ars408
+[2.417s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408' for CMake config files
+[2.417s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408', 'cmake_prefix_path')
+[2.418s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.ps1'
+[2.419s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.dsv'
+[2.419s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.sh'
+[2.420s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib'
+[2.421s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408', 'ld_library_path_lib')
+[2.421s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.ps1'
+[2.422s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.dsv'
+[2.422s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.sh'
+[2.423s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/bin'
+[2.423s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/pkgconfig/radar_conti_ars408.pc'
+[2.423s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/python3.10/site-packages'
+[2.424s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/bin'
+[2.424s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.ps1'
+[2.425s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.dsv'
+[2.426s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.sh'
+[2.427s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.bash'
+[2.427s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.zsh'
+[2.428s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/colcon-core/packages/radar_conti_ars408)
+[2.429s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(radar_conti_ars408)
+[2.429s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408' for CMake module files
+[2.430s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408' for CMake config files
+[2.430s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408', 'cmake_prefix_path')
+[2.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.ps1'
+[2.431s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.dsv'
+[2.432s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/cmake_prefix_path.sh'
+[2.433s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib'
+[2.433s] Level 1:colcon.colcon_core.shell:create_environment_hook('radar_conti_ars408', 'ld_library_path_lib')
+[2.433s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.ps1'
+[2.434s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.dsv'
+[2.434s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/hook/ld_library_path_lib.sh'
+[2.435s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/bin'
+[2.435s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/pkgconfig/radar_conti_ars408.pc'
+[2.435s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib/python3.10/site-packages'
+[2.436s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/radar_conti_ars408/bin'
+[2.436s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.ps1'
+[2.438s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.dsv'
+[2.438s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.sh'
+[2.439s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.bash'
+[2.440s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/radar_conti_ars408/package.zsh'
+[2.440s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/radar_conti_ars408/share/colcon-core/packages/radar_conti_ars408)
+[2.783s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 PYTHONPATH=/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/build --no-deps symlink_data
+[3.675s] Level 1:colcon.colcon_core.shell:create_environment_hook('kf_hungarian_tracker', 'pythonpath_develop')
+[3.675s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath_develop.ps1'
+[3.676s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker' returned '0': CMAKE_PREFIX_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros:/home/jet_orin/streetlive/test/install/radar_conti_ars408:/home/jet_orin/streetlive/test/install/socketcan_adapter:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/zed_ros2:/home/jet_orin/streetlive/AD-fusionbox/install/bringup:/home/jet_orin/streetlive/AD-fusionbox/install/zed_wrapper:/home/jet_orin/streetlive/AD-fusionbox/install/zed_debug:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components:/home/jet_orin/streetlive/AD-fusionbox/install/streetlive_msgs:/home/jet_orin/streetlive/AD-fusionbox/install/msgs LD_LIBRARY_PATH=/home/jet_orin/streetlive/test/install/nav2_dynamic_msgs/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408/lib:/home/jet_orin/streetlive/test/install/socketcan_adapter/lib:/home/jet_orin/streetlive/test/install/radar_conti_ars408_msgs/lib:/home/jet_orin/streetlive/AD-fusionbox/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64 PYTHONPATH=/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jet_orin/streetlive/test/build/kf_hungarian_tracker/build --no-deps symlink_data
+[3.678s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath_develop.dsv'
+[3.679s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/build/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath_develop.sh'
+[3.680s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker' for CMake module files
+[3.680s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker' for CMake config files
+[3.682s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib'
+[3.683s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/bin'
+[3.683s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/pkgconfig/kf_hungarian_tracker.pc'
+[3.684s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/lib/python3.10/site-packages'
+[3.684s] Level 1:colcon.colcon_core.shell:create_environment_hook('kf_hungarian_tracker', 'pythonpath')
+[3.685s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath.ps1'
+[3.687s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath.dsv'
+[3.687s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/hook/pythonpath.sh'
+[3.688s] Level 1:colcon.colcon_core.environment:checking '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/bin'
+[3.689s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(kf_hungarian_tracker)
+[3.690s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/package.ps1'
+[3.692s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/package.dsv'
+[3.693s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/package.sh'
+[3.694s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/package.bash'
+[3.696s] INFO:colcon.colcon_core.shell:Creating package script '/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/kf_hungarian_tracker/package.zsh'
+[3.697s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jet_orin/streetlive/test/install/kf_hungarian_tracker/share/colcon-core/packages/kf_hungarian_tracker)
+[3.698s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.699s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.699s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.699s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.720s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.721s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.721s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.783s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.784s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jet_orin/streetlive/test/install/local_setup.ps1'
+[3.789s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jet_orin/streetlive/test/install/_local_setup_util_ps1.py'
+[3.791s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jet_orin/streetlive/test/install/setup.ps1'
+[3.798s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jet_orin/streetlive/test/install/local_setup.sh'
+[3.800s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jet_orin/streetlive/test/install/_local_setup_util_sh.py'
+[3.802s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jet_orin/streetlive/test/install/setup.sh'
+[3.806s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jet_orin/streetlive/test/install/local_setup.bash'
+[3.807s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jet_orin/streetlive/test/install/setup.bash'
+[3.810s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jet_orin/streetlive/test/install/local_setup.zsh'
+[3.812s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jet_orin/streetlive/test/install/setup.zsh'

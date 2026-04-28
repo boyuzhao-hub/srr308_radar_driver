@@ -1,0 +1,33 @@
+[35m[1mConsolidate compiler generated dependencies of target socketcan_adapter_ros[0m
+[ 50%] Built target socketcan_adapter_ros
+[35m[1mConsolidate compiler generated dependencies of target socketcan_bridge[0m
+[100%] Built target socketcan_bridge
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/include/socketcan_adapter_ros/socketcan_bridge_node.hpp
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/launch/socketcan_bridge_launch.py
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/socketcan_adapter_ros/socketcan_bridge
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/library_path.sh
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/library_path.dsv
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/ament_index/resource_index/package_run_dependencies/socketcan_adapter_ros
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/ament_index/resource_index/parent_prefix_path/socketcan_adapter_ros
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/path.sh
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/environment/path.dsv
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/local_setup.bash
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/local_setup.sh
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/local_setup.zsh
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/local_setup.dsv
+-- Symlinking: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.dsv
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/ament_index/resource_index/packages/socketcan_adapter_ros
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_rosConfig.cmake
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_rosConfig-version.cmake
+-- Up-to-date symlink: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/package.xml
+-- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/lib/libsocketcan_adapter_ros.so
+-- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_ros_TARGETS.cmake
+-- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_ros_TARGETS-noconfig.cmake
+-- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_ros_TARGETSExport.cmake
+-- Up-to-date: /home/jet_orin/streetlive/test/install/socketcan_adapter_ros/share/socketcan_adapter_ros/cmake/socketcan_adapter_ros_TARGETSExport-noconfig.cmake
