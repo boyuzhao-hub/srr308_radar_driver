@@ -1,1 +1,0 @@
-/home/jet_orin/streetlive/srr308_radar_driver/src/socketcan_adapter/socketcan_adapter_ros/include/socketcan_adapter_ros/socketcan_bridge_node.hpp

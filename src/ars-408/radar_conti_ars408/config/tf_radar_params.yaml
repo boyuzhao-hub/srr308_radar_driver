@@ -1,0 +1,11 @@
+radar_geometry:
+  front_yaw_deg: 60.0        # 你提到的 60°
+  front_distance: 1.31       # 计算得出的斜边距离 (单位：米)
+  height: 0.5                # 根据实际安装高度修改
+  front_pitch_deg: 0.0
+  front_roll_deg: 0.0
+
+  rear_yaw_deg: 0.0
+  rear_distance: 0.0
+  rear_pitch_deg: 0.0
+  rear_roll_deg: 0.0

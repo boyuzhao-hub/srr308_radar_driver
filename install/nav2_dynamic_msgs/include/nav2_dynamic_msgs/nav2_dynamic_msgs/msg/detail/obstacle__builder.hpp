@@ -1,1 +1,0 @@
-/home/jet_orin/streetlive/srr308_radar_driver/build/nav2_dynamic_msgs/rosidl_generator_cpp/nav2_dynamic_msgs/msg/detail/obstacle__builder.hpp

@@ -1,1 +1,0 @@
-/home/jet_orin/streetlive/srr308_radar_driver/src/navigation2_dynamic/nav2_dynamic_msgs/msg/Obstacle.msg
