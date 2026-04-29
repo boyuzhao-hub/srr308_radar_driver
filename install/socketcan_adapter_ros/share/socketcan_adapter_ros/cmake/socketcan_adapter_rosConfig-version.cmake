@@ -1,1 +1,1 @@
-/home/jet_orin/streetlive/test/build/socketcan_adapter_ros/ament_cmake_core/socketcan_adapter_rosConfig-version.cmake
+/home/jet_orin/streetlive/srr308_radar_driver/build/socketcan_adapter_ros/ament_cmake_core/socketcan_adapter_rosConfig-version.cmake

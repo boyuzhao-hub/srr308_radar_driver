@@ -1,1 +1,1 @@
-/home/jet_orin/streetlive/test/build/socketcan_adapter/ament_cmake_environment_hooks/local_setup.sh
+/home/jet_orin/streetlive/srr308_radar_driver/build/socketcan_adapter/ament_cmake_environment_hooks/local_setup.sh

@@ -1,4 +1,0 @@
-[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:[m[K In member function ‘[01m[Kvoid FHAC::radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame>)[m[K’:
-[01m[K/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src/radar_conti_ars408_component.cpp:586:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<radar_conti_ars408_msgs::msg::ObjectList_<std::allocator<void> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
-  586 |     if ([01;35m[Ksensor_id > object_list_list_.size() - 1[m[K)
-      |         [01;35m[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K

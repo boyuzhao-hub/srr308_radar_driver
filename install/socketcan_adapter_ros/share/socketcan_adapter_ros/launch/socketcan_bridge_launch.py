@@ -1,1 +1,1 @@
-/home/jet_orin/streetlive/test/src/socketcan_adapter/socketcan_adapter_ros/launch/socketcan_bridge_launch.py
+/home/jet_orin/streetlive/srr308_radar_driver/src/socketcan_adapter/socketcan_adapter_ros/launch/socketcan_bridge_launch.py

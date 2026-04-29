@@ -1,3 +1,0 @@
-[0mCMake Error: The source directory "/home/jet_orin/streetlive/test/src/ars-408/radar_conti_ars408/src" does not appear to contain CMakeLists.txt.
-Specify --help for usage, or press the help button on the CMake GUI.[0m
-gmake: *** [Makefile:390: cmake_check_build_system] Error 1
