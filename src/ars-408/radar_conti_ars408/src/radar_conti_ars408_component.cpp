@@ -56,9 +56,9 @@ namespace FHAC
     node->declare_parameter("odom_topic_name", rclcpp::ParameterValue(""));
     node->declare_parameter("robot_base_frame", rclcpp::ParameterValue("base_link"));
     node->declare_parameter("transform_timeout", rclcpp::ParameterValue(0.1));
-    node->declare_parameter("object_list_topic_name", rclcpp::ParameterValue("ars408/objectlist"));
+    node->declare_parameter("object_list_topic_name", rclcpp::ParameterValue("ars408/object_list"));
     // SRR308 Change: Add cluster list topic
-    node->declare_parameter("cluster_list_topic_name", rclcpp::ParameterValue("ars408/clusterlist"));
+    node->declare_parameter("cluster_list_topic_name", rclcpp::ParameterValue("ars408/cluster_list"));
 
     node->declare_parameter("marker_array_topic_name", rclcpp::ParameterValue("ars408/marker_array"));
     node->declare_parameter("radar_tracks_topic_name", rclcpp::ParameterValue("ars408/radar_tracks"));

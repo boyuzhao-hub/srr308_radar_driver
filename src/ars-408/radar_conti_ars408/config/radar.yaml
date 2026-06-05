@@ -2,6 +2,7 @@ radar_node:
   ros__parameters:
     can_channel: "can0"
     object_list_topic_name: "object_list"
+    cluster_list_topic_name: "cluster_list"
     marker_array_topic_name: "marker_array"
     radar_tracks_topic_name: "radar_tracks"
     obstacle_array_topic_name: "obstacle_array"
