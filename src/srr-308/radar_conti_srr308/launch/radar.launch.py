@@ -19,12 +19,24 @@ def generate_launch_description():
     )
     #######################################################################
 
-    params_file_arg = DeclareLaunchArgument(
-        'params_file',
+    config_file = LaunchConfiguration('config_file')
+    config_file_arg = DeclareLaunchArgument(
+        'config_file',
         default_value=os.path.join(pkg_dir, 'config', 'radar.yaml'),
         description='Full path to the ROS2 parameters file to use for the radar node'
     )
-    lifecycle_nodes = ['radar_node']
+    params_file_arg = DeclareLaunchArgument(
+        'params_file',
+        default_value=config_file,
+        description='Alias for config_file; accepts a different YAML file path'
+    )
+    node_name = LaunchConfiguration('node_name')
+    node_name_arg = DeclareLaunchArgument(
+        'node_name',
+        default_value='radar_node',
+        description='Name of the radar node to launch'
+    )
+    lifecycle_nodes = [node_name]
 
     autostart = LaunchConfiguration('autostart')
     autostart_arg = DeclareLaunchArgument(
@@ -71,7 +83,7 @@ def generate_launch_description():
     radar_node = Node(
         package='radar_conti_ars408',
         executable='radar_conti_ars408_composition',
-        name='radar_node',
+        name=node_name,
         namespace=LaunchConfiguration('namespace'),
         output='screen',
         arguments=['--ros-args', '--log-level', log_level],
@@ -79,7 +91,9 @@ def generate_launch_description():
 
     ld = LaunchDescription()
     ld.add_action(log_level_arg)
+    ld.add_action(config_file_arg)
     ld.add_action(params_file_arg)
+    ld.add_action(node_name_arg)
     ld.add_action(autostart_arg)
     ld.add_action(use_sim_time_arg)
     ld.add_action(namespace_arg)
