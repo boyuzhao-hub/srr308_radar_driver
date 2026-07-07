@@ -7,7 +7,7 @@ Build the Ubuntu 22.04 ROS 2 Humble image:
 
 ```shell
 docker build \
-  -t srr308-radar-driver:desktop-humble \
+  -t srr308-radar:humble-ubuntu22.04 \
   -f docker/Dockerfile.desktop-humble \
   .
 ```
@@ -15,8 +15,8 @@ docker build \
 Run it with the host checkout mounted into the container workspace:
 
 ```shell
-docker run -it \
-  --name srr308_radar_driver \
+ docker run -it \
+  --name srr308_radar_container \
   --privileged \
   --network=host \
   --ipc=host \
@@ -25,24 +25,21 @@ docker run -it \
   -e RMW_IMPLEMENTATION=rmw_cyclonedds_cpp \
   -e AUTO_BUILD=1 \
   -v /mnt/nvme/Projects/radar_ros2_ws/src/srr308_radar_driver:/root/ros2_ws/src/srr308_radar_driver:rw \
-  -v srr308_radar_build:/root/ros2_ws/build \
-  -v srr308_radar_install:/root/ros2_ws/install \
-  -v srr308_radar_log:/root/ros2_ws/log \
   -v /dev:/dev \
   -v /dev/shm:/dev/shm \
-  srr308-radar-driver:desktop-humble
+  srr308-radar:humble-ubuntu22.04
 ```
 
 Restart the stopped container:
 
 ```shell
-docker start -ai srr308_radar_driver
+docker start -ai srr308_radar_container
 ```
 
 Open another shell in a running container:
 
 ```shell
-docker exec -it srr308_radar_driver bash
+docker exec -it srr308_radar_container bash
 ```
 
 Bring up SocketCAN before launching the radar driver:
