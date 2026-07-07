@@ -63,7 +63,7 @@ echo "Available radar packages:"
 ros2 pkg list | grep -E "^(radar_conti|socketcan|nav2_dynamic|kf_hungarian)" || true
 echo "------------------------------"
 echo "To start the radar node:"
-echo "  ros2 launch radar_conti_ars408 radar.launch.py"
+echo "  ros2 launch radar_conti_srr308 radar.launch.py"
 echo "To start the SocketCAN bridge:"
 echo "  ros2 launch socketcan_adapter_ros socketcan_bridge_launch.py can_interface:=can0"
 echo "------------------------------"

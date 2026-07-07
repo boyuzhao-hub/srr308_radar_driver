@@ -7,23 +7,23 @@
  * headers with Doxygen documentation from a set of templates.
  *
  * The following databases were parsed:
- * - \ref DB_ARS408_can_database_ch0 1.Update
+ * - \ref DB_SRR308_can_database_ch0 1.Update
  */
 
 /**
- * @defgroup DB_ARS408_can_database_ch0 1.Update CAN Database ARS408_can_database_ch0 1.Update
+ * @defgroup DB_SRR308_can_database_ch0 1.Update CAN Database SRR308_can_database_ch0 1.Update
  *
- * Path to file: ARS408_can_database_ch0 1.Update.dbc
+ * Path to file: SRR308_can_database_ch0 1.Update.dbc
  *
  * Provides the following ECUs:
  * - \ref ECU_ExternalUnit
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  */
 
 /**
  * @defgroup ECU_ExternalUnit Electronics Control Unit ExternalUnit
  *
- * This ECU was defined in \ref DB_ARS408_can_database_ch0 1.Update.
+ * This ECU was defined in \ref DB_SRR308_can_database_ch0 1.Update.
  *
  * TX messages:
  * - \ref MSG_FilterCfg
@@ -143,13 +143,13 @@
  * - \ref SIG_Cluster_2_Quality_Cluster_PdH0
  * - \ref SIG_Cluster_2_Quality_Cluster_AmbigState
  *
- * @ingroup DB_ARS408_can_database_ch0 1.Update
+ * @ingroup DB_SRR308_can_database_ch0 1.Update
  */
 
 /**
- * @defgroup ECU_ARS_ISF Electronics Control Unit ARS_ISF
+ * @defgroup ECU_SRR308 Electronics Control Unit SRR308
  *
- * This ECU was defined in \ref DB_ARS408_can_database_ch0 1.Update.
+ * This ECU was defined in \ref DB_SRR308_can_database_ch0 1.Update.
  *
  * TX messages:
  * - \ref MSG_Obj_2_Quality
@@ -236,7 +236,7 @@
  * - \ref SIG_CollDetRegionCfg_CollDetRegCfg_Point2X
  * - \ref SIG_CollDetRegionCfg_CollDetRegCfg_Point2Y
  *
- * @ingroup DB_ARS408_can_database_ch0 1.Update
+ * @ingroup DB_SRR308_can_database_ch0 1.Update
  */
 
 /**
@@ -244,7 +244,7 @@
  *
  * Quality object information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -260,7 +260,7 @@
  * - \ref SIG_Obj_2_Quality_Obj_DistLat_rms
  * - \ref SIG_Obj_2_Quality_Obj_ID
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -323,7 +323,7 @@
  *
  * Extended object information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -336,7 +336,7 @@
  * - \ref SIG_Obj_3_Extended_Obj_Length
  * - \ref SIG_Obj_3_Extended_Obj_ArelLong
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -396,7 +396,7 @@
  *
  * Collision detection region configuration and warning status
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -409,7 +409,7 @@
  * - \ref SIG_CollDetRegionState_CollDetRegState_Point1Y
  * - \ref SIG_CollDetRegionState_CollDetRegState_Point1X
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -469,7 +469,7 @@
  *
  * Collision detection warning object information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -477,7 +477,7 @@
  * - \ref SIG_Obj_4_Warning_Obj_CollDetRegionBitfield
  * - \ref SIG_Obj_4_Warning_Obj_ID
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -532,14 +532,14 @@
  *
  * Control message for relay to display collision detection
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
  * Contains signals:
  * - \ref SIG_CollDetRelayCtrl_CollDetRelayCtrl_Param
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -593,7 +593,7 @@
  *
  * Filter configuration status
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -634,7 +634,7 @@
  * - \ref SIG_FilterState_Cfg_FilterState_Index
  * - \ref SIG_FilterState_Cfg_FilterState_Active
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -722,7 +722,7 @@
  *
  * Header of filter configuration state
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -730,7 +730,7 @@
  * - \ref SIG_FilterState_Header_FilterState_NofObjectFilterCfg
  * - \ref SIG_FilterState_Header_FilterState_NofClusterFilterCfg
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1015,7 +1015,7 @@
  *
  * Radar configuration status
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1038,7 +1038,7 @@
  * - \ref SIG_RadarState_RadarState_NVMwriteStatus
  * - \ref SIG_RadarState_RadarState_MaxDistanceCfg
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1374,7 +1374,7 @@
  *
  * Collision detection configuration status
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1384,7 +1384,7 @@
  * - \ref SIG_CollDetState_CollDetState_NofRegions
  * - \ref SIG_CollDetState_CollDetState_MinDetectTime
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1441,7 +1441,7 @@
  *
  * Status information about Clusters
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1451,7 +1451,7 @@
  * - \ref SIG_Cluster_0_Status_Cluster_NofClustersFar
  * - \ref SIG_Cluster_0_Status_Cluster_InterfaceVersion
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1508,7 +1508,7 @@
  *
  * Status information about object
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1517,7 +1517,7 @@
  * - \ref SIG_Obj_0_Status_Obj_MeasCounter
  * - \ref SIG_Obj_0_Status_Obj_InterfaceVersion
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1573,7 +1573,7 @@
  *
  * General object information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1586,7 +1586,7 @@
  * - \ref SIG_Obj_1_General_Obj_VrelLong
  * - \ref SIG_Obj_1_General_Obj_DistLat
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1646,7 +1646,7 @@
  *
  * Firmware version
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1657,7 +1657,7 @@
  * - \ref SIG_VersionID_Version_MinorRelease
  * - \ref SIG_VersionID_Version_PatchLevel
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1715,7 +1715,7 @@
  *
  * General Cluster information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1728,7 +1728,7 @@
  * - \ref SIG_Cluster_1_General_Cluster_VrelLong
  * - \ref SIG_Cluster_1_General_Cluster_DistLat
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -1788,7 +1788,7 @@
  *
  * Quality Cluster information
  *
- * Sent by \ref ECU_ARS_ISF.
+ * Sent by \ref ECU_SRR308.
  *
  * Contains signal groups:
  *
@@ -1802,7 +1802,7 @@
  * - \ref SIG_Cluster_2_Quality_Cluster_PdH0
  * - \ref SIG_Cluster_2_Quality_Cluster_AmbigState
  *
- * @ingroup ECU_ARS_ISF
+ * @ingroup ECU_SRR308
  * @{
  */
 
@@ -10870,7 +10870,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Class Signal FilterCfg_Min_Class of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -10967,7 +10967,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Class Signal FilterCfg_Max_Class of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11064,7 +11064,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Y Signal FilterCfg_Min_Y of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11163,7 +11163,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_X Signal FilterCfg_Min_X of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11262,7 +11262,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VYRightLeft Signal FilterCfg_Min_VYRightLeft of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11361,7 +11361,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VYLeftRight Signal FilterCfg_Min_VYLeftRight of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11460,7 +11460,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VXOncome Signal FilterCfg_Min_VXOncome of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11559,7 +11559,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VXDepart Signal FilterCfg_Min_VXDepart of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11658,7 +11658,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Y Signal FilterCfg_Max_Y of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11757,7 +11757,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_X Signal FilterCfg_Max_X of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11856,7 +11856,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VYRightLeft Signal FilterCfg_Max_VYRightLeft of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -11955,7 +11955,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VXOncome Signal FilterCfg_Max_VXOncome of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12054,7 +12054,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VYLeftRight Signal FilterCfg_Max_VYLeftRight of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12153,7 +12153,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VXDepart Signal FilterCfg_Max_VXDepart of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12254,7 +12254,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12375,7 +12375,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Active.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12494,7 +12494,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VrelOncome Signal FilterCfg_Max_VrelOncome of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12593,7 +12593,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_VrelDepart Signal FilterCfg_Max_VrelDepart of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12692,7 +12692,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Size Signal FilterCfg_Max_Size of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12791,7 +12791,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_RCS Signal FilterCfg_Max_RCS of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -12892,7 +12892,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Max_ProbExists.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13069,7 +13069,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_NofObj Signal FilterCfg_Max_NofObj of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13168,7 +13168,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Lifetime Signal FilterCfg_Max_Lifetime of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13267,7 +13267,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Distance Signal FilterCfg_Max_Distance of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13366,7 +13366,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Max_Azimuth Signal FilterCfg_Max_Azimuth of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13465,7 +13465,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VrelOncome Signal FilterCfg_Min_VrelOncome of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13564,7 +13564,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_VrelDepart Signal FilterCfg_Min_VrelDepart of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13663,7 +13663,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Size Signal FilterCfg_Min_Size of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13762,7 +13762,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_RCS Signal FilterCfg_Min_RCS of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -13863,7 +13863,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Min_ProbExists.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14040,7 +14040,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Lifetime Signal FilterCfg_Min_Lifetime of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14139,7 +14139,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Azimuth Signal FilterCfg_Min_Azimuth of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14238,7 +14238,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_NofObj Signal FilterCfg_Min_NofObj of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14337,7 +14337,7 @@
  * @defgroup SIG_FilterCfg_FilterCfg_Min_Distance Signal FilterCfg_Min_Distance of Message FilterCfg (0x202)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14438,7 +14438,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Index.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -14679,7 +14679,7 @@
  * Contains the value table \ref ENUM_FilterCfg_FilterCfg_Type.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_FilterCfg
  * @{
@@ -15473,7 +15473,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_StoreInNVM.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -15596,7 +15596,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_SendExtInfo_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -15719,7 +15719,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_SendExtInfo.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -15842,7 +15842,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_CtrlRelay_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -15965,7 +15965,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_CtrlRelay.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16088,7 +16088,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_SendQuality_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16211,7 +16211,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_SendQuality.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16334,7 +16334,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_MaxDistance_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16457,7 +16457,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_RadarPower_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16580,7 +16580,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_OutputType_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16703,7 +16703,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_SensorID_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16824,7 +16824,7 @@
  * Maximum distance of far scan
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -16927,7 +16927,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_RadarPower.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -17098,7 +17098,7 @@
  * Contains the value table \ref ENUM_RadarConfiguration_RadarCfg_OutputType.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -17235,7 +17235,7 @@
  * Sensor ID (0 to 7)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_RadarConfiguration
  * @{
@@ -19490,7 +19490,7 @@
  * Speed of the radar unit
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_SpeedInformation
  * @{
@@ -19593,7 +19593,7 @@
  * Contains the value table \ref ENUM_SpeedInformation_RadarDevice_SpeedDirection.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_SpeedInformation
  * @{
@@ -19728,7 +19728,7 @@
  * Yaw rate of the radar unit
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_YawRateInformation
  * @{
@@ -19829,7 +19829,7 @@
  * Contains the value table \ref ENUM_CollDetCfg_CollDetCfg_ClearRegions.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetCfg
  * @{
@@ -19952,7 +19952,7 @@
  * Contains the value table \ref ENUM_CollDetCfg_CollDetCfg_WarningReset.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetCfg
  * @{
@@ -20075,7 +20075,7 @@
  * Contains the value table \ref ENUM_CollDetCfg_CollDetCfg_Activate.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetCfg
  * @{
@@ -20196,7 +20196,7 @@
  * Contains the value table \ref ENUM_CollDetCfg_CollDetCfg_MinTime_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetCfg
  * @{
@@ -20315,7 +20315,7 @@
  * @defgroup SIG_CollDetCfg_CollDetCfg_MinDetectTime Signal CollDetCfg_MinDetectTime of Message CollDetCfg (0x400)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetCfg
  * @{
@@ -20414,7 +20414,7 @@
  * Contains the value table \ref ENUM_CollDetRegionCfg_CollDetRegCfg_Activate.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -20535,7 +20535,7 @@
  * Contains the value table \ref ENUM_CollDetRegionCfg_CollDetRegCfg_Coordinates_valid.
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -20654,7 +20654,7 @@
  * @defgroup SIG_CollDetRegionCfg_CollDetRegCfg_RegionID Signal CollDetRegCfg_RegionID of Message CollDetRegionCfg (0x401)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -20751,7 +20751,7 @@
  * @defgroup SIG_CollDetRegionCfg_CollDetRegCfg_Point1X Signal CollDetRegCfg_Point1X of Message CollDetRegionCfg (0x401)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -20850,7 +20850,7 @@
  * @defgroup SIG_CollDetRegionCfg_CollDetRegCfg_Point1Y Signal CollDetRegCfg_Point1Y of Message CollDetRegionCfg (0x401)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -20949,7 +20949,7 @@
  * @defgroup SIG_CollDetRegionCfg_CollDetRegCfg_Point2X Signal CollDetRegCfg_Point2X of Message CollDetRegionCfg (0x401)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{
@@ -21048,7 +21048,7 @@
  * @defgroup SIG_CollDetRegionCfg_CollDetRegCfg_Point2Y Signal CollDetRegCfg_Point2Y of Message CollDetRegionCfg (0x401)
  *
  * Received by the ECUs:
- * - \ref ECU_ARS_ISF
+ * - \ref ECU_SRR308
  *
  * @ingroup MSG_CollDetRegionCfg
  * @{

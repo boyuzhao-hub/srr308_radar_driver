@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(radar_conti_ars408)
+project(radar_conti_srr308)
 
 # Default to C++14
 if(NOT "${CMAKE_CXX_STANDARD}")
@@ -34,7 +34,7 @@ find_package(class_loader REQUIRED)
 find_package(rmw_implementation REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(can_msgs REQUIRED)
-find_package(radar_conti_ars408_msgs REQUIRED)
+find_package(radar_conti_srr308_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(ament_index_cpp REQUIRED)
@@ -47,7 +47,7 @@ find_package(socketcan_adapter REQUIRED)
 
 
 set(dependencies
-  radar_conti_ars408_msgs
+  radar_conti_srr308_msgs
   can_msgs
   radar_msgs
   nav2_dynamic_msgs
@@ -93,21 +93,20 @@ include_directories(
 set(node_plugins "")
 
 
-set(library_name radar_conti_ars408_component)
-add_library(${library_name} SHARED ${CMAKE_CURRENT_SOURCE_DIR}/src/radar_conti_ars408_component.cpp)
-target_compile_definitions(${library_name} PRIVATE "RADAR_CONTI_ARS408_BUILDING_DLL")
+set(library_name radar_conti_srr308_component)
+add_library(${library_name} SHARED ${CMAKE_CURRENT_SOURCE_DIR}/src/radar_conti_srr308_component.cpp)
+target_compile_definitions(${library_name} PRIVATE "RADAR_CONTI_SRR308_BUILDING_DLL")
 target_link_libraries(${library_name} dl -lboost_system
     ${rclcpp_lifecycle_LIBRARIES}
     ${ament_index_cpp_LIBRARIES}
 )
 
-set_source_files_properties(include/ars_408_can_defines.h PROPERTIES COMPILE_FLAGS "-Wno-type-limits")
-# set_source_files_properties(include/srr308_can_defines.h PROPERTIES COMPILE_FLAGS "-Wno-type-limits")
+set_source_files_properties(include/srr308_can_defines.h PROPERTIES COMPILE_FLAGS "-Wno-type-limits")
 
 ament_target_dependencies(${library_name} ${dependencies})
 
-rclcpp_components_register_nodes(radar_conti_ars408_component "FHAC::radar_conti_ars408")
-set(node_plugins "${node_plugins}FHAC::radar_conti_ars408;$<TARGET_FILE:radar_conti_ars408_component>\n")
+rclcpp_components_register_nodes(radar_conti_srr308_component "FHAC::radar_conti_srr308")
+set(node_plugins "${node_plugins}FHAC::radar_conti_srr308;$<TARGET_FILE:radar_conti_srr308_component>\n")
 
 # since the package installs libraries without exporting them
 # it needs to make sure that the library path is being exported
@@ -117,13 +116,13 @@ if(NOT WIN32)
 endif()
 
 
-add_executable(radar_conti_ars408_composition ${CMAKE_CURRENT_SOURCE_DIR}/src/radar_conti_ars408_composition.cpp)
+add_executable(radar_conti_srr308_composition ${CMAKE_CURRENT_SOURCE_DIR}/src/radar_conti_srr308_composition.cpp)
 target_link_libraries(
-  radar_conti_ars408_composition
-  radar_conti_ars408_component
+  radar_conti_srr308_composition
+  radar_conti_srr308_component
 )
 
-ament_target_dependencies(radar_conti_ars408_composition
+ament_target_dependencies(radar_conti_srr308_composition
   "rclcpp"
 )
 ##########################################################
@@ -134,12 +133,12 @@ ament_target_dependencies(radar_conti_ars408_composition
 ##########################################################
 #install executable 
 install(
-  TARGETS radar_conti_ars408_composition
+  TARGETS radar_conti_srr308_composition
   DESTINATION lib/${PROJECT_NAME})
 
 # install plugins
 install(
-  TARGETS radar_conti_ars408_component
+  TARGETS radar_conti_srr308_component
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)
@@ -186,13 +185,13 @@ install(DIRECTORY
 #     set(test_dependencies
 #       Catch2 
 #     )
-#     add_executable(test_radar_conti_ars408_component test/test_radar_conti_ars408_component.cpp)
-#     target_link_libraries(test_radar_conti_ars408_component Catch2::Catch2 ${library_name})
-#     ament_target_dependencies(test_radar_conti_ars408_component
+#     add_executable(test_radar_conti_srr308_component test/test_radar_conti_srr308_component.cpp)
+#     target_link_libraries(test_radar_conti_srr308_component Catch2::Catch2 ${library_name})
+#     ament_target_dependencies(test_radar_conti_srr308_component
 #       ${test_dependencies}
 #       ${dependencies}
 #     )
-#     add_test(NAME test_radar_conti_ars408_component COMMAND catch_tests)
+#     add_test(NAME test_radar_conti_srr308_component COMMAND catch_tests)
 #   endif()
 # endif()
 

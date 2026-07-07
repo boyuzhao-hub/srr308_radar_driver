@@ -1,5 +1,5 @@
 # srr308_radar_driver
-This is the ROS2 based radar driver for Continental SRR308, which is based on Continental ARS408 driver from FH Aachen University of Applied Sciences[Lecture: Perception_Radar](https://gitlab.com/ApexAI/autowareclass2020/-/blob/bc1206171c96907977b0f5a8f4e3bc039ce61ae6/lectures/09_Perception_Radar/Radar-Hands-On.md) and Polymathrobotics.
+This is the ROS2 based radar driver for Continental SRR308, adapted from the Continental radar driver from FH Aachen University of Applied Sciences[Lecture: Perception_Radar](https://gitlab.com/ApexAI/autowareclass2020/-/blob/bc1206171c96907977b0f5a8f4e3bc039ce61ae6/lectures/09_Perception_Radar/Radar-Hands-On.md) and Polymathrobotics.
 
 ## Docker development image
 
@@ -72,9 +72,9 @@ Manual configuration services are node-local. Use `radar_can0` for sensor IDs
 `0` and `1`, and `radar_can1` for sensor ID `2`:
 
 ```shell
-ros2 service call /radar_can0/set_radar_configuration radar_conti_ars408_msgs/srv/TriggerSetCfg "{sensor_id: 0}"
-ros2 service call /radar_can0/set_radar_configuration radar_conti_ars408_msgs/srv/TriggerSetCfg "{sensor_id: 1}"
-ros2 service call /radar_can1/set_radar_configuration radar_conti_ars408_msgs/srv/TriggerSetCfg "{sensor_id: 2}"
+ros2 service call /radar_can0/set_radar_configuration radar_conti_srr308_msgs/srv/TriggerSetCfg "{sensor_id: 0}"
+ros2 service call /radar_can0/set_radar_configuration radar_conti_srr308_msgs/srv/TriggerSetCfg "{sensor_id: 1}"
+ros2 service call /radar_can1/set_radar_configuration radar_conti_srr308_msgs/srv/TriggerSetCfg "{sensor_id: 2}"
 ```
 
 Use the same `ROS_DOMAIN_ID` and `RMW_IMPLEMENTATION` in every ROS 2

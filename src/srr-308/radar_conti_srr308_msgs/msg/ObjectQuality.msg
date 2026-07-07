@@ -4,7 +4,7 @@
 #  Id:         0x60c
 #  Length:     7 bytes
 #  Cycle time: 0 ms
-#  Senders:    ARS_ISF
+#  Senders:    SRR308
 #  Layout:
 #
 #                          Bit

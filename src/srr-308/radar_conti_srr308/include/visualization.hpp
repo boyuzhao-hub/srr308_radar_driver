@@ -10,7 +10,7 @@ namespace radar_visualization
 {
 
   /**
-   * A estimated field of view for different object types based on the ARS408's documentation. Some points are duplicated so each array can be sized at 10 elements consistently.
+   * A estimated field of view for different object types based on the SRR308's documentation. Some points are duplicated so each array can be sized at 10 elements consistently.
    */
   // constexpr std::array<std::pair<int, int>, 10> pedestrian_fov = {{{8, 13}, {22, 20}, {32, 18}, {40, 15}, {50, 7}, {55, 9}, {80, 9}, {110, 0}, {110, 0}, {110, 0}}};
 

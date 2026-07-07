@@ -1,4 +1,4 @@
-#include "../include/radar_conti_ars408_component.hpp"
+#include "../include/radar_conti_srr308_component.hpp"
 #include "../include/offsets.hpp"
 #include "../include/visualization.hpp"
 
@@ -43,12 +43,12 @@ namespace FHAC
       FilterType::UNKNOWN // Add this to handle default case
   };
 
-  radar_conti_ars408::radar_conti_ars408(const rclcpp::NodeOptions &options)
-      : rclcpp_lifecycle::LifecycleNode("radar_conti_ars408", options)
+  radar_conti_srr308::radar_conti_srr308(const rclcpp::NodeOptions &options)
+      : rclcpp_lifecycle::LifecycleNode("radar_conti_srr308", options)
   {
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_configure(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_configure(
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on_configure() is called.");
@@ -57,15 +57,15 @@ namespace FHAC
     node->declare_parameter("odom_topic_name", rclcpp::ParameterValue(""));
     node->declare_parameter("robot_base_frame", rclcpp::ParameterValue("base_link"));
     node->declare_parameter("transform_timeout", rclcpp::ParameterValue(0.1));
-    node->declare_parameter("object_list_topic_name", rclcpp::ParameterValue("ars408/object_list"));
+    node->declare_parameter("object_list_topic_name", rclcpp::ParameterValue("srr308/object_list"));
     // SRR308 Change: Add cluster list topic
-    node->declare_parameter("cluster_list_topic_name", rclcpp::ParameterValue("ars408/cluster_list"));
+    node->declare_parameter("cluster_list_topic_name", rclcpp::ParameterValue("srr308/cluster_list"));
 
-    node->declare_parameter("marker_array_topic_name", rclcpp::ParameterValue("ars408/marker_array"));
-    node->declare_parameter("radar_tracks_topic_name", rclcpp::ParameterValue("ars408/radar_tracks"));
-    node->declare_parameter("obstacle_array_topic_name", rclcpp::ParameterValue("ars408/obstacle_array"));
-    node->declare_parameter("filter_config_topic_name", rclcpp::ParameterValue("ars408/filter_config"));
-    node->declare_parameter("radar_state_topic_name", rclcpp::ParameterValue("ars408/radar_state"));
+    node->declare_parameter("marker_array_topic_name", rclcpp::ParameterValue("srr308/marker_array"));
+    node->declare_parameter("radar_tracks_topic_name", rclcpp::ParameterValue("srr308/radar_tracks"));
+    node->declare_parameter("obstacle_array_topic_name", rclcpp::ParameterValue("srr308/obstacle_array"));
+    node->declare_parameter("filter_config_topic_name", rclcpp::ParameterValue("srr308/filter_config"));
+    node->declare_parameter("radar_state_topic_name", rclcpp::ParameterValue("srr308/radar_state"));
     node->declare_parameter("qos_deadline_hz", rclcpp::ParameterValue(10));
     node->declare_parameter("enable_can_tx", rclcpp::ParameterValue(false));
     node->declare_parameter("enable_manual_can_tx", rclcpp::ParameterValue(true));
@@ -123,23 +123,23 @@ namespace FHAC
       if (node->get_parameter(radar_name + ".link_name", parameter))
       {
         more_params = true;
-        object_list_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::ObjectList>(parameter.as_string() + "/" + object_list_topic_name_, qos));
+        object_list_publishers_.push_back(this->create_publisher<radar_conti_srr308_msgs::msg::ObjectList>(parameter.as_string() + "/" + object_list_topic_name_, qos));
         tf_publishers_.push_back(this->create_publisher<tf2_msgs::msg::TFMessage>(parameter.as_string() + "/" + pub_tf_topic_name, qos));
         marker_array_publishers_.push_back(this->create_publisher<visualization_msgs::msg::MarkerArray>(parameter.as_string() + "/" + marker_array_topic_name_, qos));
         fov_marker_publishers_.push_back(this->create_publisher<visualization_msgs::msg::MarkerArray>(parameter.as_string() + "/fov", qos));
         fov_filter_marker_publishers_.push_back(this->create_publisher<visualization_msgs::msg::Marker>(parameter.as_string() + "/fov_filter", qos));
         radar_tracks_publishers_.push_back(this->create_publisher<radar_msgs::msg::RadarTracks>(parameter.as_string() + "/" + radar_tracks_topic_name_, radar_tracks_qos));
         obstacle_array_publishers_.push_back(this->create_publisher<nav2_dynamic_msgs::msg::ObstacleArray>(parameter.as_string() + "/" + obstacle_array_topic_name_, radar_tracks_qos));
-        filter_config_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::FilterStateCfg>(parameter.as_string() + "/" + filter_config_topic_name_, transient_local_qos));
-        radar_state_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::RadarState>(parameter.as_string() + "/" + radar_state_topic_name_, transient_local_qos));
-        object_map_list_.push_back(std::map<int, radar_conti_ars408_msgs::msg::Object>());
+        filter_config_publishers_.push_back(this->create_publisher<radar_conti_srr308_msgs::msg::FilterStateCfg>(parameter.as_string() + "/" + filter_config_topic_name_, transient_local_qos));
+        radar_state_publishers_.push_back(this->create_publisher<radar_conti_srr308_msgs::msg::RadarState>(parameter.as_string() + "/" + radar_state_topic_name_, transient_local_qos));
+        object_map_list_.push_back(std::map<int, radar_conti_srr308_msgs::msg::Object>());
         // SRR308 Changes: add cluter mode
-        cluster_list_publishers_.push_back(this->create_publisher<radar_conti_ars408_msgs::msg::ClusterList>(parameter.as_string() + "/" + cluster_list_topic_name_, qos));
-        cluster_map_list_.push_back(std::map<int, radar_conti_ars408_msgs::msg::Cluster>());
+        cluster_list_publishers_.push_back(this->create_publisher<radar_conti_srr308_msgs::msg::ClusterList>(parameter.as_string() + "/" + cluster_list_topic_name_, qos));
+        cluster_map_list_.push_back(std::map<int, radar_conti_srr308_msgs::msg::Cluster>());
         // ##############################################################
-        object_list_list_.push_back(radar_conti_ars408_msgs::msg::ObjectList());
-        radar_filter_configs_.push_back(radar_conti_ars408_msgs::msg::FilterStateCfg());
-        radar_configuration_configs_.emplace(topic_ind, radar_conti_ars408_msgs::msg::RadarConfiguration());
+        object_list_list_.push_back(radar_conti_srr308_msgs::msg::ObjectList());
+        radar_filter_configs_.push_back(radar_conti_srr308_msgs::msg::FilterStateCfg());
+        radar_configuration_configs_.emplace(topic_ind, radar_conti_srr308_msgs::msg::RadarConfiguration());
         radar_filter_active_.push_back(std::vector<bool>());
 
         std::vector<bool> init_radar_active_values = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
@@ -282,13 +282,13 @@ namespace FHAC
     constexpr std::chrono::duration<float> recv_timeout{0.1};
     socketcan_adapter_ = std::make_unique<polymath::socketcan::SocketcanAdapter>(can_channel_, recv_timeout);
     object_count = 0.0;
-    set_filter_service_ = create_service<radar_conti_ars408_msgs::srv::SetFilter>("~/set_filter", std::bind(&radar_conti_ars408::setFilterService, this, std::placeholders::_1, std::placeholders::_2));
-    radar_config_service_ = create_service<radar_conti_ars408_msgs::srv::TriggerSetCfg>("~/set_radar_configuration", std::bind(&radar_conti_ars408::setRadarConfigurationService, this, std::placeholders::_1, std::placeholders::_2));
+    set_filter_service_ = create_service<radar_conti_srr308_msgs::srv::SetFilter>("~/set_filter", std::bind(&radar_conti_srr308::setFilterService, this, std::placeholders::_1, std::placeholders::_2));
+    radar_config_service_ = create_service<radar_conti_srr308_msgs::srv::TriggerSetCfg>("~/set_radar_configuration", std::bind(&radar_conti_srr308::setRadarConfigurationService, this, std::placeholders::_1, std::placeholders::_2));
     if (!odom_topic_name_.empty())
     {
       rclcpp::QoS qos_settings(10);
       qos_settings.reliability(RMW_QOS_POLICY_RELIABILITY_RELIABLE);
-      odometry_subscriber_ = create_subscription<nav_msgs::msg::Odometry>(odom_topic_name_, qos_settings, std::bind(&radar_conti_ars408::odomCallback, this, std::placeholders::_1));
+      odometry_subscriber_ = create_subscription<nav_msgs::msg::Odometry>(odom_topic_name_, qos_settings, std::bind(&radar_conti_srr308::odomCallback, this, std::placeholders::_1));
     }
 
     tf_buffer_ = std::make_unique<tf2_ros::Buffer>(node->get_clock());
@@ -300,7 +300,7 @@ namespace FHAC
   }
 
   template <typename T>
-  void radar_conti_ars408::initializeConfig(std::string radar_name, std::string config_name, T default_value, T &config)
+  void radar_conti_srr308::initializeConfig(std::string radar_name, std::string config_name, T default_value, T &config)
   {
     auto node = shared_from_this();
     T config_value;
@@ -309,21 +309,21 @@ namespace FHAC
     config = config_value;
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_shutdown(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_shutdown(
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on shutdown is called.");
     return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_error(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_error(
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on error is called.");
     return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_activate(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_activate(
       const rclcpp_lifecycle::State &)
   {
 
@@ -332,7 +332,7 @@ namespace FHAC
       RCLCPP_ERROR(this->get_logger(), "Unable to open socket on can channel '%s'", can_channel_.c_str());
     }
 
-    // The middle byte is used by ARS408 as the sensor id, so we just clear it out here.
+    // The middle byte is used by SRR308 as the sensor id, so we just clear it out here.
     canid_t id_mask = 0xF0F;
     // can_filter radar_obj_filter{
     //     ID_Obj_1_General,
@@ -364,7 +364,7 @@ namespace FHAC
     //     id_mask,
     // };
 
-    // SRR408 Change: Add cluster mode
+    // SRR308 Change: Add cluster mode
     can_filter radar_cluster_status_filter{
         ID_Cluster_0_Status,
         id_mask,
@@ -450,7 +450,7 @@ namespace FHAC
     return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_deactivate(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_deactivate(
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on_deactivate() is called.");
@@ -473,7 +473,7 @@ namespace FHAC
     return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
   }
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_ars408::on_cleanup(
+  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn radar_conti_srr308::on_cleanup(
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on cleanup is called.");
@@ -484,7 +484,7 @@ namespace FHAC
     return rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
   }
 
-  unique_identifier_msgs::msg::UUID radar_conti_ars408::generateRandomUUID()
+  unique_identifier_msgs::msg::UUID radar_conti_srr308::generateRandomUUID()
   {
     unique_identifier_msgs::msg::UUID uuid;
     std::mt19937 gen(std::random_device{}());
@@ -493,33 +493,33 @@ namespace FHAC
     return uuid;
   }
 
-  void radar_conti_ars408::generateUUIDTable()
+  void radar_conti_srr308::generateUUIDTable()
   {
     for (int i = 0; i <= (max_radar_id * number_of_radars_); i++)
     {
-      UUID_table_.emplace_back(radar_conti_ars408::generateRandomUUID());
+      UUID_table_.emplace_back(radar_conti_srr308::generateRandomUUID());
     }
   }
 
-  void radar_conti_ars408::startMetadataTimers()
+  void radar_conti_srr308::startMetadataTimers()
   {
     if (!filter_config_timer_)
     {
       filter_config_timer_ = this->create_wall_timer(
-          1s, std::bind(&radar_conti_ars408::publishFilterConfigMetadata, this));
+          1s, std::bind(&radar_conti_srr308::publishFilterConfigMetadata, this));
     }
 
     if (!fov_marker_timer_)
     {
       fov_marker_timer_ = this->create_wall_timer(
-          3s, std::bind(&radar_conti_ars408::publishFovMetadata, this));
+          3s, std::bind(&radar_conti_srr308::publishFovMetadata, this));
     }
   }
 
-  void radar_conti_ars408::initializeFilterConfigs()
+  void radar_conti_srr308::initializeFilterConfigs()
   {
     // const int type = FilterCfg_FilterCfg_Type_Object;
-    const int type = FilterCfg_FilterCfg_Type_Cluster; // SRR408 Change: Add cluster mode
+    const int type = FilterCfg_FilterCfg_Type_Cluster; // SRR308 Change: Add cluster mode
     int min_value = 0;
     int max_value = 0;
 
@@ -603,9 +603,9 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::publishRadarState(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id)
+  void radar_conti_srr308::publishRadarState(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id)
   {
-    radar_conti_ars408_msgs::msg::RadarState radar_state_msg;
+    radar_conti_srr308_msgs::msg::RadarState radar_state_msg;
     radar_state_msg.header.stamp = rclcpp_lifecycle::LifecycleNode::now();
     radar_state_msg.header.frame_id = radar_link_names_[sensor_id];
 
@@ -633,7 +633,7 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
+  void radar_conti_srr308::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
 
     const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
@@ -670,14 +670,14 @@ namespace FHAC
       handle_object_list(frame);
     }
 
-    // SRR408 Change: cluster list
+    // SRR308 Change: cluster list
     if (operation_mode_ == RadarState_RadarState_OutputTypeCfg_SendClusters)
     {
       handle_cluster_list(frame);
     }
   }
 
-  void radar_conti_ars408::handle_object_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
+  void radar_conti_srr308::handle_object_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
 
     const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
@@ -701,7 +701,7 @@ namespace FHAC
     if (Get_MsgID0_From_MsgID(frame->get_id()) == ID_Obj_1_General)
     {
 
-      radar_conti_ars408_msgs::msg::Object o;
+      radar_conti_srr308_msgs::msg::Object o;
 
       // object ID
       int id = GET_Obj_1_General_Obj_ID(frame->get_data());
@@ -732,7 +732,7 @@ namespace FHAC
           CALC_Obj_1_General_Obj_RCS(GET_Obj_1_General_Obj_RCS(frame->get_data()), 1.0);
 
       // insert object into map
-      object_map_list_[local_index].insert(std::pair<int, radar_conti_ars408_msgs::msg::Object>(id, o));
+      object_map_list_[local_index].insert(std::pair<int, radar_conti_srr308_msgs::msg::Object>(id, o));
     }
 
     // Object Quality Information
@@ -789,7 +789,7 @@ namespace FHAC
   }
 
   // SRR308 Change: Add cluster handling
-  void radar_conti_ars408::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
+  void radar_conti_srr308::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
     const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
     auto sensor_it = sensor_id_to_local_index_.find(frame_sensor_id);
@@ -811,7 +811,7 @@ namespace FHAC
       // cluster ID
       int id = GET_Cluster_1_General_Cluster_ID(frame->get_data());
 
-      radar_conti_ars408_msgs::msg::Cluster c;
+      radar_conti_srr308_msgs::msg::Cluster c;
 
       c.cluster_id.data = GET_Cluster_1_General_Cluster_ID(frame->get_data());
 
@@ -839,13 +839,13 @@ namespace FHAC
       c.cluster_general.cluster_rcs.data =
           CALC_Cluster_1_General_Cluster_RCS(GET_Cluster_1_General_Cluster_RCS(frame->get_data()), 1.0);
         
-      cluster_map_list_[local_index].insert(std::pair<int, radar_conti_ars408_msgs::msg::Cluster>(id, c));
+      cluster_map_list_[local_index].insert(std::pair<int, radar_conti_srr308_msgs::msg::Cluster>(id, c));
     }
   }
     // Cluster Quality Information can be added later.
     // #############################################################
 
-  void radar_conti_ars408::publish_object_map(int sensor_id)
+  void radar_conti_srr308::publish_object_map(int sensor_id)
   {
     visualization_msgs::msg::MarkerArray marker_array;
     radar_msgs::msg::RadarTracks radar_tracks;
@@ -867,7 +867,7 @@ namespace FHAC
 
     tf2::Quaternion myQuaternion;
 
-    std::map<int, radar_conti_ars408_msgs::msg::Object>::iterator itr;
+    std::map<int, radar_conti_srr308_msgs::msg::Object>::iterator itr;
 
     nav_msgs::msg::Odometry corrected_odom;
     if (!odom_topic_name_.empty())
@@ -1024,9 +1024,9 @@ namespace FHAC
 
   }
 
-  void radar_conti_ars408::setFilterService(
-      const std::shared_ptr<radar_conti_ars408_msgs::srv::SetFilter::Request> request,
-      std::shared_ptr<radar_conti_ars408_msgs::srv::SetFilter::Response> response)
+  void radar_conti_srr308::setFilterService(
+      const std::shared_ptr<radar_conti_srr308_msgs::srv::SetFilter::Request> request,
+      std::shared_ptr<radar_conti_srr308_msgs::srv::SetFilter::Response> response)
   {
     auto req = *request;
     if (!enable_manual_can_tx_)
@@ -1047,7 +1047,7 @@ namespace FHAC
     response->success = true;
   }
 
-  bool radar_conti_ars408::setFilter(const int &sensor_id, const int &active, const int &type, const int &index, const int &min_value, const int &max_value)
+  bool radar_conti_srr308::setFilter(const int &sensor_id, const int &active, const int &type, const int &index, const int &min_value, const int &max_value)
   {
     if (!enable_can_tx_ && !enable_manual_can_tx_)
     {
@@ -1167,12 +1167,12 @@ namespace FHAC
   }
 
   // SRR308 Change: To visualze the clusters in RViz, we need to publish a marker array for the clusters. This function is to publish the cluster map as a marker array.
-  void radar_conti_ars408::publish_cluster_map(int sensor_id)
+  void radar_conti_srr308::publish_cluster_map(int sensor_id)
   {
     visualization_msgs::msg::MarkerArray marker_array;
 
     // SRR308 Change: add cluster list topic mode
-    radar_conti_ars408_msgs::msg::ClusterList out_cluster_list;
+    radar_conti_srr308_msgs::msg::ClusterList out_cluster_list;
     out_cluster_list.header.stamp = rclcpp_lifecycle::LifecycleNode::now();
     out_cluster_list.header.frame_id = radar_link_names_[sensor_id];
 
@@ -1182,7 +1182,7 @@ namespace FHAC
     marker_array_publishers_[sensor_id]->publish(marker_array);
     marker_array.markers.clear();
 
-    std::map<int, radar_conti_ars408_msgs::msg::Cluster>::iterator itr;
+    std::map<int, radar_conti_srr308_msgs::msg::Cluster>::iterator itr;
 
     for (itr = cluster_map_list_[sensor_id].begin(); itr != cluster_map_list_[sensor_id].end(); ++itr)
     {
@@ -1236,9 +1236,9 @@ namespace FHAC
     cluster_list_publishers_[sensor_id]->publish(out_cluster_list);
   }
 
-  void radar_conti_ars408::setRadarConfigurationService(
-      const std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Request> request,
-      std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> response)
+  void radar_conti_srr308::setRadarConfigurationService(
+      const std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Request> request,
+      std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> response)
   {
     auto req = *request;
     if (!enable_manual_can_tx_)
@@ -1256,7 +1256,7 @@ namespace FHAC
     response->success = true;
   }
 
-  bool radar_conti_ars408::setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> &response)
+  bool radar_conti_srr308::setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> &response)
   {
     if (!enable_can_tx_ && !enable_manual_can_tx_)
     {
@@ -1348,7 +1348,7 @@ namespace FHAC
     return true;
   }
 
-  void radar_conti_ars408::updateFilterConfig(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id)
+  void radar_conti_srr308::updateFilterConfig(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id)
   {
     radar_filter_configs_[sensor_id].header.stamp = rclcpp_lifecycle::LifecycleNode::now();
     radar_filter_configs_[sensor_id].header.frame_id = radar_link_names_[sensor_id];
@@ -1467,7 +1467,7 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::publishFilterConfigMetadata()
+  void radar_conti_srr308::publishFilterConfigMetadata()
   {
     for (size_t sensor_id = 0; sensor_id < radar_filter_configs_.size(); ++sensor_id)
     {
@@ -1488,7 +1488,7 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::publishFovMetadata()
+  void radar_conti_srr308::publishFovMetadata()
   {
     for (size_t sensor_id = 0; sensor_id < radar_filter_configs_.size(); ++sensor_id)
     {
@@ -1506,7 +1506,7 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
+  void radar_conti_srr308::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
   {
 
     vehicle_odometry_ = *msg;
@@ -1532,7 +1532,7 @@ namespace FHAC
     }
   }
 
-  void radar_conti_ars408::sendMotionInputSignals(const size_t &sensor_id, radar_conti_ars408_structs::MotionInputSignal &motion_input_signal)
+  void radar_conti_srr308::sendMotionInputSignals(const size_t &sensor_id, radar_conti_srr308_structs::MotionInputSignal &motion_input_signal)
   {
     if (!enable_can_tx_)
     {
@@ -1585,6 +1585,6 @@ namespace FHAC
 // Register the component with class_loader.
 // This acts as a sort of entry point, allowing the component to be discoverable when its library
 // is being loaded into a running process.
-// CLASS_LOADER_REGISTER_CLASS(FHAC::radar_conti_ars408, rclcpp_lifecycle::LifecycleNode)
+// CLASS_LOADER_REGISTER_CLASS(FHAC::radar_conti_srr308, rclcpp_lifecycle::LifecycleNode)
 
-RCLCPP_COMPONENTS_REGISTER_NODE(FHAC::radar_conti_ars408)
+RCLCPP_COMPONENTS_REGISTER_NODE(FHAC::radar_conti_srr308)

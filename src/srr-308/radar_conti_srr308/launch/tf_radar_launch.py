@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     geometry_param_file = os.path.join(
-        get_package_share_directory("radar_conti_ars408"),
+        get_package_share_directory("radar_conti_srr308"),
         "config",
         "tf_radar_params.yaml"
     )

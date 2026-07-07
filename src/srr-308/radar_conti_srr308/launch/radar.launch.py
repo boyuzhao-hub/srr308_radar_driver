@@ -13,7 +13,7 @@ from nav2_common.launch import RewrittenYaml
 def generate_launch_description():
 
     # SRR308 Change: to radar.yaml
-    pkg_dir = get_package_share_directory('radar_conti_ars408')
+    pkg_dir = get_package_share_directory('radar_conti_srr308')
     default_params_file = PathJoinSubstitution(
         [pkg_dir, 'config', 'radar.yaml']
     )
@@ -76,8 +76,8 @@ def generate_launch_description():
                     {'node_names': lifecycle_nodes}])
 
     radar_can0_node = Node(
-        package='radar_conti_ars408',
-        executable='radar_conti_ars408_composition',
+        package='radar_conti_srr308',
+        executable='radar_conti_srr308_composition',
         name='radar_can0',
         namespace=namespace,
         output='screen',
@@ -86,8 +86,8 @@ def generate_launch_description():
     )
 
     radar_can1_node = Node(
-        package='radar_conti_ars408',
-        executable='radar_conti_ars408_composition',
+        package='radar_conti_srr308',
+        executable='radar_conti_srr308_composition',
         name='radar_can1',
         namespace=namespace,
         output='screen',

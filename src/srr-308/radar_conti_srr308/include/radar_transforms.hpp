@@ -25,12 +25,12 @@ namespace radar_transforms
     }
     catch (tf2::TimeoutException &exception)
     {
-      RCLCPP_ERROR_THROTTLE(rclcpp::get_logger("radar_conti_ars408"), *clock, 1000, "Transform timed out: %s", exception.what());
+      RCLCPP_ERROR_THROTTLE(rclcpp::get_logger("radar_conti_srr308"), *clock, 1000, "Transform timed out: %s", exception.what());
       return nav_msgs::msg::Odometry{};
     }
     catch (tf2::TransformException &exception)
     {
-      RCLCPP_ERROR_THROTTLE(rclcpp::get_logger("radar_conti_ars408"), *clock, 1000, "Transform failed: %s", exception.what());
+      RCLCPP_ERROR_THROTTLE(rclcpp::get_logger("radar_conti_srr308"), *clock, 1000, "Transform failed: %s", exception.what());
       return nav_msgs::msg::Odometry{};
     }
     nav_msgs::msg::Odometry transformed_odometry_base_link;
@@ -80,11 +80,11 @@ namespace radar_transforms
     return corrected_velocity;
   }
 
-  radar_conti_ars408_structs::MotionInputSignal createMotionInputSignal(nav_msgs::msg::Odometry &odom, const std::shared_ptr<tf2_ros::Buffer> &tf_buffer, std::string &sensor_frame_id, std::string &base_frame_id, rclcpp::Duration &transform_timeout, rclcpp::Clock::SharedPtr clock)
+  radar_conti_srr308_structs::MotionInputSignal createMotionInputSignal(nav_msgs::msg::Odometry &odom, const std::shared_ptr<tf2_ros::Buffer> &tf_buffer, std::string &sensor_frame_id, std::string &base_frame_id, rclcpp::Duration &transform_timeout, rclcpp::Clock::SharedPtr clock)
   {
     auto corrected_odom = radar_transforms::transform2DOdom(odom, tf_buffer, sensor_frame_id, base_frame_id, transform_timeout, clock);
 
-    radar_conti_ars408_structs::MotionInputSignal motion_input_signal;
+    radar_conti_srr308_structs::MotionInputSignal motion_input_signal;
     // Threshold for standstill detection
     const double standstill_threshold = 0.01;
 

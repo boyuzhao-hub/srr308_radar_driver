@@ -13,7 +13,7 @@
 
 #include <memory>
 
-#include "../include/radar_conti_ars408_component.hpp"
+#include "../include/radar_conti_srr308_component.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 int main(int argc, char * argv[])
@@ -35,8 +35,8 @@ int main(int argc, char * argv[])
 
   // Add some nodes to the executor which provide work for the executor during its "spin" function.
   // An example of available work is executing a subscription callback, or a timer callback.
-  auto radar_conti_ars408_node = std::make_shared<FHAC::radar_conti_ars408>(options);
-  exec.add_node(radar_conti_ars408_node->get_node_base_interface());
+  auto radar_conti_srr308_node = std::make_shared<FHAC::radar_conti_srr308>(options);
+  exec.add_node(radar_conti_srr308_node->get_node_base_interface());
 
 
   // spin will block (https://de.wikipedia.org/wiki/Spinlock) until work comes in, execute work as it becomes available, and keep blocking.

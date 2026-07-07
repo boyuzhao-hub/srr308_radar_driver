@@ -1,9 +1,9 @@
-#ifndef RADAR_CONTI_ARS408_STRUCTS_HPP
-#define RADAR_CONTI_ARS408_STRUCTS_HPP
+#ifndef RADAR_CONTI_SRR308_STRUCTS_HPP
+#define RADAR_CONTI_SRR308_STRUCTS_HPP
 
 #include <cstdint>
 
-namespace radar_conti_ars408_structs
+namespace radar_conti_srr308_structs
 {
   struct MotionInputSignal
   {
@@ -13,4 +13,4 @@ namespace radar_conti_ars408_structs
   };
 }
 
-#endif // RADAR_CONTI_ARS408_STRUCTS_HPP
+#endif // RADAR_CONTI_SRR308_STRUCTS_HPP

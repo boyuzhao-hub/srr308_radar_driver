@@ -1,5 +1,5 @@
-#ifndef COMPOSITION__RADAR_CONTI_ARS408_COMPONENT_HPP_
-#define COMPOSITION__RADAR_CONTI_ARS408_COMPONENT_HPP_
+#ifndef COMPOSITION__RADAR_CONTI_SRR308_COMPONENT_HPP_
+#define COMPOSITION__RADAR_CONTI_SRR308_COMPONENT_HPP_
 
 #include <chrono>
 #include <iostream>
@@ -19,15 +19,15 @@
 #include <tf2_msgs/msg/tf_message.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <can_msgs/msg/frame.hpp>
-#include <radar_conti_ars408_msgs/msg/object_list.hpp>
-#include <radar_conti_ars408_msgs/msg/cluster_list.hpp>
-#include <radar_conti_ars408_msgs/msg/radar_state.hpp>
-#include <radar_conti_ars408_msgs/msg/cluster_status.hpp>
-#include "radar_conti_ars408_msgs/msg/filter_state_cfg.hpp"
-#include "radar_conti_ars408_msgs/msg/radar_configuration.hpp"
-#include "radar_conti_ars408_msgs/msg/radar_state.hpp"
-#include <radar_conti_ars408_msgs/srv/set_filter.hpp>
-#include <radar_conti_ars408_msgs/srv/trigger_set_cfg.hpp>
+#include <radar_conti_srr308_msgs/msg/object_list.hpp>
+#include <radar_conti_srr308_msgs/msg/cluster_list.hpp>
+#include <radar_conti_srr308_msgs/msg/radar_state.hpp>
+#include <radar_conti_srr308_msgs/msg/cluster_status.hpp>
+#include "radar_conti_srr308_msgs/msg/filter_state_cfg.hpp"
+#include "radar_conti_srr308_msgs/msg/radar_configuration.hpp"
+#include "radar_conti_srr308_msgs/msg/radar_state.hpp"
+#include <radar_conti_srr308_msgs/srv/set_filter.hpp>
+#include <radar_conti_srr308_msgs/srv/trigger_set_cfg.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/static_transform_broadcaster.h>
 #include <tf2/LinearMath/Quaternion.h>
@@ -57,8 +57,7 @@
 #include "nav2_dynamic_msgs/msg/obstacle_array.hpp"
 #include "socketcan_adapter/socketcan_adapter.hpp"
 
-#include <ars_408_can_defines.h>
-// #include <srr308_can_defines.h>
+#include <srr308_can_defines.h>
 #include <structs.hpp>
 
 #include "bondcpp/bond.hpp"
@@ -89,7 +88,7 @@ enum class FilterType
     UNKNOWN // Add this to handle default case
 };
 
-constexpr char DEFAULT_NODE_NAME[] = "RADAR_CONTI_ARS408";
+constexpr char DEFAULT_NODE_NAME[] = "RADAR_CONTI_SRR308";
 
 typedef unsigned char ubyte;
 typedef unsigned short int uword;
@@ -100,11 +99,11 @@ using rclcpp::strategies::message_pool_memory_strategy::MessagePoolMemoryStrateg
 namespace FHAC
 {
 
-    class radar_conti_ars408 : public rclcpp_lifecycle::LifecycleNode
+    class radar_conti_srr308 : public rclcpp_lifecycle::LifecycleNode
     {
     public:
-        RADAR_CONTI_ARS408_PUBLIC
-        radar_conti_ars408(const rclcpp::NodeOptions &options);
+        RADAR_CONTI_SRR308_PUBLIC
+        radar_conti_srr308(const rclcpp::NodeOptions &options);
 
         /// Transition callback for state error
         /**
@@ -181,12 +180,12 @@ namespace FHAC
             const rclcpp_lifecycle::State &);
 
         void setFilterService(
-            const std::shared_ptr<radar_conti_ars408_msgs::srv::SetFilter::Request> request,
-            std::shared_ptr<radar_conti_ars408_msgs::srv::SetFilter::Response> response);
+            const std::shared_ptr<radar_conti_srr308_msgs::srv::SetFilter::Request> request,
+            std::shared_ptr<radar_conti_srr308_msgs::srv::SetFilter::Response> response);
 
         void setRadarConfigurationService(
-            const std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Request> request,
-            std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> response);
+            const std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Request> request,
+            std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> response);
 
         template <typename T>
         void declare_parameter_with_type(rclcpp_lifecycle::LifecycleNode::SharedPtr node, const std::string &param_name, T value)
@@ -312,9 +311,9 @@ namespace FHAC
         std::vector<unique_identifier_msgs::msg::UUID> UUID_table_;
 
         // Publishers
-        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::ObjectList>::SharedPtr> object_list_publishers_;
+        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_srr308_msgs::msg::ObjectList>::SharedPtr> object_list_publishers_;
         // SRR308 Change
-        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::ClusterList>::SharedPtr> cluster_list_publishers_;
+        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_srr308_msgs::msg::ClusterList>::SharedPtr> cluster_list_publishers_;
         // *****************************************************************
         std::vector<rclcpp_lifecycle::LifecyclePublisher<tf2_msgs::msg::TFMessage>::SharedPtr> tf_publishers_;
         std::vector<rclcpp_lifecycle::LifecyclePublisher<visualization_msgs::msg::MarkerArray>::SharedPtr> marker_array_publishers_;
@@ -322,15 +321,15 @@ namespace FHAC
         std::vector<rclcpp_lifecycle::LifecyclePublisher<visualization_msgs::msg::Marker>::SharedPtr> fov_filter_marker_publishers_;
         std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_msgs::msg::RadarTracks>::SharedPtr> radar_tracks_publishers_;
         std::vector<rclcpp_lifecycle::LifecyclePublisher<nav2_dynamic_msgs::msg::ObstacleArray>::SharedPtr> obstacle_array_publishers_;
-        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::FilterStateCfg>::SharedPtr> filter_config_publishers_;
-        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_ars408_msgs::msg::RadarState>::SharedPtr> radar_state_publishers_;
+        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_srr308_msgs::msg::FilterStateCfg>::SharedPtr> filter_config_publishers_;
+        std::vector<rclcpp_lifecycle::LifecyclePublisher<radar_conti_srr308_msgs::msg::RadarState>::SharedPtr> radar_state_publishers_;
 
         // Subscribers
         rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odometry_subscriber_;
 
         // Services
-        rclcpp::Service<radar_conti_ars408_msgs::srv::SetFilter>::SharedPtr set_filter_service_;
-        rclcpp::Service<radar_conti_ars408_msgs::srv::TriggerSetCfg>::SharedPtr radar_config_service_;
+        rclcpp::Service<radar_conti_srr308_msgs::srv::SetFilter>::SharedPtr set_filter_service_;
+        rclcpp::Service<radar_conti_srr308_msgs::srv::TriggerSetCfg>::SharedPtr radar_config_service_;
 
         // create can_receive_callback
         void can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame> frame);
@@ -345,7 +344,7 @@ namespace FHAC
         // update filter
         bool setFilter(const int &sensor_id, const int &active, const int &type, const int &index, const int &min_value, const int &max_value);
         // update config
-        bool setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> &response);
+        bool setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> &response);
 
         void publishRadarState(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id);
         void updateFilterConfig(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id);
@@ -358,27 +357,27 @@ namespace FHAC
         std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
         rclcpp::Duration transform_timeout_{0, 0};
 
-        void sendMotionInputSignals(const size_t &sensor_id, radar_conti_ars408_structs::MotionInputSignal &motion_input_signal);
+        void sendMotionInputSignals(const size_t &sensor_id, radar_conti_srr308_structs::MotionInputSignal &motion_input_signal);
         void publishFovMetadata();
 
         // create map container for object list
-        std::map<int, radar_conti_ars408_msgs::msg::Object> object_map_;
-        std::vector<std::map<int, radar_conti_ars408_msgs::msg::Object>> object_map_list_;
+        std::map<int, radar_conti_srr308_msgs::msg::Object> object_map_;
+        std::vector<std::map<int, radar_conti_srr308_msgs::msg::Object>> object_map_list_;
         // SRR308 Changes: add cluter mode
-        std::vector<std::map<int, radar_conti_ars408_msgs::msg::Cluster>> cluster_map_list_;
+        std::vector<std::map<int, radar_conti_srr308_msgs::msg::Cluster>> cluster_map_list_;
 
         // create data structures for radar object list
-        radar_conti_ars408_msgs::msg::ObjectList object_list_;
-        std::vector<radar_conti_ars408_msgs::msg::ObjectList> object_list_list_;
+        radar_conti_srr308_msgs::msg::ObjectList object_list_;
+        std::vector<radar_conti_srr308_msgs::msg::ObjectList> object_list_list_;
         
         // SRR308 Change: Create data structures for radar cluster list
-        radar_conti_ars408_msgs::msg::ClusterList cluster_list_;
-        std::vector<radar_conti_ars408_msgs::msg::ClusterList> cluster_list_list_;
+        radar_conti_srr308_msgs::msg::ClusterList cluster_list_;
+        std::vector<radar_conti_srr308_msgs::msg::ClusterList> cluster_list_list_;
         
         // create data structures for radar filter config
         rclcpp::TimerBase::SharedPtr filter_config_timer_;
-        std::vector<radar_conti_ars408_msgs::msg::FilterStateCfg> radar_filter_configs_;
-        std::unordered_map<size_t, radar_conti_ars408_msgs::msg::RadarConfiguration> radar_configuration_configs_;
+        std::vector<radar_conti_srr308_msgs::msg::FilterStateCfg> radar_filter_configs_;
+        std::unordered_map<size_t, radar_conti_srr308_msgs::msg::RadarConfiguration> radar_configuration_configs_;
         std::unordered_map<size_t, bool> motion_configs_;
         std::vector<std::vector<bool>> radar_filter_active_;
         std::vector<int> radar_sensor_ids_;
@@ -406,6 +405,6 @@ namespace FHAC
         // ##################################
     };
 
-} // namespace radar_conti_ars408
+} // namespace radar_conti_srr308
 
-#endif // COMPOSITION__RADAR_CONTI_ARS408_COMPONENT_HPP_
+#endif // COMPOSITION__RADAR_CONTI_SRR308_COMPONENT_HPP_

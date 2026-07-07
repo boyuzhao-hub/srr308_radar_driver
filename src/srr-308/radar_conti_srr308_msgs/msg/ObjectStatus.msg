@@ -4,7 +4,7 @@
 #  Id:         0x60a
 #  Length:     4 bytes
 #  Cycle time: 0 ms
-#  Senders:    ARS_ISF
+#  Senders:    SRR308
 #  Layout:
 #
 #                          Bit

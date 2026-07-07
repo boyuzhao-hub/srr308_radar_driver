@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>radar_conti_ars408</name>
+  <name>radar_conti_srr308</name>
   <version>0.0.2</version>
-  <description>ROS2 driver for Continental ARS 408 Radar</description>
+  <description>ROS2 driver for Continental SRR 308 Radar</description>
   <maintainer email="alex@polymathrobotics.com">Alexander Yuen</maintainer>
   <license>Apache License 2.0</license>
 
@@ -19,7 +19,7 @@
   <build_depend>geometry_msgs</build_depend>
   <build_depend>visualization_msgs</build_depend>
   <build_depend>tf2_ros</build_depend>
-  <build_depend>radar_conti_ars408_msgs</build_depend>
+  <build_depend>radar_conti_srr308_msgs</build_depend>
   <build_depend>can_msgs</build_depend>
   <build_depend>nav_msgs</build_depend>
   <build_depend>radar_msgs</build_depend>
@@ -36,7 +36,7 @@
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
-  <exec_depend>radar_conti_ars408_msgs</exec_depend>
+  <exec_depend>radar_conti_srr308_msgs</exec_depend>
   <exec_depend>can_msgs</exec_depend>
   <exec_depend>radar_msgs</exec_depend>
   <exec_depend>nav2_dynamic_msgs</exec_depend>

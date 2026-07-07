@@ -4,7 +4,7 @@
 #  Id:         0x201
 #  Length:     8 bytes
 #  Cycle time: 50 ms
-#  Senders:    ARS_ISF
+#  Senders:    SRR308
 #  Layout:
 #
 #                          Bit

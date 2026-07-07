@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(radar_conti_ars408_msgs)
+project(radar_conti_srr308_msgs)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -20,7 +20,7 @@ find_package(ament_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-rosidl_generate_interfaces(radar_conti_ars408_msgs
+rosidl_generate_interfaces(radar_conti_srr308_msgs
   "msg/ClusterGeneral.msg"
   "msg/ClusterQuality.msg"
   "msg/ClusterStatus.msg"
