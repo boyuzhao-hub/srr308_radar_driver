@@ -3,6 +3,7 @@
 #include "../include/visualization.hpp"
 
 #include <chrono>
+#include <algorithm>
 #include <iostream>
 #include <memory>
 #include <utility>
@@ -66,6 +67,8 @@ namespace FHAC
     node->declare_parameter("filter_config_topic_name", rclcpp::ParameterValue("ars408/filter_config"));
     node->declare_parameter("radar_state_topic_name", rclcpp::ParameterValue("ars408/radar_state"));
     node->declare_parameter("qos_deadline_hz", rclcpp::ParameterValue(10));
+    node->declare_parameter("enable_can_tx", rclcpp::ParameterValue(false));
+    node->declare_parameter("enable_manual_can_tx", rclcpp::ParameterValue(true));
 
     double transform_timeout_double;
     int qos_deadline_hz;
@@ -83,6 +86,8 @@ namespace FHAC
     node->get_parameter("filter_config_topic_name", filter_config_topic_name_);
     node->get_parameter("radar_state_topic_name", radar_state_topic_name_);
     node->get_parameter("qos_deadline_hz", qos_deadline_hz);
+    node->get_parameter("enable_can_tx", enable_can_tx_);
+    node->get_parameter("enable_manual_can_tx", enable_manual_can_tx_);
 
     if (can_channel_.empty())
     {
@@ -91,6 +96,8 @@ namespace FHAC
     }
 
     RCUTILS_LOG_INFO_NAMED(get_name(), "Listening on can_channel %s", can_channel_.c_str());
+    RCUTILS_LOG_INFO_NAMED(get_name(), "Automatic CAN transmit is %s", enable_can_tx_ ? "enabled" : "disabled");
+    RCUTILS_LOG_INFO_NAMED(get_name(), "Manual CAN service transmit is %s", enable_manual_can_tx_ ? "enabled" : "disabled");
 
     auto transient_local_qos = rclcpp::QoS(rclcpp::KeepLast(5)).reliability(rclcpp::ReliabilityPolicy::Reliable).durability(rclcpp::DurabilityPolicy::TransientLocal);
 
@@ -176,6 +183,9 @@ namespace FHAC
         // Sensor ID
         initializeConfig<uint8_t>(radar_name, std::string("radarcfg_sensor_id"), 0, radar_configuration_configs_[topic_ind].radarcfg_sensorid.data);
         initializeConfig<uint8_t>(radar_name, std::string("radarcfg_sensor_id_valid"), 0, radar_configuration_configs_[topic_ind].radarcfg_sensorid_valid.data);
+        const int configured_sensor_id = radar_configuration_configs_[topic_ind].radarcfg_sensorid.data;
+        radar_sensor_ids_.push_back(configured_sensor_id);
+        sensor_id_to_local_index_[configured_sensor_id] = topic_ind;
 
         // RCS Threshold
         initializeConfig<uint8_t>(radar_name, std::string("radarcfg_rcs_threshold"), 0, radar_configuration_configs_[topic_ind].radarcfg_rcs_threshold.data);
@@ -250,6 +260,13 @@ namespace FHAC
         initializeConfig<float>(radar_name, std::string("filtercfg_min_vxdepart"), 0.0, radar_filter_configs_[topic_ind].vxdepart.min);
         initializeConfig<float>(radar_name, std::string("filtercfg_max_vxdepart"), 128.0, radar_filter_configs_[topic_ind].vxdepart.max);
 
+        if (configured_sensor_id != static_cast<int>(topic_ind))
+        {
+          auto radar_config = radar_configuration_configs_[topic_ind];
+          radar_configuration_configs_.erase(topic_ind);
+          radar_configuration_configs_.emplace(configured_sensor_id, radar_config);
+        }
+
         filter_config_initialized_list_.push_back(false);
         RCLCPP_WARN(this->get_logger(), "link_name is: %s", parameter.as_string().c_str());
         number_of_radars_++;
@@ -265,8 +282,8 @@ namespace FHAC
     constexpr std::chrono::duration<float> recv_timeout{0.1};
     socketcan_adapter_ = std::make_unique<polymath::socketcan::SocketcanAdapter>(can_channel_, recv_timeout);
     object_count = 0.0;
-    set_filter_service_ = create_service<radar_conti_ars408_msgs::srv::SetFilter>("/radar_conti_ars408/set_filter", std::bind(&radar_conti_ars408::setFilterService, this, std::placeholders::_1, std::placeholders::_2));
-    radar_config_service_ = create_service<radar_conti_ars408_msgs::srv::TriggerSetCfg>("/radar_conti_ars408/set_radar_configuration", std::bind(&radar_conti_ars408::setRadarConfigurationService, this, std::placeholders::_1, std::placeholders::_2));
+    set_filter_service_ = create_service<radar_conti_ars408_msgs::srv::SetFilter>("~/set_filter", std::bind(&radar_conti_ars408::setFilterService, this, std::placeholders::_1, std::placeholders::_2));
+    radar_config_service_ = create_service<radar_conti_ars408_msgs::srv::TriggerSetCfg>("~/set_radar_configuration", std::bind(&radar_conti_ars408::setRadarConfigurationService, this, std::placeholders::_1, std::placeholders::_2));
     if (!odom_topic_name_.empty())
     {
       rclcpp::QoS qos_settings(10);
@@ -411,7 +428,18 @@ namespace FHAC
       radar_state_publishers_[i]->on_activate();
     }
 
-    initializeFilterConfigs();
+    if (enable_can_tx_)
+    {
+      initializeFilterConfigs();
+    }
+    else
+    {
+      RCLCPP_WARN(
+          this->get_logger(),
+          "Automatic CAN transmit is disabled; skipping startup filter configuration writes.");
+      std::fill(filter_config_initialized_list_.begin(), filter_config_initialized_list_.end(), true);
+    }
+    startMetadataTimers();
 
     bond_ = std::make_unique<bond::Bond>(std::string("bond"), this->get_name(), shared_from_this());
     bond_->setHeartbeatPeriod(0.10);
@@ -426,7 +454,16 @@ namespace FHAC
       const rclcpp_lifecycle::State &)
   {
     RCUTILS_LOG_INFO_NAMED(get_name(), "on_deactivate() is called.");
-    filter_config_timer_->cancel();
+    if (filter_config_timer_)
+    {
+      filter_config_timer_->cancel();
+      filter_config_timer_.reset();
+    }
+    if (fov_marker_timer_)
+    {
+      fov_marker_timer_->cancel();
+      fov_marker_timer_.reset();
+    }
     socketcan_adapter_->joinReceptionThread();
     if (!socketcan_adapter_->closeSocket())
     {
@@ -461,6 +498,21 @@ namespace FHAC
     for (int i = 0; i <= (max_radar_id * number_of_radars_); i++)
     {
       UUID_table_.emplace_back(radar_conti_ars408::generateRandomUUID());
+    }
+  }
+
+  void radar_conti_ars408::startMetadataTimers()
+  {
+    if (!filter_config_timer_)
+    {
+      filter_config_timer_ = this->create_wall_timer(
+          1s, std::bind(&radar_conti_ars408::publishFilterConfigMetadata, this));
+    }
+
+    if (!fov_marker_timer_)
+    {
+      fov_marker_timer_ = this->create_wall_timer(
+          3s, std::bind(&radar_conti_ars408::publishFovMetadata, this));
     }
   }
 
@@ -541,19 +593,13 @@ namespace FHAC
         default:
           break;
         }
-        setFilter(radar_index, active, type, filter_index, min_value, max_value);
+        setFilter(radar_sensor_ids_[radar_index], active, type, filter_index, min_value, max_value);
         // need to sleep in order to read properly and not spam the can bus
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
       }
       // initialized and publish once
       filter_config_initialized_list_[radar_index] = true;
 
-      // TODO(troy): Make timer durations configurable.
-      filter_config_timer_ = this->create_wall_timer(
-          1s, std::bind(&radar_conti_ars408::publishFilterConfigMetadata, this));
-
-      fov_marker_timer_ = this->create_wall_timer(
-          3s, std::bind(&radar_conti_ars408::publishFovMetadata, this));
     }
   }
 
@@ -590,31 +636,26 @@ namespace FHAC
   void radar_conti_ars408::can_receive_callback(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
 
-    int sensor_id = Get_SensorID_From_MsgID(frame->get_id());
-
-    // If the sensor_id is greater than the size of the number of object lists, break
-    // if (sensor_id > object_list_list_.size() - 1)
-    // {
-    //   return;
-    // }
-    // SRR308 Change
-    if (sensor_id < 0 || static_cast<size_t>(sensor_id) >= object_list_list_.size())
+    const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
+    auto sensor_it = sensor_id_to_local_index_.find(frame_sensor_id);
+    if (sensor_it == sensor_id_to_local_index_.end())
     {
       return;
     }
+    const size_t local_index = sensor_it->second;
 
     // When a filter configuration message is sent, the sensor replies with the messages
     // FilterState_Header (0x203) with the number of configured filters and one message FilterState_Cfg
     // (0x204) for the filter that has been changed.
     if (Get_MsgID0_From_MsgID(frame->get_id()) == ID_FilterState_Cfg)
     {
-      updateFilterConfig(frame, sensor_id);
+      updateFilterConfig(frame, local_index);
     }
 
     if (Get_MsgID0_From_MsgID(frame->get_id()) == ID_RadarState)
     {
       operation_mode_ = CALC_RadarState_RadarState_OutputTypeCfg(GET_RadarState_RadarState_OutputTypeCfg(frame->get_data()), 1.0);
-      publishRadarState(frame, sensor_id);
+      publishRadarState(frame, local_index);
     }
 
     // no output
@@ -639,14 +680,20 @@ namespace FHAC
   void radar_conti_ars408::handle_object_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
 
-    int sensor_id = Get_SensorID_From_MsgID(frame->get_id());
+    const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
+    auto sensor_it = sensor_id_to_local_index_.find(frame_sensor_id);
+    if (sensor_it == sensor_id_to_local_index_.end())
+    {
+      return;
+    }
+    const size_t local_index = sensor_it->second;
 
     if (Get_MsgID0_From_MsgID(frame->get_id()) == ID_Obj_0_Status)
     {
-      publish_object_map(sensor_id);
-      object_list_list_[sensor_id].header.stamp = rclcpp_lifecycle::LifecycleNode::now();
-      object_list_list_[sensor_id].object_count.data = GET_Obj_0_Status_Obj_NofObjects(frame->get_data());
-      object_map_list_[sensor_id].clear();
+      publish_object_map(local_index);
+      object_list_list_[local_index].header.stamp = rclcpp_lifecycle::LifecycleNode::now();
+      object_list_list_[local_index].object_count.data = GET_Obj_0_Status_Obj_NofObjects(frame->get_data());
+      object_map_list_[local_index].clear();
     }
 
     // Object General Information
@@ -660,7 +707,7 @@ namespace FHAC
       int id = GET_Obj_1_General_Obj_ID(frame->get_data());
       o.obj_id.data = GET_Obj_1_General_Obj_ID(frame->get_data());
 
-      o.sensor_id.data = Get_SensorID_From_MsgID(frame->get_id());
+      o.sensor_id.data = frame_sensor_id;
 
       // longitudinal distance
       o.object_general.obj_distlong.data =
@@ -685,7 +732,7 @@ namespace FHAC
           CALC_Obj_1_General_Obj_RCS(GET_Obj_1_General_Obj_RCS(frame->get_data()), 1.0);
 
       // insert object into map
-      object_map_list_[sensor_id].insert(std::pair<int, radar_conti_ars408_msgs::msg::Object>(id, o));
+      object_map_list_[local_index].insert(std::pair<int, radar_conti_ars408_msgs::msg::Object>(id, o));
     }
 
     // Object Quality Information
@@ -697,19 +744,19 @@ namespace FHAC
 
       int id = GET_Obj_2_Quality_Obj_ID(frame->get_data());
 
-      object_map_list_[sensor_id][id].object_quality.obj_distlong_rms.data =
+      object_map_list_[local_index][id].object_quality.obj_distlong_rms.data =
           CALC_Obj_2_Quality_Obj_DistLong_rms(GET_Obj_2_Quality_Obj_DistLong_rms(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_quality.obj_distlat_rms.data =
+      object_map_list_[local_index][id].object_quality.obj_distlat_rms.data =
           CALC_Obj_2_Quality_Obj_DistLat_rms(GET_Obj_2_Quality_Obj_DistLat_rms(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_quality.obj_vrellong_rms.data =
+      object_map_list_[local_index][id].object_quality.obj_vrellong_rms.data =
           CALC_Obj_2_Quality_Obj_VrelLong_rms(GET_Obj_2_Quality_Obj_VrelLong_rms(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_quality.obj_vrellat_rms.data =
+      object_map_list_[local_index][id].object_quality.obj_vrellat_rms.data =
           CALC_Obj_2_Quality_Obj_VrelLat_rms(GET_Obj_2_Quality_Obj_VrelLat_rms(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_quality.obj_probofexist.data =
+      object_map_list_[local_index][id].object_quality.obj_probofexist.data =
           CALC_Obj_2_Quality_Obj_ProbOfExist(GET_Obj_2_Quality_Obj_ProbOfExist(frame->get_data()), 1.0);
     }
 
@@ -719,22 +766,22 @@ namespace FHAC
     {
       int id = GET_Obj_3_Extended_Obj_ID(frame->get_data());
 
-      object_map_list_[sensor_id][id].object_extended.obj_arellong.data =
+      object_map_list_[local_index][id].object_extended.obj_arellong.data =
           CALC_Obj_3_Extended_Obj_ArelLong(GET_Obj_3_Extended_Obj_ArelLong(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_extended.obj_arellat.data =
+      object_map_list_[local_index][id].object_extended.obj_arellat.data =
           CALC_Obj_3_Extended_Obj_ArelLat(GET_Obj_3_Extended_Obj_ArelLat(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_extended.obj_class.data =
+      object_map_list_[local_index][id].object_extended.obj_class.data =
           CALC_Obj_3_Extended_Obj_Class(GET_Obj_3_Extended_Obj_Class(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_extended.obj_orientationangle.data =
+      object_map_list_[local_index][id].object_extended.obj_orientationangle.data =
           CALC_Obj_3_Extended_Obj_OrientationAngle(GET_Obj_3_Extended_Obj_OrientationAngle(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_extended.obj_length.data =
+      object_map_list_[local_index][id].object_extended.obj_length.data =
           CALC_Obj_3_Extended_Obj_Length(GET_Obj_3_Extended_Obj_Length(frame->get_data()), 1.0);
 
-      object_map_list_[sensor_id][id].object_extended.obj_width.data =
+      object_map_list_[local_index][id].object_extended.obj_width.data =
           CALC_Obj_3_Extended_Obj_Width(GET_Obj_3_Extended_Obj_Width(frame->get_data()), 1.0);
 
       object_count = object_count + 1;
@@ -744,12 +791,18 @@ namespace FHAC
   // SRR308 Change: Add cluster handling
   void radar_conti_ars408::handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame)
   {
-    int sensor_id = Get_SensorID_From_MsgID(frame->get_id());
+    const int frame_sensor_id = Get_SensorID_From_MsgID(frame->get_id());
+    auto sensor_it = sensor_id_to_local_index_.find(frame_sensor_id);
+    if (sensor_it == sensor_id_to_local_index_.end())
+    {
+      return;
+    }
+    const size_t local_index = sensor_it->second;
 
     if (Get_MsgID0_From_MsgID(frame->get_id()) == ID_Cluster_0_Status)
     {
-      publish_cluster_map(sensor_id);
-      cluster_map_list_[sensor_id].clear();
+      publish_cluster_map(local_index);
+      cluster_map_list_[local_index].clear();
     }
 
     // Cluster General Information, coordinates, speed and RCS
@@ -762,7 +815,7 @@ namespace FHAC
 
       c.cluster_id.data = GET_Cluster_1_General_Cluster_ID(frame->get_data());
 
-      c.sensor_id.data = Get_SensorID_From_MsgID(frame->get_id());
+      c.sensor_id.data = frame_sensor_id;
 
       // longitudinal distance
       c.cluster_general.cluster_distlong.data =
@@ -786,7 +839,7 @@ namespace FHAC
       c.cluster_general.cluster_rcs.data =
           CALC_Cluster_1_General_Cluster_RCS(GET_Cluster_1_General_Cluster_RCS(frame->get_data()), 1.0);
         
-      cluster_map_list_[sensor_id].insert(std::pair<int, radar_conti_ars408_msgs::msg::Cluster>(id, c));
+      cluster_map_list_[local_index].insert(std::pair<int, radar_conti_ars408_msgs::msg::Cluster>(id, c));
     }
   }
     // Cluster Quality Information can be added later.
@@ -976,6 +1029,12 @@ namespace FHAC
       std::shared_ptr<radar_conti_ars408_msgs::srv::SetFilter::Response> response)
   {
     auto req = *request;
+    if (!enable_manual_can_tx_)
+    {
+      RCLCPP_WARN(this->get_logger(), "Ignoring set_filter request because enable_manual_can_tx is false.");
+      response->success = false;
+      return;
+    }
     // Add small delay so the CAN on Orin does not fault
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
     if (!setFilter(req.sensor_id,
@@ -990,6 +1049,12 @@ namespace FHAC
 
   bool radar_conti_ars408::setFilter(const int &sensor_id, const int &active, const int &type, const int &index, const int &min_value, const int &max_value)
   {
+    if (!enable_can_tx_ && !enable_manual_can_tx_)
+    {
+      RCLCPP_DEBUG(this->get_logger(), "Skipping filter CAN write because CAN transmit is disabled.");
+      return true;
+    }
+
     polymath::socketcan::CanFrame frame;
     frame.set_len(CAN_MAX_DLC);
 
@@ -1176,6 +1241,13 @@ namespace FHAC
       std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> response)
   {
     auto req = *request;
+    if (!enable_manual_can_tx_)
+    {
+      response->success = false;
+      response->message = "enable_manual_can_tx is false; radar configuration CAN write skipped";
+      RCLCPP_WARN(this->get_logger(), "%s", response->message.c_str());
+      return;
+    }
     if (!setRadarConfiguration(req.sensor_id, response))
     {
       response->success = false;
@@ -1186,6 +1258,13 @@ namespace FHAC
 
   bool radar_conti_ars408::setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_ars408_msgs::srv::TriggerSetCfg::Response> &response)
   {
+    if (!enable_can_tx_ && !enable_manual_can_tx_)
+    {
+      response->message = "CAN transmit is disabled; radar configuration CAN write skipped";
+      RCLCPP_DEBUG(this->get_logger(), "%s", response->message.c_str());
+      return true;
+    }
+
     RCLCPP_INFO(this->get_logger(), "Setting radar configuration for sensor_id: %i", sensor_id);
     polymath::socketcan::CanFrame frame;
     frame.set_len(DLC_RadarConfiguration);
@@ -1434,18 +1513,32 @@ namespace FHAC
 
     for (auto &motion_config : motion_configs_)
     {
-      auto sensor_id = motion_config.first;
+      auto local_index = motion_config.first;
       auto enable = motion_config.second;
       if (enable)
       {
-        auto motion_input_signal = radar_transforms::createMotionInputSignal(vehicle_odometry_, tf_buffer_, radar_link_names_[sensor_id], robot_base_frame_, transform_timeout_, this->get_clock());
-        sendMotionInputSignals(sensor_id, motion_input_signal);
+        if (!enable_can_tx_)
+        {
+          RCLCPP_DEBUG_THROTTLE(
+              this->get_logger(),
+              *this->get_clock(),
+              1000,
+              "Skipping motion input CAN write because enable_can_tx is false.");
+          continue;
+        }
+        auto motion_input_signal = radar_transforms::createMotionInputSignal(vehicle_odometry_, tf_buffer_, radar_link_names_[local_index], robot_base_frame_, transform_timeout_, this->get_clock());
+        sendMotionInputSignals(radar_sensor_ids_[local_index], motion_input_signal);
       }
     }
   }
 
   void radar_conti_ars408::sendMotionInputSignals(const size_t &sensor_id, radar_conti_ars408_structs::MotionInputSignal &motion_input_signal)
   {
+    if (!enable_can_tx_)
+    {
+      return;
+    }
+
     RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "Sending motion input");
     // Set up speed frame
     polymath::socketcan::CanFrame speed_frame;

@@ -1,0 +1,321 @@
+radar_can0:
+  ros__parameters:
+    can_channel: "can0"
+    object_list_topic_name: "object_list"
+    cluster_list_topic_name: "cluster_list"
+    marker_array_topic_name: "marker_array"
+    radar_tracks_topic_name: "radar_tracks"
+    obstacle_array_topic_name: "obstacle_array"
+    filter_config_topic_name: "filter_config"
+    radar_state_topic_name: "radar_state"
+    enable_can_tx: false
+    enable_manual_can_tx: true
+
+    radar_0:
+        #link of radar, should be relative to base_link      
+        link_name: "radar_front_left"
+        radarcfg_sensor_id: 0
+        radarcfg_sensor_id_valid: 1
+        radarcfg_storeinnvm: 0
+        radarcfg_storeinnvm_valid: 0
+        radarcfg_radar_power: 0           # Ignored for SRR308
+        radarcfg_radar_power_valid: 0     # Ignored for SRR308
+        radarcfg_send_ext_info: 1         # For extended information, i.e. cluster mode
+        radarcfg_send_ext_info_valid: 1
+        radarcfg_ctrl_relay: 0            # Relay control message is sent if true and the collision detection is activated. 0: relay off, 1: relay on  
+        radarcfg_ctrl_relay_valid: 1
+        radarcfg_send_quality: 1          # Cluster or object quality informaiton is sent if true.
+        radarcfg_send_quality_valid: 1
+        radarcfg_max_distance: 90
+        radarcfg_max_distance_valid: 1
+        radarcfg_output_type: 2           # Configure the data output to clusters (0x2) or objects (0x1)
+        radarcfg_output_type_valid: 1
+        radarcfg_rcs_threshold: 0         # Sets the sensitivity of the cluter detection to standard (0x0) or high (0x1).
+        radarcfg_rcs_threshold_valid: 1
+        radarcfg_sort_index: 1            # Selects the sorting index for the object list (ignored for clusters as they are always sorted by range)
+        radarcfg_sort_index_valid: 0
+
+
+        #set filter active flag on filter config index
+        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
+        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # 1
+        filtercfg_min_nofobj: 0       
+        filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
+        # 2
+        filtercfg_min_distance: 0.3
+        filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
+        # 3
+        filtercfg_min_azimuth: -75.0
+        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # 4
+        filtercfg_min_vreloncome: 0.0
+        filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
+        # 5
+        filtercfg_min_vreldepart: 0.0
+        filtercfg_max_vreldepart: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of departing clusters or objects
+        # 6
+        filtercfg_min_rcs: -20.0            
+        filtercfg_max_rcs: 30.0             # [-50, 52.375] Radar cross section in dBm^2 of the cluster
+        # 7
+        filtercfg_min_lifetime: 0.0
+        filtercfg_max_lifetime: 409.0       # [0, 409.5] Life time (since first detection) in seconds of the cluster or object
+        # 8
+        filtercfg_min_size: 0.0
+        filtercfg_max_size: 102.0           # [0, 102.375] Object size as area in m^2 (length x width)
+        # 9
+        filtercfg_min_probexists: 4
+        filtercfg_max_probexists: 7         # [0, 7] Probability of existence of the cluster or object (0%, 25%, 50%, 75%, 90%, 99%, 99.9%, 100%)
+        # 10
+        filtercfg_min_y: -409.0             
+        filtercfg_max_y: 409.0              # [-409.5, 409.5] Lateral distance in meter y from the radar sensor to the cluster or object
+        # 11
+        filtercfg_min_x: 0.0
+        filtercfg_max_x: 90.0               # [-500, 1138.2] Longitudinal distance in meter x from the radar sensor to the cluster or object
+        # 12
+        filtercfg_min_vyrightleft: 0.0
+        filtercfg_max_vyrightleft: 128.0    # [0, 128.993] Lateral velocity component in m/sec for right-left moving 
+        # 13
+        filtercfg_min_vxoncome: 0.0
+        filtercfg_max_vxoncome: 128.0
+        # 14
+        filtercfg_min_vyleftright: 0.0
+        filtercfg_max_vyleftright: 128.0
+        # 15
+        filtercfg_min_vxdepart: 0.0
+        filtercfg_max_vxdepart: 128.0
+
+    radar_1:
+        #link of radar, should be relative to base_link      
+        link_name: "radar_front_right"
+        radarcfg_sensor_id: 1
+        radarcfg_sensor_id_valid: 1
+        radarcfg_storeinnvm: 0
+        radarcfg_storeinnvm_valid: 0
+        radarcfg_radar_power: 3
+        radarcfg_radar_power_valid: 0
+        radarcfg_send_ext_info: 1
+        radarcfg_send_ext_info_valid: 1
+        radarcfg_ctrl_relay: 0
+        radarcfg_ctrl_relay_valid: 1
+        radarcfg_send_quality: 1
+        radarcfg_send_quality_valid: 1
+        radarcfg_max_distance: 90
+        radarcfg_max_distance_valid: 1
+        radarcfg_output_type: 2
+        radarcfg_output_type_valid: 1
+        radarcfg_rcs_threshold: 0
+        radarcfg_rcs_threshold_valid: 1
+        radarcfg_sort_index: 1
+        radarcfg_sort_index_valid: 0
+
+
+        #set filter active flag on filter config index
+        #set filter active flag on filter config index
+        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
+        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # 1
+        filtercfg_min_nofobj: 0       
+        filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
+        # 2
+        filtercfg_min_distance: 0.3
+        filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
+        # 3
+        filtercfg_min_azimuth: -75.0
+        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # 4
+        filtercfg_min_vreloncome: 0.0
+        filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
+        # 5
+        filtercfg_min_vreldepart: 0.0
+        filtercfg_max_vreldepart: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of departing clusters or objects
+        # 6
+        filtercfg_min_rcs: -20.0            
+        filtercfg_max_rcs: 30.0             # [-50, 52.375] Radar cross section in dBm^2 of the cluster
+        # 7
+        filtercfg_min_lifetime: 0.0
+        filtercfg_max_lifetime: 409.0       # [0, 409.5] Life time (since first detection) in seconds of the cluster or object
+        # 8
+        filtercfg_min_size: 0.0
+        filtercfg_max_size: 102.0           # [0, 102.375] Object size as area in m^2 (length x width)
+        # 9
+        filtercfg_min_probexists: 4
+        filtercfg_max_probexists: 7         # [0, 7] Probability of existence of the cluster or object (0%, 25%, 50%, 75%, 90%, 99%, 99.9%, 100%)
+        # 10
+        filtercfg_min_y: -409.0             
+        filtercfg_max_y: 409.0              # [-409.5, 409.5] Lateral distance in meter y from the radar sensor to the cluster or object
+        # 11
+        filtercfg_min_x: 0.0
+        filtercfg_max_x: 90.0               # [-500, 1138.2] Longitudinal distance in meter x from the radar sensor to the cluster or object
+        # 12
+        filtercfg_min_vyrightleft: 0.0
+        filtercfg_max_vyrightleft: 128.0    # [0, 128.993] Lateral velocity component in m/sec for right-left moving 
+        # 13
+        filtercfg_min_vxoncome: 0.0
+        filtercfg_max_vxoncome: 128.0
+        # 14
+        filtercfg_min_vyleftright: 0.0
+        filtercfg_max_vyleftright: 128.0
+        # 15
+        filtercfg_min_vxdepart: 0.0
+        filtercfg_max_vxdepart: 128.0
+
+
+radar_can1:
+  ros__parameters:
+    can_channel: "can1"
+    object_list_topic_name: "object_list"
+    cluster_list_topic_name: "cluster_list"
+    marker_array_topic_name: "marker_array"
+    radar_tracks_topic_name: "radar_tracks"
+    obstacle_array_topic_name: "obstacle_array"
+    filter_config_topic_name: "filter_config"
+    radar_state_topic_name: "radar_state"
+    enable_can_tx: false
+    enable_manual_can_tx: true
+
+    radar_0:
+        #link of radar, should be relative to base_link      
+        link_name: "radar_rear_left"
+        radarcfg_sensor_id: 2
+        radarcfg_sensor_id_valid: 1
+        radarcfg_storeinnvm: 0
+        radarcfg_storeinnvm_valid: 0
+        radarcfg_radar_power: 3
+        radarcfg_radar_power_valid: 0
+        radarcfg_send_ext_info: 1
+        radarcfg_send_ext_info_valid: 1
+        radarcfg_ctrl_relay: 0
+        radarcfg_ctrl_relay_valid: 1
+        radarcfg_send_quality: 1
+        radarcfg_send_quality_valid: 1
+        radarcfg_max_distance: 90
+        radarcfg_max_distance_valid: 1
+        radarcfg_output_type: 2
+        radarcfg_output_type_valid: 1
+        radarcfg_rcs_threshold: 0
+        radarcfg_rcs_threshold_valid: 1
+        radarcfg_sort_index: 1
+        radarcfg_sort_index_valid: 0
+    
+        #set filter active flag on filter config index
+        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
+        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # 1
+        filtercfg_min_nofobj: 0       
+        filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
+        # 2
+        filtercfg_min_distance: 0.3
+        filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
+        # 3
+        filtercfg_min_azimuth: -75.0
+        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # 4
+        filtercfg_min_vreloncome: 0.0
+        filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
+        # 5
+        filtercfg_min_vreldepart: 0.0
+        filtercfg_max_vreldepart: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of departing clusters or objects
+        # 6
+        filtercfg_min_rcs: -20.0            
+        filtercfg_max_rcs: 30.0             # [-50, 52.375] Radar cross section in dBm^2 of the cluster
+        # 7
+        filtercfg_min_lifetime: 0.0
+        filtercfg_max_lifetime: 409.0       # [0, 409.5] Life time (since first detection) in seconds of the cluster or object
+        # 8
+        filtercfg_min_size: 0.0
+        filtercfg_max_size: 102.0           # [0, 102.375] Object size as area in m^2 (length x width)
+        # 9
+        filtercfg_min_probexists: 4
+        filtercfg_max_probexists: 7         # [0, 7] Probability of existence of the cluster or object (0%, 25%, 50%, 75%, 90%, 99%, 99.9%, 100%)
+        # 10
+        filtercfg_min_y: -409.0             
+        filtercfg_max_y: 409.0              # [-409.5, 409.5] Lateral distance in meter y from the radar sensor to the cluster or object
+        # 11
+        filtercfg_min_x: 0.0
+        filtercfg_max_x: 90.0               # [-500, 1138.2] Longitudinal distance in meter x from the radar sensor to the cluster or object
+        # 12
+        filtercfg_min_vyrightleft: 0.0
+        filtercfg_max_vyrightleft: 128.0    # [0, 128.993] Lateral velocity component in m/sec for right-left moving 
+        # 13
+        filtercfg_min_vxoncome: 0.0
+        filtercfg_max_vxoncome: 128.0
+        # 14
+        filtercfg_min_vyleftright: 0.0
+        filtercfg_max_vyleftright: 128.0
+        # 15
+        filtercfg_min_vxdepart: 0.0
+        filtercfg_max_vxdepart: 128.0    
+
+    # radar_1:
+    #     #link of radar, should be relative to base_link      
+    #     link_name: "radar_rear_right"
+    #     radarcfg_sensor_id: 3
+    #     radarcfg_sensor_id_valid: 1
+    #     radarcfg_storeinnvm: 0
+    #     radarcfg_storeinnvm_valid: 0
+    #     radarcfg_radar_power: 3
+    #     radarcfg_radar_power_valid: 0
+    #     radarcfg_send_ext_info: 1
+    #     radarcfg_send_ext_info_valid: 1
+    #     radarcfg_ctrl_relay: 0
+    #     radarcfg_ctrl_relay_valid: 1
+    #     radarcfg_send_quality: 1
+    #     radarcfg_send_quality_valid: 1
+    #     radarcfg_max_distance: 90
+    #     radarcfg_max_distance_valid: 1
+    #     radarcfg_output_type: 2
+    #     radarcfg_output_type_valid: 1
+    #     radarcfg_rcs_threshold: 0
+    #     radarcfg_rcs_threshold_valid: 1
+    #     radarcfg_sort_index: 1
+    #     radarcfg_sort_index_valid: 0
+    
+        #set filter active flag on filter config index
+        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
+        # active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # # 1
+        # filtercfg_min_nofobj: 0       
+        # filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
+        # # 2
+        # filtercfg_min_distance: 0.3
+        # filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
+        # # 3
+        # filtercfg_min_azimuth: -75.0
+        # filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # # 4
+        # filtercfg_min_vreloncome: 0.0
+        # filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
+        # # 5
+        # filtercfg_min_vreldepart: 0.0
+        # filtercfg_max_vreldepart: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of departing clusters or objects
+        # # 6
+        # filtercfg_min_rcs: -20.0            
+        # filtercfg_max_rcs: 30.0             # [-50, 52.375] Radar cross section in dBm^2 of the cluster
+        # # 7
+        # filtercfg_min_lifetime: 0.0
+        # filtercfg_max_lifetime: 409.0       # [0, 409.5] Life time (since first detection) in seconds of the cluster or object
+        # # 8
+        # filtercfg_min_size: 0.0
+        # filtercfg_max_size: 102.0           # [0, 102.375] Object size as area in m^2 (length x width)
+        # # 9
+        # filtercfg_min_probexists: 4
+        # filtercfg_max_probexists: 7         # [0, 7] Probability of existence of the cluster or object (0%, 25%, 50%, 75%, 90%, 99%, 99.9%, 100%)
+        # # 10
+        # filtercfg_min_y: -409.0             
+        # filtercfg_max_y: 409.0              # [-409.5, 409.5] Lateral distance in meter y from the radar sensor to the cluster or object
+        # # 11
+        # filtercfg_min_x: 0.0
+        # filtercfg_max_x: 90.0               # [-500, 1138.2] Longitudinal distance in meter x from the radar sensor to the cluster or object
+        # # 12
+        # filtercfg_min_vyrightleft: 0.0
+        # filtercfg_max_vyrightleft: 128.0    # [0, 128.993] Lateral velocity component in m/sec for right-left moving 
+        # # 13
+        # filtercfg_min_vxoncome: 0.0
+        # filtercfg_max_vxoncome: 128.0
+        # # 14
+        # filtercfg_min_vyleftright: 0.0
+        # filtercfg_max_vyleftright: 128.0
+        # # 15
+        # filtercfg_min_vxdepart: 0.0
+        # filtercfg_max_vxdepart: 128.0

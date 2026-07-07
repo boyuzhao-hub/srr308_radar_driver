@@ -88,22 +88,22 @@ def generate_launch_description():
             ]
         ), 
 
-        # rear left radar
-        # Node(
-        #     package='tf2_ros',
-        #     executable='static_transform_publisher',
-        #     name='radar_rear_left_tf',
-        #     arguments=[
-        #         '--x', str(rear_left_radar_x),
-        #         '--y', str(rear_left_radar_y),
-        #         '--z', str(height),
-        #         '--yaw', str(yaw_rear_left),
-        #         '--pitch', str(pitch_rear),
-        #         '--roll', str(roll_rear),
-        #         '--frame-id', 'base_link',
-        #         '--child-frame-id', 'radar_rear_left'
-        #     ]
-        # ),
+        #rear left radar
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='radar_rear_left_tf',
+            arguments=[
+                '--x', str(rear_left_radar_x),
+                '--y', str(rear_left_radar_y),
+                '--z', str(height),
+                '--yaw', str(yaw_rear_left),
+                '--pitch', str(pitch_rear),
+                '--roll', str(roll_rear),
+                '--frame-id', 'base_link',
+                '--child-frame-id', 'radar_rear_left'
+            ]
+        ),
 
         # # rear right radar
         # Node(

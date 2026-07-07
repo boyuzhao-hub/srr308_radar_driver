@@ -30,13 +30,8 @@ def generate_launch_description():
         default_value=config_file,
         description='Alias for config_file; accepts a different YAML file path'
     )
-    node_name = LaunchConfiguration('node_name')
-    node_name_arg = DeclareLaunchArgument(
-        'node_name',
-        default_value='radar_node',
-        description='Name of the radar node to launch'
-    )
-    lifecycle_nodes = [node_name]
+
+    lifecycle_nodes = ['radar_can0','radar_can1']
 
     autostart = LaunchConfiguration('autostart')
     autostart_arg = DeclareLaunchArgument(
@@ -80,24 +75,35 @@ def generate_launch_description():
                     {'autostart': autostart},
                     {'node_names': lifecycle_nodes}])
 
-    radar_node = Node(
+    radar_can0_node = Node(
         package='radar_conti_ars408',
         executable='radar_conti_ars408_composition',
-        name=node_name,
-        namespace=LaunchConfiguration('namespace'),
+        name='radar_can0',
+        namespace=namespace,
         output='screen',
         arguments=['--ros-args', '--log-level', log_level],
-        parameters=[LaunchConfiguration('params_file')])
+        parameters=[LaunchConfiguration('params_file')]
+    )
+
+    radar_can1_node = Node(
+        package='radar_conti_ars408',
+        executable='radar_conti_ars408_composition',
+        name='radar_can1',
+        namespace=namespace,
+        output='screen',
+        arguments=['--ros-args', '--log-level', log_level],
+        parameters=[LaunchConfiguration('params_file')]
+    )
 
     ld = LaunchDescription()
     ld.add_action(log_level_arg)
     ld.add_action(config_file_arg)
     ld.add_action(params_file_arg)
-    ld.add_action(node_name_arg)
     ld.add_action(autostart_arg)
     ld.add_action(use_sim_time_arg)
     ld.add_action(namespace_arg)
-    ld.add_action(radar_node)
+    ld.add_action(radar_can0_node)
+    ld.add_action(radar_can1_node)
     # SRR308 Change: to include tf_radar_launch.py
     ld.add_action(include_tf_launch)
     #########################################################################

@@ -350,6 +350,7 @@ namespace FHAC
         void publishRadarState(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id);
         void updateFilterConfig(std::shared_ptr<const polymath::socketcan::CanFrame> frame, const int &sensor_id);
         void initializeFilterConfigs();
+        void startMetadataTimers();
         void publishFilterConfigMetadata();
         void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg);
         nav_msgs::msg::Odometry vehicle_odometry_;
@@ -380,6 +381,8 @@ namespace FHAC
         std::unordered_map<size_t, radar_conti_ars408_msgs::msg::RadarConfiguration> radar_configuration_configs_;
         std::unordered_map<size_t, bool> motion_configs_;
         std::vector<std::vector<bool>> radar_filter_active_;
+        std::vector<int> radar_sensor_ids_;
+        std::unordered_map<int, size_t> sensor_id_to_local_index_;
 
         // additional variables
         rclcpp::TimerBase::SharedPtr fov_marker_timer_;
@@ -391,6 +394,8 @@ namespace FHAC
 
         /// @brief whether to overwrite radar configurations on startup
         bool overwrite_configs_;
+        bool enable_can_tx_;
+        bool enable_manual_can_tx_;
 
         std::unique_ptr<bond::Bond> bond_{nullptr};
 
