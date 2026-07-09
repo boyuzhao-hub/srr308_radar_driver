@@ -13,7 +13,7 @@ radar_can0:
 
     radar_0:
         #link of radar, should be relative to base_link      
-        link_name: "radar_front_left"
+        link_name: "radar_front_left_link"
         radarcfg_sensor_id: 0
         radarcfg_sensor_id_valid: 1
         radarcfg_storeinnvm: 0
@@ -87,7 +87,7 @@ radar_can0:
 
     radar_1:
         #link of radar, should be relative to base_link      
-        link_name: "radar_front_right"
+        link_name: "radar_front_right_link"
         radarcfg_sensor_id: 1
         radarcfg_sensor_id_valid: 1
         radarcfg_storeinnvm: 0
@@ -176,7 +176,7 @@ radar_can1:
 
     radar_0:
         #link of radar, should be relative to base_link      
-        link_name: "radar_rear_left"
+        link_name: "radar_rear_left_link"
         radarcfg_sensor_id: 2
         radarcfg_sensor_id_valid: 1
         radarcfg_storeinnvm: 0
@@ -249,7 +249,7 @@ radar_can1:
 
     # radar_1:
     #     #link of radar, should be relative to base_link      
-    #     link_name: "radar_rear_right"
+    #     link_name: "radar_rear_right_link"
     #     radarcfg_sensor_id: 3
     #     radarcfg_sensor_id_valid: 1
     #     radarcfg_storeinnvm: 0
