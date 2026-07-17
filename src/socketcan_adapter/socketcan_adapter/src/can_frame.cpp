@@ -38,6 +38,7 @@ CanFrame::CanFrame(
   uint8_t len)
 : receive_time_(std::chrono::steady_clock::now())
 , bus_time_(std::chrono::system_clock::time_point(std::chrono::microseconds(bus_timestamp)))
+, bus_timestamp_valid_(true)
 {
   set_can_id(raw_id);
   std::copy(data.begin(), data.end(), frame_.data);
@@ -53,6 +54,7 @@ CanFrame::CanFrame(
   uint8_t len)
 : receive_time_(std::chrono::steady_clock::now())
 , bus_time_(std::chrono::system_clock::time_point(std::chrono::microseconds(bus_timestamp)))
+, bus_timestamp_valid_(true)
 {
   set_can_id(id);
   set_data(data);
@@ -138,6 +140,7 @@ void CanFrame::set_data(const std::array<unsigned char, CAN_MAX_DLC> & data)
 void CanFrame::set_bus_timestamp(const uint64_t & timestamp)
 {
   bus_time_ = std::chrono::system_clock::time_point(std::chrono::microseconds(timestamp));
+  bus_timestamp_valid_ = true;
 }
 
 void CanFrame::set_receive_timestamp(const uint64_t & timestamp)
@@ -148,6 +151,12 @@ void CanFrame::set_receive_timestamp(const uint64_t & timestamp)
 void CanFrame::set_bus_timestamp(const std::chrono::system_clock::time_point & timestamp)
 {
   bus_time_ = timestamp;
+  bus_timestamp_valid_ = true;
+}
+
+void CanFrame::set_bus_timestamp_valid(bool valid)
+{
+  bus_timestamp_valid_ = valid;
 }
 
 void CanFrame::set_receive_timestamp(const std::chrono::steady_clock::time_point & timestamp)
@@ -158,6 +167,11 @@ void CanFrame::set_receive_timestamp(const std::chrono::steady_clock::time_point
 std::chrono::system_clock::time_point CanFrame::get_bus_time() const
 {
   return bus_time_;
+}
+
+bool CanFrame::has_valid_bus_timestamp() const
+{
+  return bus_timestamp_valid_;
 }
 
 std::chrono::steady_clock::time_point CanFrame::get_receive_time() const

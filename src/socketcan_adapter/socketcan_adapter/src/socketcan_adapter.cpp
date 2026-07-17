@@ -39,18 +39,31 @@ SocketcanAdapter::SocketcanAdapter(
   const std::string & interface_name, const std::chrono::duration<float> & receive_timeout_s)
 : interface_name_(interface_name)
 , receive_timeout_s_(receive_timeout_s)
+, socket_file_descriptor_(CLOSED_SOCKET_VALUE)
 , receive_callback_unique_ptr_([](std::unique_ptr<const CanFrame> /*frame*/) { /*do nothing*/ })
 , receive_error_callback_([](socket_error_string_t /*error*/) { /*do nothing*/ })
+, thread_running_(false)
+, stop_thread_requested_(false)
 , socket_state_(SocketState::CLOSED)
+, error_mask_(0)
+, join_(false)
 {}
 
 SocketcanAdapter::~SocketcanAdapter()
 {
+  stop_thread_requested_ = true;
+  if (can_receive_thread_.joinable()) {
+    can_receive_thread_.join();
+  }
   closeSocket();
 }
 
 bool SocketcanAdapter::openSocket()
 {
+  if (socket_file_descriptor_ != CLOSED_SOCKET_VALUE) {
+    return false;
+  }
+
   struct sockaddr_can addr{};
   socket_file_descriptor_ = socket(PF_CAN, SOCK_RAW, CAN_RAW);
 
@@ -59,6 +72,12 @@ bool SocketcanAdapter::openSocket()
   }
 
   auto if_index = if_nametoindex(interface_name_.c_str());
+  // Linux interprets ifindex 0 as "all CAN interfaces". A misspelled or
+  // missing interface must therefore fail instead of silently mixing buses.
+  if (if_index == 0U) {
+    closeSocket();
+    return false;
+  }
 
   addr.can_family = AF_CAN;
   addr.can_ifindex = if_index;
@@ -170,14 +189,21 @@ std::optional<SocketcanAdapter::socket_error_string_t> SocketcanAdapter::receive
       error_string += socket_error_string_t("Error frame received\n");
     }
 
-    struct timeval tv;
-    ioctl(socket_file_descriptor_, SIOCGSTAMP, &tv);
-
-    // uint64_t timestamp_uint64 = static_cast<uint64_t>(tv.tv_sec) * 1e6 + tv.tv_usec;
-    std::chrono::system_clock::time_point timestamp{
-      std::chrono::seconds{tv.tv_sec} + std::chrono::microseconds{tv.tv_usec}};
+    struct timeval tv{};
+    std::chrono::system_clock::time_point timestamp;
+    const bool timestamp_valid = ioctl(socket_file_descriptor_, SIOCGSTAMP, &tv) == 0;
+    if (timestamp_valid) {
+      // Kernel timestamp of the CAN frame most recently returned by read().
+      timestamp = std::chrono::system_clock::time_point{
+        std::chrono::seconds{tv.tv_sec} + std::chrono::microseconds{tv.tv_usec}};
+    } else {
+      // Do not propagate an uninitialized/epoch timestamp if the platform does
+      // not provide SIOCGSTAMP. This fallback is used only on ioctl failure.
+      timestamp = std::chrono::system_clock::now();
+    }
     polymath_can_frame.set_frame(frame);
     polymath_can_frame.set_bus_timestamp(timestamp);
+    polymath_can_frame.set_bus_timestamp_valid(timestamp_valid);
     polymath_can_frame.set_receive_timestamp(std::chrono::steady_clock::now());
   }
 
@@ -310,7 +336,7 @@ bool SocketcanAdapter::setOnErrorCallback(std::function<void(socket_error_string
 
 bool SocketcanAdapter::startReceptionThread()
 {
-  if (socket_state_ == SocketState::CLOSED) {
+  if (socket_state_ == SocketState::CLOSED || can_receive_thread_.joinable()) {
     return false;
   }
 
@@ -340,6 +366,11 @@ bool SocketcanAdapter::joinReceptionThread(const std::chrono::duration<float> & 
   stop_thread_requested_ = true;
 
   if (can_receive_thread_.joinable()) {
+    if (timeout_s.count() <= 0.0F) {
+      can_receive_thread_.join();
+      return true;
+    }
+
     // Use std::async to wait asynchronously for the thread to stop
     std::future<void> join_future = std::async(std::launch::async, [this] { can_receive_thread_.join(); });
 
@@ -347,7 +378,7 @@ bool SocketcanAdapter::joinReceptionThread(const std::chrono::duration<float> & 
     return join_future.wait_for(timeout_s) == std::future_status::ready;
   }
 
-  return false;
+  return true;
 }
 
 std::string SocketcanAdapter::get_interface()

@@ -10,21 +10,25 @@ radar_can0:
     radar_state_topic_name: "radar_state"
     enable_can_tx: false
     enable_manual_can_tx: true
+    cluster_marker_lifetime_sec: 0.5
+    cluster_marker_scale: 0.6
+    cluster_scan_timeout_ms: 200
+    max_cluster_frames_per_scan: 512
 
     radar_0:
         #link of radar, should be relative to base_link      
         link_name: "radar_front_left_link"
         radarcfg_sensor_id: 0
         radarcfg_sensor_id_valid: 1
-        radarcfg_storeinnvm: 0
-        radarcfg_storeinnvm_valid: 0
+        radarcfg_store_in_nvm: 0
+        radarcfg_store_in_nvm_valid: 0
         radarcfg_radar_power: 0           # Ignored for SRR308
         radarcfg_radar_power_valid: 0     # Ignored for SRR308
-        radarcfg_send_ext_info: 1         # For extended information, i.e. cluster mode
-        radarcfg_send_ext_info_valid: 1
+        radarcfg_send_ext_info: 0         # For extended information, i.e. object mode extended information, the radar needs to be configured accordingly. 0: no extended information, 1: extended information
+        radarcfg_send_ext_info_valid: 1  # Apply send_ext_info=0 on manual RadarConfiguration trigger
         radarcfg_ctrl_relay: 0            # Relay control message is sent if true and the collision detection is activated. 0: relay off, 1: relay on  
         radarcfg_ctrl_relay_valid: 1
-        radarcfg_send_quality: 1          # Cluster or object quality informaiton is sent if true.
+        radarcfg_send_quality: 0          # Cluster or object quality informaiton is sent if true.
         radarcfg_send_quality_valid: 1
         radarcfg_max_distance: 90
         radarcfg_max_distance_valid: 1
@@ -37,8 +41,10 @@ radar_can0:
 
 
         #set filter active flag on filter config index
-        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
-        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # Cluster type uses zero-based indices 0,1,2,5 only. Indices 6..10 are Object-only; the remaining indices are unsupported for SRR308 Cluster mode.
+        # active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # For calibration, inactive all the filters
+        active: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
         # 1
         filtercfg_min_nofobj: 0       
         filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
@@ -46,8 +52,9 @@ radar_can0:
         filtercfg_min_distance: 0.3
         filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
         # 3
-        filtercfg_min_azimuth: -75.0
-        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # FilterCfg wire encoding is narrower than the SRR308 detection FOV.
+        filtercfg_min_azimuth: -50.0
+        filtercfg_max_azimuth: 52.375       # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
         # 4
         filtercfg_min_vreloncome: 0.0
         filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
@@ -64,7 +71,7 @@ radar_can0:
         filtercfg_min_size: 0.0
         filtercfg_max_size: 102.0           # [0, 102.375] Object size as area in m^2 (length x width)
         # 9
-        filtercfg_min_probexists: 4
+        filtercfg_min_probexists: 3
         filtercfg_max_probexists: 7         # [0, 7] Probability of existence of the cluster or object (0%, 25%, 50%, 75%, 90%, 99%, 99.9%, 100%)
         # 10
         filtercfg_min_y: -409.0             
@@ -90,15 +97,15 @@ radar_can0:
         link_name: "radar_front_right_link"
         radarcfg_sensor_id: 1
         radarcfg_sensor_id_valid: 1
-        radarcfg_storeinnvm: 0
-        radarcfg_storeinnvm_valid: 0
+        radarcfg_store_in_nvm: 0
+        radarcfg_store_in_nvm_valid: 0
         radarcfg_radar_power: 3
         radarcfg_radar_power_valid: 0
-        radarcfg_send_ext_info: 1
-        radarcfg_send_ext_info_valid: 1
+        radarcfg_send_ext_info: 0
+        radarcfg_send_ext_info_valid: 1  # Apply send_ext_info=0 on manual RadarConfiguration trigger
         radarcfg_ctrl_relay: 0
         radarcfg_ctrl_relay_valid: 1
-        radarcfg_send_quality: 1
+        radarcfg_send_quality: 0
         radarcfg_send_quality_valid: 1
         radarcfg_max_distance: 90
         radarcfg_max_distance_valid: 1
@@ -112,8 +119,9 @@ radar_can0:
 
         #set filter active flag on filter config index
         #set filter active flag on filter config index
-        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
-        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # Cluster type uses zero-based indices 0,1,2,5 only. Indices 6..10 are Object-only; the remaining indices are unsupported for SRR308 Cluster mode.
+        # active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        active: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
         # 1
         filtercfg_min_nofobj: 0       
         filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
@@ -121,8 +129,9 @@ radar_can0:
         filtercfg_min_distance: 0.3
         filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
         # 3
-        filtercfg_min_azimuth: -75.0
-        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # FilterCfg wire encoding is narrower than the SRR308 detection FOV.
+        filtercfg_min_azimuth: -50.0
+        filtercfg_max_azimuth: 52.375       # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
         # 4
         filtercfg_min_vreloncome: 0.0
         filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
@@ -173,21 +182,25 @@ radar_can1:
     radar_state_topic_name: "radar_state"
     enable_can_tx: false
     enable_manual_can_tx: true
+    cluster_marker_lifetime_sec: 0.5
+    cluster_marker_scale: 0.6
+    cluster_scan_timeout_ms: 200
+    max_cluster_frames_per_scan: 512
 
     radar_0:
         #link of radar, should be relative to base_link      
-        link_name: "radar_rear_left_link"
+        link_name: "radar_rear_right_link"
         radarcfg_sensor_id: 2
         radarcfg_sensor_id_valid: 1
-        radarcfg_storeinnvm: 0
-        radarcfg_storeinnvm_valid: 0
+        radarcfg_store_in_nvm: 0
+        radarcfg_store_in_nvm_valid: 0
         radarcfg_radar_power: 3
         radarcfg_radar_power_valid: 0
-        radarcfg_send_ext_info: 1
-        radarcfg_send_ext_info_valid: 1
+        radarcfg_send_ext_info: 0
+        radarcfg_send_ext_info_valid: 1  # Apply send_ext_info=0 on manual RadarConfiguration trigger
         radarcfg_ctrl_relay: 0
         radarcfg_ctrl_relay_valid: 1
-        radarcfg_send_quality: 1
+        radarcfg_send_quality: 0
         radarcfg_send_quality_valid: 1
         radarcfg_max_distance: 90
         radarcfg_max_distance_valid: 1
@@ -199,8 +212,9 @@ radar_can1:
         radarcfg_sort_index_valid: 0
     
         #set filter active flag on filter config index
-        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
-        active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # Cluster type uses zero-based indices 0,1,2,5 only. Indices 6..10 are Object-only; the remaining indices are unsupported for SRR308 Cluster mode.
+        # active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        active: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
         # 1
         filtercfg_min_nofobj: 0       
         filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
@@ -208,8 +222,9 @@ radar_can1:
         filtercfg_min_distance: 0.3
         filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
         # 3
-        filtercfg_min_azimuth: -75.0
-        filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # FilterCfg wire encoding is narrower than the SRR308 detection FOV.
+        filtercfg_min_azimuth: -50.0
+        filtercfg_max_azimuth: 52.375       # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
         # 4
         filtercfg_min_vreloncome: 0.0
         filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects
@@ -249,18 +264,18 @@ radar_can1:
 
     # radar_1:
     #     #link of radar, should be relative to base_link      
-    #     link_name: "radar_rear_right_link"
+    #     link_name: "radar_rear_left_link"
     #     radarcfg_sensor_id: 3
     #     radarcfg_sensor_id_valid: 1
-    #     radarcfg_storeinnvm: 0
-    #     radarcfg_storeinnvm_valid: 0
+    #     radarcfg_store_in_nvm: 0
+    #     radarcfg_store_in_nvm_valid: 0
     #     radarcfg_radar_power: 3
     #     radarcfg_radar_power_valid: 0
-    #     radarcfg_send_ext_info: 1
+    #     radarcfg_send_ext_info: 0
     #     radarcfg_send_ext_info_valid: 1
     #     radarcfg_ctrl_relay: 0
     #     radarcfg_ctrl_relay_valid: 1
-    #     radarcfg_send_quality: 1
+    #     radarcfg_send_quality: 0
     #     radarcfg_send_quality_valid: 1
     #     radarcfg_max_distance: 90
     #     radarcfg_max_distance_valid: 1
@@ -272,8 +287,8 @@ radar_can1:
     #     radarcfg_sort_index_valid: 0
     
         #set filter active flag on filter config index
-        # For SRR308, VrelOncome (4), VrelDepart (5), VYRightLeft (12), VXOncome (13), VYLeftRight (14), VXDepart (15) are not supported.
-        # active: [false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+        # Cluster type uses zero-based indices 0,1,2,5 only. Indices 6..10 are Object-only; the remaining indices are unsupported for SRR308 Cluster mode.
+        # active: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
         # # 1
         # filtercfg_min_nofobj: 0       
         # filtercfg_max_nofobj: 20            # [0,4095] Limits of the maximum number of cluster or objects to send out (minimum value is ignored) 
@@ -281,8 +296,8 @@ radar_can1:
         # filtercfg_min_distance: 0.3
         # filtercfg_max_distance: 90.0        # [0, 409.5] Radial distance in meter r=sqrt(x^2+y^2) from the radar sensor to the cluster or object
         # # 3
-        # filtercfg_min_azimuth: -75.0
-        # filtercfg_max_azimuth: 75.0         # [-50, 52.375] Azimuth angle in degree a=atan2(y,x) from the radar sensor to the cluster or object
+        # filtercfg_min_azimuth: -50.0
+        # filtercfg_max_azimuth: 52.375       # [-50, 52.375] FilterCfg wire range; detection FOV is wider
         # # 4
         # filtercfg_min_vreloncome: 0.0
         # filtercfg_max_vreloncome: 128.0     # [0, 128.993] Radial velocity in sensor line-of-sight in m/sec of oncoming clusters or objects

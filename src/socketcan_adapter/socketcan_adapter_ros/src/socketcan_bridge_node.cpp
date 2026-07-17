@@ -14,7 +14,9 @@
 
 #include "socketcan_adapter_ros/socketcan_bridge_node.hpp"
 
+#include <chrono>
 #include <cstdio>
+#include <cstdint>
 #include <functional>
 #include <memory>
 #include <string>
@@ -40,8 +42,14 @@ SocketcanBridgeNode::SocketcanBridgeNode(const rclcpp::NodeOptions & options)
 
 SocketcanBridgeNode::~SocketcanBridgeNode()
 {
-  on_deactivate(get_current_state());
-  on_cleanup(get_current_state());
+  // The destructor can run before configure() or after cleanup(). Do not call
+  // lifecycle callbacks here because they assume configured resources.
+  if (socketcan_adapter_) {
+    socketcan_adapter_->joinReceptionThread(std::chrono::duration<float>(0.0F));
+    if (socketcan_adapter_->get_socket_state() != SocketState::CLOSED) {
+      socketcan_adapter_->closeSocket();
+    }
+  }
 }
 
 SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_configure(
@@ -62,13 +70,25 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_co
   frame_subscriber_ = create_subscription<can_msgs::msg::Frame>(
     "can_tx", 10, std::bind(&SocketcanBridgeNode::transmitCanFrame, this, std::placeholders::_1));
 
+  const auto configuration_failure = [this]() {
+      if (socketcan_adapter_) {
+        socketcan_adapter_->joinReceptionThread(std::chrono::duration<float>(0.0F));
+        if (socketcan_adapter_->get_socket_state() != SocketState::CLOSED) {
+          socketcan_adapter_->closeSocket();
+        }
+      }
+      frame_subscriber_.reset();
+      frame_publisher_.reset();
+      socketcan_adapter_.reset();
+      return rclcpp_lifecycle_callback_return::FAILURE;
+    };
+
   bool success;
   success = socketcan_adapter_->openSocket();
 
   if (!success) {
-    /// TODO: should this be error?
     RCLCPP_ERROR(get_logger(), "Failed to open socket");
-    return rclcpp_lifecycle_callback_return::FAILURE;
+    return configuration_failure();
   }
 
   auto result = socketcan_adapter_->setFilters(filter_vector);
@@ -77,7 +97,7 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_co
   if (result) {
     auto string_result = *result;
     RCLCPP_ERROR(get_logger(), "Setting filters failed with error %s", string_result.c_str());
-    return rclcpp_lifecycle_callback_return::FAILURE;
+    return configuration_failure();
   }
 
   result = socketcan_adapter_->setErrorMaskOverwrite(error_mask);
@@ -85,7 +105,7 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_co
   if (result) {
     auto string_result = *result;
     RCLCPP_ERROR(get_logger(), "Setting error mask failed with error %s", string_result.c_str());
-    return rclcpp_lifecycle_callback_return::FAILURE;
+    return configuration_failure();
   }
 
   result = socketcan_adapter_->setJoinOverwrite(join);
@@ -93,7 +113,7 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_co
   if (result) {
     auto string_result = *result;
     RCLCPP_ERROR(get_logger(), "Setting join failed with error %s", string_result.c_str());
-    return rclcpp_lifecycle_callback_return::FAILURE;
+    return configuration_failure();
   }
 
   socketcan_adapter_->setOnReceiveCallback(
@@ -110,13 +130,13 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_co
 SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_activate(
   const rclcpp_lifecycle::State & state)
 {
-  if (socketcan_adapter_->get_socket_state() != SocketState::OPEN) {
+  if (!socketcan_adapter_ || socketcan_adapter_->get_socket_state() != SocketState::OPEN) {
     return rclcpp_lifecycle_callback_return::FAILURE;
   }
 
-  socketcan_adapter_->startReceptionThread();
-
-  if (!socketcan_adapter_->is_thread_running()) {
+  if (!socketcan_adapter_->startReceptionThread() ||
+    !socketcan_adapter_->is_thread_running())
+  {
     return rclcpp_lifecycle_callback_return::FAILURE;
   }
 
@@ -127,6 +147,10 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_ac
 SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_deactivate(
   const rclcpp_lifecycle::State & state)
 {
+  if (!socketcan_adapter_) {
+    return LifecycleNode::on_deactivate(state);
+  }
+
   auto result = socketcan_adapter_->joinReceptionThread();
 
   if (!result) {
@@ -140,10 +164,13 @@ SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_de
 SocketcanBridgeNode::rclcpp_lifecycle_callback_return SocketcanBridgeNode::on_cleanup(
   const rclcpp_lifecycle::State & state)
 {
-  auto result = socketcan_adapter_->closeSocket();
-
-  if (!result) {
-    RCLCPP_ERROR(get_logger(), "Failed to close socket");
+  if (socketcan_adapter_) {
+    socketcan_adapter_->joinReceptionThread(std::chrono::duration<float>(0.0F));
+    if (socketcan_adapter_->get_socket_state() != SocketState::CLOSED &&
+      !socketcan_adapter_->closeSocket())
+    {
+      RCLCPP_ERROR(get_logger(), "Failed to close socket");
+    }
   }
 
   frame_subscriber_.reset();
@@ -192,7 +219,16 @@ void SocketcanBridgeNode::publishCanFrame(std::unique_ptr<const CanFrame> frame)
 {
   std::unique_ptr<can_msgs::msg::Frame> publishable_frame = std::make_unique<can_msgs::msg::Frame>();
 
-  publishable_frame->header.stamp = get_clock()->now();
+  if (!frame->has_valid_bus_timestamp()) {
+    RCLCPP_WARN_THROTTLE(
+      get_logger(), *get_clock(), 5000,
+      "Kernel CAN receive timestamp unavailable; can_rx header uses a local receive-time fallback");
+  }
+
+  const auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(
+    frame->get_bus_time().time_since_epoch()).count();
+  publishable_frame->header.stamp =
+    rclcpp::Time(static_cast<int64_t>(nanoseconds), RCL_SYSTEM_TIME);
   publishable_frame->id = frame->get_id();
   publishable_frame->dlc = frame->get_len();
   publishable_frame->is_error = frame->get_frame_type() == FrameType::ERROR;

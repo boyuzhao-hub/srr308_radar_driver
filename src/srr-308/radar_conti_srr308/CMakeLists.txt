@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(radar_conti_srr308)
 
-# Default to C++14
+# The component uses if constexpr and std::is_same_v.
 if(NOT "${CMAKE_CXX_STANDARD}")
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -41,8 +41,6 @@ find_package(ament_index_cpp REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(radar_msgs REQUIRED)
 find_package(nav2_dynamic_msgs REQUIRED)
-find_package(bondcpp REQUIRED)
-find_package(bond REQUIRED)
 find_package(socketcan_adapter REQUIRED)
 
 
@@ -55,8 +53,6 @@ set(dependencies
   visualization_msgs
   tf2_ros
   socketcan_adapter
-  bondcpp
-  bond
   "rclcpp_lifecycle"
   "rclcpp"
   "std_msgs"

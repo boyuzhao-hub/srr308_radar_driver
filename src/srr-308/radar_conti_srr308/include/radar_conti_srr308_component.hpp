@@ -2,10 +2,18 @@
 #define COMPOSITION__RADAR_CONTI_SRR308_COMPONENT_HPP_
 
 #include <chrono>
+#include <condition_variable>
+#include <cstddef>
+#include <cstdint>
 #include <iostream>
-#include <memory>
-#include <string>
 #include <map>
+#include <memory>
+#include <mutex>
+#include <stdexcept>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 
 #include "visibility_control.h"
 #include "rclcpp/rclcpp.hpp"
@@ -60,11 +68,8 @@
 #include <srr308_can_defines.h>
 #include <structs.hpp>
 
-#include "bondcpp/bond.hpp"
-
 #include "unique_identifier_msgs/msg/uuid.hpp"
 
-#include <unordered_map>
 #include <random>
 
 // Enum class definition
@@ -104,6 +109,7 @@ namespace FHAC
     public:
         RADAR_CONTI_SRR308_PUBLIC
         radar_conti_srr308(const rclcpp::NodeOptions &options);
+        ~radar_conti_srr308() override;
 
         /// Transition callback for state error
         /**
@@ -187,9 +193,17 @@ namespace FHAC
             const std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Request> request,
             std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> response);
 
+        void setFilterConfigurationService(
+            const std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Request> request,
+            std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> response);
+
         template <typename T>
         void declare_parameter_with_type(rclcpp_lifecycle::LifecycleNode::SharedPtr node, const std::string &param_name, T value)
         {
+            if (node->has_parameter(param_name))
+            {
+                return;
+            }
             if constexpr (std::is_same_v<T, int>)
             {
                 node->declare_parameter(param_name, rclcpp::ParameterValue(static_cast<int>(value)));
@@ -242,6 +256,10 @@ namespace FHAC
             {
                 int temp_value;
                 node->get_parameter(param_name, temp_value);
+                if (temp_value < 0 || temp_value > 255)
+                {
+                    throw std::out_of_range(param_name + " must be in [0, 255]");
+                }
                 value = static_cast<uint8_t>(temp_value);
             }
             else
@@ -329,6 +347,7 @@ namespace FHAC
 
         // Services
         rclcpp::Service<radar_conti_srr308_msgs::srv::SetFilter>::SharedPtr set_filter_service_;
+        rclcpp::Service<radar_conti_srr308_msgs::srv::TriggerSetCfg>::SharedPtr filter_config_service_;
         rclcpp::Service<radar_conti_srr308_msgs::srv::TriggerSetCfg>::SharedPtr radar_config_service_;
 
         // create can_receive_callback
@@ -339,10 +358,28 @@ namespace FHAC
         void handle_cluster_list(std::shared_ptr<const polymath::socketcan::CanFrame> frame);
         // create publish_object_map
         void publish_object_map(int sensor_id);
-        // SRR308 Changes: add cluter mode
-        void publish_cluster_map(int sensor_id);
-        // update filter
-        bool setFilter(const int &sensor_id, const int &active, const int &type, const int &index, const int &min_value, const int &max_value);
+        // Publish and clear one radar's pending cluster scan. The caller must
+        // hold cluster_scan_mutex_.
+        void publish_cluster_scan(std::size_t local_index);
+        void check_cluster_scan_timeouts();
+        void flush_pending_cluster_scans();
+        rclcpp::Time frame_bus_time(
+            const polymath::socketcan::CanFrame &frame) const;
+        struct FilterCommandResult
+        {
+            bool sent{false};
+            bool confirmed{false};
+            std::string message;
+        };
+
+        // Send one Cluster FilterCfg frame and wait for its FilterState_Cfg
+        // acknowledgement. The caller serializes configuration writes with
+        // can_tx_mutex_.
+        FilterCommandResult setFilter(
+            int sensor_id, bool active, uint8_t type, uint8_t index,
+            double min_value, double max_value);
+        bool applyFilterConfiguration(
+            std::size_t local_index, std::string &message);
         // update config
         bool setRadarConfiguration(const int &sensor_id, std::shared_ptr<radar_conti_srr308_msgs::srv::TriggerSetCfg::Response> &response);
 
@@ -351,6 +388,9 @@ namespace FHAC
         void initializeFilterConfigs();
         void startMetadataTimers();
         void publishFilterConfigMetadata();
+        void publishFilteredFovDeleteMarkers();
+        void publishClearedFilterObservations();
+        void resetFilterObservations();
         void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg);
         nav_msgs::msg::Odometry vehicle_odometry_;
         std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
@@ -363,29 +403,74 @@ namespace FHAC
         // create map container for object list
         std::map<int, radar_conti_srr308_msgs::msg::Object> object_map_;
         std::vector<std::map<int, radar_conti_srr308_msgs::msg::Object>> object_map_list_;
-        // SRR308 Changes: add cluter mode
-        std::vector<std::map<int, radar_conti_srr308_msgs::msg::Cluster>> cluster_map_list_;
+        struct ClusterScanState
+        {
+            bool active{false};
+            bool status_valid{false};
+            uint16_t measurement_counter{0};
+            uint8_t interface_version{0};
+            uint16_t expected_near_count{0};
+            uint16_t expected_far_count{0};
+            rclcpp::Time scan_stamp{0, 0, RCL_SYSTEM_TIME};
+            bool scan_stamp_valid{false};
+            bool all_rx_timestamps_valid{true};
+            rclcpp::Time first_rx_stamp{0, 0, RCL_SYSTEM_TIME};
+            rclcpp::Time last_rx_stamp{0, 0, RCL_SYSTEM_TIME};
+            std::chrono::steady_clock::time_point last_receive_time{};
+            std::vector<radar_conti_srr308_msgs::msg::Cluster> clusters;
+            std::unordered_set<int> unique_cluster_ids;
+        };
+
+        std::vector<ClusterScanState> cluster_scans_;
+        std::mutex cluster_scan_mutex_;
+        std::chrono::milliseconds cluster_scan_timeout_{200};
+        std::size_t max_cluster_frames_per_scan_{512};
+        rclcpp::TimerBase::SharedPtr cluster_scan_timeout_timer_;
 
         // create data structures for radar object list
         radar_conti_srr308_msgs::msg::ObjectList object_list_;
         std::vector<radar_conti_srr308_msgs::msg::ObjectList> object_list_list_;
         
-        // SRR308 Change: Create data structures for radar cluster list
-        radar_conti_srr308_msgs::msg::ClusterList cluster_list_;
-        std::vector<radar_conti_srr308_msgs::msg::ClusterList> cluster_list_list_;
-        
         // create data structures for radar filter config
         rclcpp::TimerBase::SharedPtr filter_config_timer_;
+        std::mutex filter_config_mutex_;
+        // Desired values loaded from YAML are kept separate from values
+        // observed in FilterState_Cfg replies.
+        std::vector<radar_conti_srr308_msgs::msg::FilterStateCfg> desired_filter_configs_;
         std::vector<radar_conti_srr308_msgs::msg::FilterStateCfg> radar_filter_configs_;
-        std::unordered_map<size_t, radar_conti_srr308_msgs::msg::RadarConfiguration> radar_configuration_configs_;
+        std::vector<radar_conti_srr308_msgs::msg::RadarConfiguration> radar_configuration_configs_;
         std::unordered_map<size_t, bool> motion_configs_;
         std::vector<std::vector<bool>> radar_filter_active_;
         std::vector<int> radar_sensor_ids_;
         std::unordered_map<int, size_t> sensor_id_to_local_index_;
 
+        struct PendingFilterConfirmation
+        {
+            bool waiting{false};
+            bool received{false};
+            bool matched{false};
+            bool saw_mismatch{false};
+            bool cancelled{false};
+            std::size_t local_index{0};
+            uint8_t type{0};
+            uint8_t index{0};
+            bool active{false};
+            bool compare_limits{false};
+            double min_value{0.0};
+            double max_value{0.0};
+            // Kernel CAN timestamps are compared against bus_not_before so a
+            // FilterState frame queued before this request cannot confirm it.
+            std::chrono::system_clock::time_point bus_not_before{};
+            std::chrono::steady_clock::time_point receive_not_before{};
+        };
+        std::mutex can_tx_mutex_;
+        std::mutex filter_confirmation_mutex_;
+        std::condition_variable filter_confirmation_cv_;
+        PendingFilterConfirmation pending_filter_confirmation_;
+        std::chrono::milliseconds filter_confirmation_timeout_{300};
+
         // additional variables
         rclcpp::TimerBase::SharedPtr fov_marker_timer_;
-        int operation_mode_;
         int object_count;
         int number_of_radars_;
         std::string can_channel_;
@@ -395,12 +480,11 @@ namespace FHAC
         bool overwrite_configs_;
         bool enable_can_tx_;
         bool enable_manual_can_tx_;
-
-        std::unique_ptr<bond::Bond> bond_{nullptr};
+        double cluster_marker_lifetime_sec_;
+        double cluster_marker_scale_;
 
         std::vector<std::string> radar_link_names_;
         std::string robot_base_frame_;
-        std::vector<bool> filter_config_initialized_list_;
 
         // ##################################
     };

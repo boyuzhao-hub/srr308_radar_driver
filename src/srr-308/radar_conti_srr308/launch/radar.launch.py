@@ -1,14 +1,23 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import LifecycleNode
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from pathlib import Path
 import os
+from nav2_common.launch import RewrittenYaml
 
 
 def generate_launch_description():
 
+    # SRR308 Change: to radar.yaml
     pkg_dir = get_package_share_directory('radar_conti_srr308')
+    default_params_file = PathJoinSubstitution(
+        [pkg_dir, 'config', 'radar.yaml']
+    )
+    #######################################################################
 
     config_file = LaunchConfiguration('config_file')
     config_file_arg = DeclareLaunchArgument(
@@ -45,6 +54,15 @@ def generate_launch_description():
         'log_level', default_value='info',
         description='log level')
 
+    # SRR308 Change: to obtain tf2 inforamtion from tf_radar_launch.py
+    # tf_launch_file = PathJoinSubstitution(
+    #     [pkg_dir, 'launch', 'tf_radar_launch.py']
+    # )
+    # include_tf_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(tf_launch_file)
+    # )
+    #######################################################################
+
     # Nodes launching commands
     start_lifecycle_manager_cmd = Node(
         package='nav2_lifecycle_manager',
@@ -55,6 +73,10 @@ def generate_launch_description():
         emulate_tty=True,
         parameters=[{'use_sim_time': use_sim_time},
                     {'autostart': autostart},
+                    # This basic driver does not create bondcpp timers. Service
+                    # transitions remain managed, while shutdown cannot race a
+                    # Bond destructor against an invalid ROS context.
+                    {'bond_timeout': 0.0},
                     {'node_names': lifecycle_nodes}])
 
     radar_can0_node = Node(
@@ -86,6 +108,9 @@ def generate_launch_description():
     ld.add_action(namespace_arg)
     ld.add_action(radar_can0_node)
     ld.add_action(radar_can1_node)
+    # SRR308 Change: to include tf_radar_launch.py
+    # ld.add_action(include_tf_launch)
+    #########################################################################
     ld.add_action(start_lifecycle_manager_cmd)
 
     return ld

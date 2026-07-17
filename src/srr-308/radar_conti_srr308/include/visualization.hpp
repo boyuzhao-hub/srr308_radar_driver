@@ -53,6 +53,7 @@ namespace radar_visualization
     marker.id = id;
     marker.type = visualization_msgs::msg::Marker::LINE_STRIP;
     marker.action = visualization_msgs::msg::Marker::ADD;
+    marker.pose.orientation.w = 1.0;
     marker.scale.x = 0.1; // Line width
 
     // Set the color
@@ -142,12 +143,6 @@ namespace radar_visualization
     marker.color.g = 1.0;
     marker.color.b = 0.0;
 
-    // Define the origin point (radar position)
-    geometry_msgs::msg::Point origin;
-    origin.x = 0.0;
-    origin.y = 0.0;
-    origin.z = 0.0;
-
     // Convert azimuth angles to radians
     double min_azimuth_rad = min_azimuth * M_PI / 180.0;
     double max_azimuth_rad = max_azimuth * M_PI / 180.0;
@@ -171,26 +166,16 @@ namespace radar_visualization
     min_right.y = min_distance * sin(max_azimuth_rad);
     min_right.z = 0.0;
 
-    // Create two triangles to form the radar's FOV:
-    // Triangle 1: origin -> min_left -> max_left
-    marker.points.push_back(origin);
+    // Two triangles form the filtered annular sector. Using the inner range
+    // corners instead of the radar origin keeps the min-distance exclusion
+    // area transparent.
     marker.points.push_back(min_left);
-    marker.points.push_back(max_left);
-
-    // Triangle 2: origin -> max_left -> max_right
-    marker.points.push_back(origin);
     marker.points.push_back(max_left);
     marker.points.push_back(max_right);
 
-    // Triangle 3: origin -> max_right -> min_right
-    marker.points.push_back(origin);
+    marker.points.push_back(min_left);
     marker.points.push_back(max_right);
     marker.points.push_back(min_right);
-
-    // Triangle 4: origin -> min_right -> min_left
-    marker.points.push_back(origin);
-    marker.points.push_back(min_right);
-    marker.points.push_back(min_left);
 
     return marker;
   }

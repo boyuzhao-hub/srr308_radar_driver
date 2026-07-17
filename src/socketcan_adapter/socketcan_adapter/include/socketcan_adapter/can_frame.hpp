@@ -126,6 +126,10 @@ public:
   /// @param timestamp INPUT time as std::chrono::system_clock::time_point from the bus
   void set_bus_timestamp(const std::chrono::system_clock::time_point & timestamp);
 
+  /// @brief Mark whether bus_time_ came from a valid bus/kernel timestamp source
+  /// @param valid true when bus_time_ is authoritative, false when it is a fallback
+  void set_bus_timestamp_valid(bool valid);
+
   /// @brief Set timestamp
   /// @param timestamp INPUT time as std::chrono::steady_clock::time_point from the adapter
   void set_receive_timestamp(const std::chrono::steady_clock::time_point & timestamp);
@@ -133,6 +137,10 @@ public:
   /// @brief Get bus time
   /// @return returns std::chrono::system_clock::time_point for when the frame was received on the bus
   std::chrono::system_clock::time_point get_bus_time() const;
+
+  /// @brief Check whether get_bus_time() came from the kernel receive timestamp
+  /// @return true for a valid bus/kernel timestamp, false for a local fallback
+  bool has_valid_bus_timestamp() const;
 
   /// @brief Get receive time
   /// @return returns std::chrono::steady_clock::time_point for when the frame was received by the adapter
@@ -179,6 +187,7 @@ private:
   struct can_frame frame_{};
   std::chrono::steady_clock::time_point receive_time_{};
   std::chrono::system_clock::time_point bus_time_{};
+  bool bus_timestamp_valid_{false};
 };
 
 }  // namespace polymath::socketcan

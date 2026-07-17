@@ -8,7 +8,7 @@
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <buildtool_depend>std_msgs</buildtool_depend>
+  <depend>std_msgs</depend>
  <!-- <buildtool_depend>tf2_ros</buildtool_depend> -->
 
   <test_depend>ament_cmake_uncrustify</test_depend>

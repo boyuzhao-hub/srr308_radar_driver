@@ -1,7 +1,15 @@
-int64 type
-int64 index
+# Configure one SRR308 Cluster filter.
+# type must be 0 (Cluster). index uses the DBC's zero-based FilterCfg index.
 uint8 sensor_id
-int64 min_value 
-int64 max_value
+bool active
+uint8 type
+uint8 index
+float64 min_value
+float64 max_value
 ---
+# success is true only when the frame was sent and a matching radar reply arrived.
 bool success
+# sent distinguishes a local validation/socket failure from an acknowledgement failure.
+bool sent
+bool confirmed
+string message
